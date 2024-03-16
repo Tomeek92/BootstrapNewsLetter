@@ -1,27 +1,28 @@
+using Bootstrap.Service.Interface;
+using Bootstrap.Service;
 using Bootstrap;
 using Microsoft.EntityFrameworkCore;
-using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Dodaj us³ugi do kontenera.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<ISaveEmailToDbService, SaveEmailToDbService>();
 
-
-builder.Services.AddControllers();
-//Add DbContext
-var configuration = builder.Configuration;
+// Dodaj DbContext
+var connectionString = "Server=DESKTOP-JD2U15O\\MSSQL1;Database=NewsLetterApi;Integrated Security=True; TrustServerCertificate=true;";
 builder.Services.AddDbContext<BootstrapDbContext>(options =>
-    options.UseSqlServer(configuration.GetConnectionString("MyDatabase")));
+    options.UseSqlServer(connectionString));
+
 
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Konfiguruj potok ¿¹dania HTTP
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    // Domyœlna wartoœæ HSTS wynosi 30 dni. Mo¿esz j¹ zmieniæ dla scenariuszy produkcyjnych, zobacz: https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -35,6 +36,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=NewsLetter}/{action=Index}/{id?}");
 
 app.Run();

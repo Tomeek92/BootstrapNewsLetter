@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dodaj użytkownika dla klienta</title>
+    <style>
+        form {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        input, textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <form action="/RegisterUsersForClients/Create" method="post">
+        <h3>Zaloguj się do zmiany tekstu!</h3>
+        <div class="form-group mb-4">
+            <label class="control-label" for="UserName">Name</label>
+            <input class="form-control" type="text" id="UserName" Name="UserName" />
+        </div>
+        <div class="form-group mb-4">
+            <label class="control-label" for="UserEmail">Email</label>
+            <input class="form-control" type="text" id="UserEmail" name="UserEmail" />
+        </div>
+        <div class="form-group mb-4">
+            <label class="control-label" for="UserPassword">Password</label>
+            <input class="form-control" type="text" id="UserPassword" name="UserPassword" />
+        </div>
+        <div class="form-gorup mb-4">
+            <input type="submit" value="Create" class="btn btn-primary">
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://tinypic.com/hs-fs/hubfs/TP%20Blog_7_Header.png?width=896&height=612&name=TP%20Blog_7_Header.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Tutaj stworzysz konto do zgłaszania problemów z aplikacją.</p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+

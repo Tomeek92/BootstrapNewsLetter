@@ -25,7 +25,13 @@ namespace Bootstrap.Controllers
 
        public IActionResult Cennik()
         {
+            ViewBag.CurrentPage = "Cennik";
             return View();  
+        }
+        public IActionResult Omnie()
+        {
+            ViewBag.CurrentPage = "O mnie";
+            return View();
         }
     }
 }

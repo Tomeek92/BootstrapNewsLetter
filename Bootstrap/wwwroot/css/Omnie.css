@@ -1,36 +1,30 @@
-﻿/*
- * Globals
- */
-
-
-/* Custom default button */
+﻿
 .btn-light,
 .btn-light:hover,
 .btn-light:focus {
     color: #333;
-    text-shadow: none; /* Prevent inheritance from `body` */
+    text-shadow: none; 
 }
-
-
 
 body {
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
     box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
-    background-image: url("https://i.ibb.co/cv3c1GT/IMG-5134.jpg");
-    background-position: center;
-    background-position: top center;
-    background-size: 100% auto;
+    background-image: url("https://i.ibb.co/6PVN1QY/IMG-5135.jpg");
+    background-position: top;
+    background-size: cover; /* Dopasowanie tła do całego ekranu */
     background-repeat: no-repeat;
+    height: 100vh; /* Ustalenie wysokości na 100% ekranu */
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie treści na ekranie */
+    align-items: center;
+    background-position-y: -200px;
 }
 
 .cover-container {
     max-width: 42em;
+    
+    
 }
-
-
-/*
- * Header
- */
 
 .nav-masthead .nav-link {
     color: rgba(255, 255, 255, .5);
@@ -50,11 +44,6 @@ body {
     color: #fff;
     border-bottom-color: #fff;
 }
-
-.news {
-    font-size: 20px;
-}
-
 .socialMedia {
     list-style-type: none;
     display: flex;
@@ -71,9 +60,13 @@ body {
         color: white; /* Kolor tekstu po najechaniu */
         background-color: transparent; /* Kolor tła po najechaniu */
         border-color: white; /* Kolor obramowania po najechaniu */
-        font-weight:bold;
+        font-weight: bold;
     }
 
+.imgLogo {
+    max-width: 3em;
+    margin-right: -90em;
+}
 
 .form-control-white {
     background-color: transparent;
@@ -85,19 +78,48 @@ body {
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.1);
     font-weight: bold;
-    
-    
 }
 
- .form-control-white::placeholder {
-     color: rgba(255, 255, 255, 0.7);
+    .form-control-white::placeholder {
+        color: rgba(255, 255, 255, 0.7);
     }
-
-.Logoimg2{
-    max-width:450px;
-    margin-left:42px;
-    margin-top:70px;
-    margin-bottom:-90px;
+main {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-left:-100px;
 }
 
+.cover-heading {
+    font-size: 3rem;
+    font-weight: bold;
+}
 
+.lead {
+    font-size: 1.25rem;
+    font-weight: normal;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.about-section {
+    background-color: rgba(255, 255, 255, 0.1); /* Kolor tła */
+    border-radius: 15px; /* Zaokrąglenie rogów */
+    padding: 40px; /* Wewnętrzny margines */
+    margin-top: 30px; /* Górny margines */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Cień */
+}
+
+ .about-section .container {
+        max-width: 800px; /* Maksymalna szerokość kontenera */
+ }
+ .Omnie{
+     margin-left:auto; /*o mnie*/
+ }
+ .about-section{
+     margin-left:100px; /*background o mnie*/
+ }
+.LogoimgWhite {
+    max-width: 450px;
+    margin-left: 100px;
+    margin-top: 30px;
+}

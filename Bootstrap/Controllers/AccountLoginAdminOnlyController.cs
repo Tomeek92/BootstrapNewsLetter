@@ -6,38 +6,63 @@ namespace Bootstrap.Controllers
 {
     public class AccountLoginAdminOnlyController : Controller
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
-
-        public AccountLoginAdminOnlyController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+       private readonly UserManager<AccountAdmin> _userManager;
+        public AccountLoginAdminOnlyController(UserManager<AccountAdmin> userManager)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
         }
+
         [HttpPost]
-        public IActionResult Login()
+        public async Task<IActionResult> Register(Register registerUser)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(registerUser);
+            }
+            var newUser = new AccountAdmin
+            {
+                AdminEmail = registerUser.UserEmail,
+                AdminName = registerUser.UserName,
+                UserName = registerUser.UserName
+            };
+
+            var createResult = await _userManager.CreateAsync(newUser, registerUser.Password);
+            if (!createResult.Succeeded)
+            {
+                
+                foreach (var error in createResult.Errors)
+                {
+                    
+                    System.Diagnostics.Debug.WriteLine(error.Description);
+                }
+                return View(registerUser);
+            }
+
+            return RedirectToAction("Register", "AccountLoginAdminOnly");
+        }
+
+
+        [HttpPost]
+        public IActionResult Login(Login login)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(login);
+            }
+            //logika logowania
+            return RedirectToAction("Login", "AccountLoginAdminOnly");
+        }
+        [HttpGet]
+        public IActionResult Logout()
         {
             return View();
         }
-        [HttpPost]
-        public async Task<IActionResult> Login(AccountAdmin model)
+        [HttpGet]
+        public IActionResult Register()
         {
-            if (ModelState.IsValid)
-            {
-                var user = await _userManager.FindByEmailAsync(model.AdminEmail);
-                if (user != null)
-                {
-                    var result = await _signInManager.PasswordSignInAsync(user, model.AdminPassword, model.RememberMe, lockoutOnFailure: false);
-                    if (result.Succeeded)
-                    {
-                        return RedirectToAction("Index");
-                    }
-                }
-
-                ModelState.AddModelError(string.Empty, "Wpisane hasło jest nieprawidłowe");
-            }
-
-            return View(model);
+            return View();
         }
     }
+
 }
+

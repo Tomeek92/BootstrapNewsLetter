@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace Bootstrap.Models.Admin
 {
-    public class AccountAdmin
+    public class AccountAdmin : IdentityUser
     {
         [Key]
         public Guid Id { get; set; }
@@ -10,8 +11,6 @@ namespace Bootstrap.Models.Admin
         public string AdminName { get; set; } = null!;
         [Required]
         public string AdminEmail { get; set; } = null!;
-        [Required]
-        public string AdminPassword { get; set; } = null!;
-        public bool RememberMe { get; set; }
+       
     }
 }

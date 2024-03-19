@@ -1,10 +1,11 @@
 ﻿using Bootstrap.Models.Admin;
 using Bootstrap.Models.UsersEmail;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bootstrap
 {
-    public class BootstrapDbContext : DbContext
+    public class BootstrapDbContext : IdentityDbContext<AccountAdmin>
     {
         public BootstrapDbContext(DbContextOptions<BootstrapDbContext> options) : base(options)
         {

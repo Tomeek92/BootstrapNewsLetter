@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace Bootstrap.Models.Admin
 {
-    public class Login
+    public class Login : IdentityRole
     {
         [Required]
         public string LoginName { get; set; } = null!;

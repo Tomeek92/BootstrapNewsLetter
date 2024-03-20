@@ -25,7 +25,7 @@
     </style>
 </head>
 <body>
-    <form action="/RegisterUsersForClients/Create" method="post">
+    <form action="/AccountLoginAdminOnly/Login" method="post">
         <h3>Zaloguj się do zmiany tekstu!</h3>
         <div class="form-group mb-4">
             <label class="control-label" for="LoginName">Name</label>
@@ -37,11 +37,36 @@
         </div>
         <div class="form-group mb-4">
             <label class="control-label" for="Password">Password</label>
-            <input class="form-control" type="text" id="Password" name="Password" />
+            <input class="form-control" type="password" id="Password" name="Password" />
         </div>
-        <div class="form-gorup mb-4">
-            <input type="submit" value="Create" class="btn btn-primary">
+        <div class="form-group mb-4">
+            
+            <input type="submit" value="Login" class="btn btn-primary">
         </div>
+        @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"] as string))
+        {
+            <div class="alert alert-danger" role="alert">
+                @ViewData["ErrorMessage"]
+            </div>
+            
+        }
+        @if (!string.IsNullOrEmpty(ViewData["UserNotFoundErrorMessage"] as string))
+        {
+            <div class="alert alert-danger" role="alert">
+                @ViewData["UserNotFoundErrorMessage"]
+            </div>
+        }
+        @if (!string.IsNullOrEmpty(ViewData["SuccessMessage"] as string))
+        {
+            <div class="alert alert-success" role="alert">
+                @ViewData["SuccessMessage"]
+            </div>
+        }
+        @if (ViewData["RemainingAttempts"] != null)
+        {
+            <p>Pozostałe próby logowania: @ViewData["RemainingAttempts"]</p>
+        }
+
         <div class="card" style="width: 18rem;">
             
             <div class="card-body">

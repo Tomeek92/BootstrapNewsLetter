@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Dodaj us³ugi do kontenera.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ISaveEmailToDbService, SaveEmailToDbService>();
+builder.Services.AddScoped<LoginService>();
 builder.Services.AddSession();
 
 // Dodaj DbContext

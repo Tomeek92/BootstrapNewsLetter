@@ -58,6 +58,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=NewsLetter}/{action=Index}/{id?}");

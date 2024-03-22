@@ -1,22 +1,9 @@
 ﻿@model string
-@using (Html.BeginForm())
-{
-    @Html.TextArea("newContent", Model, new { @class = "form-control", rows = 30 })
-    <input type="submit" value="Zapisz" />
-}
-<!-- poszczegolne elementy formularza do możliwości edycji dla użytkownika 
-    @model string
-@using (Html.BeginForm())
-{
-    <h2>Edytuj tytuł oferty:</h2>
-    @Html.TextBox("newTitle", null, new { @class = "form-control" })
 
-    <h2>Edytuj szczegóły oferty:</h2>
-    @Html.TextArea("newDetails", null, new { @class = "form-control", rows = 10 })
+<div id="editContentArea">
+    @{
+        Html.RenderPartial("_EditContentPartial");
+    }
+</div>
 
-    <h2>Edytuj cenę:</h2>
-    @Html.TextBox("newPrice", null, new { @class = "form-control" })
-
-    <input type="submit" value="Zapisz" />
-}
--->
+ 

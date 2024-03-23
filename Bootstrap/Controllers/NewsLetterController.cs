@@ -1,5 +1,6 @@
 ﻿using Bootstrap.Models.UsersEmail;
 using Bootstrap.Service.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bootstrap.Controllers
@@ -24,6 +25,23 @@ namespace Bootstrap.Controllers
         {
             ViewBag.CurrentPage = "Newsletter";
             return View();
+        }
+        [HttpGet]
+        [Authorize]
+        public ActionResult ShowUsersEmail()
+        {
+            try
+            {
+                
+                var emails = _saveEmailToDbService.ShowUsersEmail();
+
+                return View(emails); 
+            }
+            catch (Exception ex)
+            {
+               
+                return StatusCode(500, "Wystąpił błąd podczas pobierania adresów email użytkowników. Szczegóły błędu: " + ex.Message);
+            }
         }
     }
 }

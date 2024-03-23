@@ -5,5 +5,6 @@ namespace Bootstrap.Service.Interface
     public interface ISaveEmailToDbService
     {
         public void SaveEmailToDb(UsersEmailModel usersEmail);
+        List<string> ShowUsersEmail();
     }
 }

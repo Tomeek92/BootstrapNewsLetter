@@ -1,0 +1,73 @@
+﻿@model List<string>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Lista adresów email użytkowników</h2>
+
+            <ul id="emailList" class="list-group">
+                @foreach (var email in Model)
+                {
+                    <li class="list-group-item">@email</li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-8">
+            <button class="btn btn-primary" id="copyAll">Kopiuj wszystkie</button>
+            <button class="btn btn-secondary" id="copySingle">Kopiuj całą listę</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <script>
+        // Inicjalizacja Clipboard.js
+        var clipboard = new ClipboardJS('.btn');
+
+        // Obsługa zdarzenia po skopiowaniu
+        clipboard.on('success', function (e) {
+            alert('Adresy email zostały skopiowane do schowka.');
+        });
+
+        // Obsługa zdarzenia po nieudanym skopiowaniu
+        clipboard.on('error', function (e) {
+            alert('Skopiowanie adresów email do schowka nie powiodło się.');
+        });
+
+        // Obsługa kliknięcia przycisku kopiującego wszystkie adresy email
+        document.getElementById('copyAll').addEventListener('click', function () {
+            var emailList = document.getElementById('emailList');
+            copyToClipboard(emailList.innerText);
+        });
+
+        // Obsługa kliknięcia przycisku kopiującego całą listę
+        document.getElementById('copySingle').addEventListener('click', function () {
+            var emails = [];
+            document.querySelectorAll('#emailList li').forEach(function (li) {
+                emails.push(li.textContent.trim());
+            });
+            copyToClipboard(emails.join('\n'));
+        });
+
+        // Funkcja do kopiowania tekstu do schowka
+        function copyToClipboard(text) {
+            var input = document.createElement('textarea');
+            input.style.position = 'fixed';
+            input.style.opacity = 0;
+            input.value = text;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            alert('Zawartość została skopiowana do schowka.');
+        }
+    </script>
+}
+
+
+
+

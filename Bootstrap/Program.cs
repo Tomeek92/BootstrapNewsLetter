@@ -4,6 +4,9 @@ using Bootstrap;
 using Microsoft.EntityFrameworkCore;
 using Bootstrap.Models.Admin;
 using Microsoft.AspNetCore.Identity;
+using static System.Formats.Asn1.AsnWriter;
+using Bootstrap.Seeder;
+using Bootstrap.Models.PriceNameEdit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ISaveEmailToDbService, SaveEmailToDbService>();
 builder.Services.AddScoped<LoginService>();
+builder.Services.AddScoped<Bootstrap.Seeder.Seeder>();
+
+
+
+
 builder.Services.AddSession();
 
 // Dodaj DbContext
@@ -35,10 +43,11 @@ builder.Services.Configure<SignInOptions>(options =>
     options.RequireConfirmedEmail = false;
     options.RequireConfirmedPhoneNumber = false;
 });
-
-
-
 var app = builder.Build();
+var scope = app.Services.CreateScope();
+
+var seeder = scope.ServiceProvider.GetRequiredService<Seeder>();
+await seeder.Seed();
 
 // Konfiguruj potok ¿¹dania HTTP
 if (!app.Environment.IsDevelopment())

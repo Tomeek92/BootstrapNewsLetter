@@ -1,0 +1,16 @@
+﻿@using Bootstrap.Models.PriceNameEdit
+@model List<UslugiCennikModel>
+
+<form method="post">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <h3>Usługa @Model[i].Id</h3>
+        <input type="hidden" id="editUslugi[@i].Id" name="editUslugi[@i].Id" value="@Model[i].Id">
+        <label for="editUslugi[@i].Name">Nazwa Usługi:</label>
+        <input type="text" id="editUslugi[@i].Name" name="editUslugi[@i].Name" value="@Model[i].Name">
+        <label for="editUslugi[@i].Price">Cena Usługi:</label>
+        <input type="text" id="editUslugi[@i].Price" name="editUslugi[@i].Price" value="@Model[i].Price" step="0.01" min="0">
+    }
+    <input type="submit" value="Zapisz">
+</form>
+

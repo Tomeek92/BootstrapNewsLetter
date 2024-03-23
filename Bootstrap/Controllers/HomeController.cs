@@ -6,11 +6,11 @@ namespace Bootstrap.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        
+        private readonly BootstrapDbContext _context;
+        public HomeController(BootstrapDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -26,7 +26,11 @@ namespace Bootstrap.Controllers
        public IActionResult Cennik()
         {
             ViewBag.CurrentPage = "Cennik";
-            return View();  
+            var uslugi = _context.UslugiCennikModels.ToList();
+
+            // Przekazanie danych do widoku
+            return View(uslugi);
+           
         }
         public IActionResult Omnie()
         {

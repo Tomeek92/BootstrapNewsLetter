@@ -1,5 +1,5 @@
 ﻿using Bootstrap.Models.Admin;
-using Bootstrap.Models.Price;
+
 using Bootstrap.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -12,17 +12,13 @@ namespace Bootstrap.Controllers
         private readonly LoginService _loginService;
         private readonly UserManager<AccountAdmin> _userManager;
         private readonly SignInManager<AccountAdmin> _signInManager;
-        private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly BootstrapDbContext _bootstrapDbContext;
-        public AccountLoginAdminOnlyController(LoginService loginService, UserManager<AccountAdmin> userManager, SignInManager<AccountAdmin> signInManager, IWebHostEnvironment webHostEnvironment, BootstrapDbContext bootstrapDbContext)
+        public AccountLoginAdminOnlyController(LoginService loginService, UserManager<AccountAdmin> userManager, SignInManager<AccountAdmin> signInManager)
         {
             _loginService = loginService;
             _userManager = userManager;
             _signInManager = signInManager;
-            _webHostEnvironment = webHostEnvironment;
-            _bootstrapDbContext = bootstrapDbContext;
         }
-        [Authorize]
+      
         [HttpPost]
         public async Task<IActionResult> Register(Register registerUser)
         {
@@ -100,22 +96,6 @@ namespace Bootstrap.Controllers
             }
         }
 
-        [HttpPost]
-        [Authorize]
-        public IActionResult EditContent(List<UslugiCennikModel> editUslugi)
-        {
-            foreach (var usluga in editUslugi)
-            {
-                var dbUsluga = _bootstrapDbContext.UslugiCennikModels.FirstOrDefault(u => u.Id ==  usluga.Id);
-                if(dbUsluga != null)
-                {
-                    dbUsluga.Price = usluga.Price;
-                }
-                _bootstrapDbContext.SaveChanges();
-                return RedirectToAction("EditContent", "AccountLoginAdminOnly");
-            }
-            return View(editUslugi);
-        }
         public IActionResult Login()
         {
             return View();
@@ -126,21 +106,12 @@ namespace Bootstrap.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login", "AccountLoginAdminOnly");
         }
-        [Authorize]
+     
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
-
-        [HttpGet]
-        [Authorize]
-        public ActionResult EditContent()
-        {
-          var uslugi = _bootstrapDbContext.UslugiCennikModels.ToList();
-            return View(uslugi);
-        }
-
     }
 
 }

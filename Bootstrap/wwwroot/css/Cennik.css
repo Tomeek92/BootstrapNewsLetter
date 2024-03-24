@@ -57,61 +57,68 @@ body {
     justify-content: space-around;
 }
 
-.btn-outline-secondary {
-    color: #ffffff; /* Kolor tekstu */
-
-    border-color: #ffffff; /* Kolor obramowania */
-}
-
-    .btn-outline-secondary:hover {
-        color: white; /* Kolor tekstu po najechaniu */
-        background-color: transparent; /* Kolor tła po najechaniu */
-        border-color: white; /* Kolor obramowania po najechaniu */
-        font-weight: bold;
-    }
-
-
-.form-control-white {
-    background-color: transparent;
-    border: 1px solid white; /* Białe obramowanie */
-    color: white; /* Biały kolor tekstu */
-    padding: 10px 15px; /* Dopasuj marginesy */
-    width: auto; /* Automatyczna szerokość */
-    max-width: 100%; /* Maksymalna szerokość */
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    font-weight: bold;
-}
-
-    .form-control-white::placeholder {
-        color: rgba(255, 255, 255, 0.7);
-    }
-
 .Logoimg2 {
     max-width: 450px;
     margin-left: 42px;
     margin-top: 70px;
     margin-bottom: -90px;
 }
-.cover-container {
-    max-width: 42em;
+.container {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
 }
 
 .offer {
-    display: flex;
-    margin-bottom:150px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 10;
+    font-style: normal;
+    margin-top: 20px;
 }
 
 .offer-item {
-    padding: 10px;
-    margin: 5px;
-    background-color: transparent;
-    border: 1px solid white; /* Dodanie białego obramowania do elementów oferty */
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    
 }
+.offer-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.offer-price {
+    font-weight: bold;
+}
+.list-group {
+    display: table-row-group;
+}
+.list-group-item {
+    display: table-row;
+    background-color: rgba(255, 255, 255, 0.3); /* Bardziej przezroczyste tło */
+}
+    .list-group-item h3,
+    .list-group-item h5 {
+        display: table-cell;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+    }
+    .list-group-item h3 {
+        font-size: 18px;
+        font-weight: 300;
+    }
+    .list-group-item h5 {
+        font-size: 14px;
+        font-weight:400;
+    }
 
 
 

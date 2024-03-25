@@ -30,7 +30,7 @@ namespace Bootstrap.Seeder
                     // Sprawdź, czy usługa już istnieje
                     var existingUsluga = _db.UslugiCennikModels.FirstOrDefault(u => u.Name == usluga.Name);
 
-                    if (existingUsluga == null)
+                    if (existingUsluga == null && existingUsluga != null)
                     {
                         // Jeśli usługa nie istnieje, dodaj ją do bazy danych
                         _db.UslugiCennikModels.Add(usluga);

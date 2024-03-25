@@ -19,6 +19,7 @@ builder.Services.AddScoped<Bootstrap.Seeder.Seeder>();
 
 
 
+
 builder.Services.AddSession();
 
 // Dodaj DbContext

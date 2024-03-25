@@ -22,19 +22,19 @@
                         @if(User.Identity.IsAuthenticated)
                         {
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="AccountLoginAdminOnly" asp-action="Logout">Wyloguj</a>
-                        </li>
-                        <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="AccountLoginAdminOnly" asp-action="Register">Register</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="AccountLoginAdminOnly" asp-action="Register">Rejestracja konta do logowania</a>
                         </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="EditCennik" asp-action="EditCennik">Edytuj</a>
                             </li>
-                        <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="NewsLetter" asp-action="Index">Home</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="EditCennik" asp-action="Add">Dodaj usługę</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="NewsLetter" asp-action="ShowUsersEmail">Zapisani do news lettera</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="AccountLoginAdminOnly" asp-action="Logout">Wyloguj</a>
                             </li>
 
                         }

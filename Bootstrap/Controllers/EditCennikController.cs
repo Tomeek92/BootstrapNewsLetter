@@ -3,6 +3,9 @@ using Bootstrap.Models.PriceNameEdit;
 using Bootstrap.Models.UslugiCennikViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Data;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Bootstrap.Controllers
 {
@@ -33,8 +36,9 @@ namespace Bootstrap.Controllers
             }
             catch (Exception ex)
             {
-                // Obsłuż błąd
-                // Możesz zalogować wyjątek lub przekazać informacje o błędzie do widoku
+                Console.WriteLine(ex.Message);
+                ViewBag.Error = "Nieoczekiwany błąd";
+                return View(editUslugi);
             }
             return View(editUslugi);
         }
@@ -42,8 +46,79 @@ namespace Bootstrap.Controllers
         [Authorize]
         public ActionResult EditCennik()
         {
-            var uslugi = _bootstrapDbContext.UslugiCennikModels.ToList();
-            return View(uslugi);
+            try
+            {
+                var uslugi = _bootstrapDbContext.UslugiCennikModels.ToList();
+                return View(uslugi);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                ViewBag.Error = "Nieoczekiwany błąd podczas pobierania listy usług";
+
+                return View(new List<UslugiCennikModel>());
+            }
+        }
+        [HttpPost]
+        public IActionResult Add(UslugiCennikModel product)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    
+                    _bootstrapDbContext.UslugiCennikModels.Add(product);
+                    _bootstrapDbContext.SaveChanges();
+
+                    ViewBag.Success = "Dodano nową usługę!";
+                    return View(product);
+                }
+            }
+            catch (DataException)
+            {
+                ModelState.AddModelError("", "Nie można zapisać. Spróbuj ponownie, a jeśli problem będzie się powtarzał skontaktuj się z administratorem.");
+            }
+            return View(product);
+        }
+        public IActionResult Add()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Delete(int Id)
+        {
+            try
+            {
+                // Znajdź element do usunięcia
+                var elementDoUsuniecia = _bootstrapDbContext.UslugiCennikModels.Find(Id);
+
+                if (elementDoUsuniecia == null)
+                {
+                    return NotFound();
+                }
+
+                
+                _bootstrapDbContext.UslugiCennikModels.Remove(elementDoUsuniecia);
+                _bootstrapDbContext.SaveChanges();
+
+                ViewBag.Success = "Usunięto!";
+
+
+              
+                return RedirectToAction("EditCennik","EditCennik");
+            }
+            catch (Exception ex)
+            {
+                // Obsłuż wyjątek
+                Console.WriteLine(ex.Message);
+                ViewBag.Error = "Nie udało się usunąć!";
+                return View("EditCennik");
+            }
+        }
+        public IActionResult Delete()
+        {
+            return View();
         }
     }
 }

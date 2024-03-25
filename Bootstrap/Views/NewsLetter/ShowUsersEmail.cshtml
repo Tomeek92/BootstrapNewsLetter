@@ -9,6 +9,10 @@
                 @foreach (var email in Model)
                 {
                     <li class="list-group-item">@email</li>
+                   
+                    <form action="@Url.Action("Delete","NewsLetter", new { email = email })" method="post" class="d-inline">
+                        <input type="submit" value="Usuń" class="btn btn-danger btn-sm float-right" />
+                    </form>
                 }
             </ul>
         </div>

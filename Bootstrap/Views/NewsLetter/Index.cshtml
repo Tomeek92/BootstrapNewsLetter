@@ -59,26 +59,34 @@
         </header>
 
  <main class="px-3">
-
-    <h1>Zapisz się!</h1>
-    <h3>I bądź pierwsza z nowinkami!</h3>
-    <h5>Podaj swój email</h5>
-    <br />
-    <br />
+      <div class="font">
+            <h1 class="fontStyle">Zapisz się!</h1>
+            <h3 class="fontStyle">I bądź pierwsza z nowinkami!</h3>
+            <h5 class="fontStyle">Podaj swój email</h5>
+            <br />
+            <br />
+       </div>
     @if (ViewBag.Message != null)
     {
         <div class="alert alert-success" role="alert">
             @ViewBag.Message
         </div>
     }
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.Error
+                </div>
+            }
     <form method="post" action="/NewsLetter/SaveEmailToDb" class="lead">
         <div class="input-group mb-3" style="margin-left:120px;">
             <input type="email" class="form-control-white" id="emailUser" name="emailUser" placeholder="Wpisz email" required>
             <button type="submit" class="btn btn-outline-secondary">Zapisz się!</button>
+                  
         </div>
     </form>
 
-     <img src="https://i.ibb.co/74MvBdH/logo-znak-wodny-czarny-1.png" class="Logoimg2" />
+            <img src="https://i.ibb.co/zrJ2gy1/logo-znak-wodny-bia-y.png" class="Logoimg2" />
 </main>
 
 

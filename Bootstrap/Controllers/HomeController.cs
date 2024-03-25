@@ -1,4 +1,5 @@
 ﻿using Bootstrap.Models;
+using Bootstrap.Models.PriceNameEdit;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -26,11 +27,19 @@ namespace Bootstrap.Controllers
        public IActionResult Cennik()
         {
             ViewBag.CurrentPage = "Cennik";
-            var uslugi = _context.UslugiCennikModels.ToList();
+            List<UslugiCennikModel> uslugi = new List<UslugiCennikModel>();
 
-            // Przekazanie danych do widoku
+            try
+            {
+                uslugi = _context.UslugiCennikModels.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                ViewBag.Error = "Wystąpił problem podczas ładowania cennika spróbuj ponownie później";
+            }
+
             return View(uslugi);
-           
         }
         public IActionResult Omnie()
         {

@@ -8,17 +8,30 @@ namespace Bootstrap.Controllers
     public class NewsLetterController : Controller
     {
         private readonly ISaveEmailToDbService _saveEmailToDbService;
-        public NewsLetterController(ISaveEmailToDbService saveEmailToDbService)
+        private readonly BootstrapDbContext _context;
+        public NewsLetterController(ISaveEmailToDbService saveEmailToDbService, BootstrapDbContext context)
         {
             _saveEmailToDbService = saveEmailToDbService;
+            _context = context;
         }
         [HttpPost]
         public IActionResult SaveEmailToDb(string emailUser)
         {
            UsersEmailModel usersEmail = new UsersEmailModel();
             usersEmail.Email = emailUser;
-            _saveEmailToDbService.SaveEmailToDb(usersEmail);
-            ViewBag.Message = "Zostałaś zapisana!";
+            try
+            {
+                _saveEmailToDbService.SaveEmailToDb(usersEmail);
+                ViewBag.Message = "Twój e-mail został zapisany do News letter!";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                ViewBag.Error = "Wystąpił nieoczekiwany problem zapisu e-mail";
+                
+            }
+          
             return View("Index");
         }
         public IActionResult Index()
@@ -34,6 +47,7 @@ namespace Bootstrap.Controllers
             {
                 
                 var emails = _saveEmailToDbService.ShowUsersEmail();
+               
 
                 return View(emails); 
             }
@@ -42,6 +56,28 @@ namespace Bootstrap.Controllers
                
                 return StatusCode(500, "Wystąpił błąd podczas pobierania adresów email użytkowników. Szczegóły błędu: " + ex.Message);
             }
+        }
+        [HttpPost]
+        public IActionResult Delete(string email)
+        {
+            try
+            {
+                var elementDoUsuniecia = _context.Users.FirstOrDefault(u => u.Email == email);
+                if (elementDoUsuniecia == null)
+                {
+                    return NotFound();
+                }
+
+                _context.Users.Remove(elementDoUsuniecia);
+                _context.SaveChanges();
+                ViewBag.Success = "Usunięto!";
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, "Wystąpił błąd podczas pobierania adresów email użytkowników. Szczegóły błędu: " + ex.Message);
+            }
+            return RedirectToAction("ShowUsersEmail");
         }
     }
 }

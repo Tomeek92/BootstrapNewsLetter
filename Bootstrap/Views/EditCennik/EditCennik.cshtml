@@ -5,15 +5,28 @@
     @for (int i = 0; i < Model.Count; i++)
     {
         <div style="background-color: #f8f9fa; margin-bottom: 15px; padding: 20px; border-radius: 5px;">
-            <h3 style="margin-bottom: 10px;">Usługa @Model[i].Id</h3>
+            <h3 style="margin-bottom: 10px;">Usługa @Model[i].Name</h3>
             <input type="hidden" id="editUslugi[@i].Id" name="editUslugi[@i].Id" value="@Model[i].Id">
             <label for="editUslugi[@i].Name">Nazwa Usługi:</label>
             <input type="text" id="editUslugi[@i].Name" name="editUslugi[@i].Name" value="@Model[i].Name" style="width: 100%; padding: 10px; margin-bottom: 10px;">
             <label for="editUslugi[@i].Price">Cena Usługi:</label>
             <input type="text" id="editUslugi[@i].Price" name="editUslugi[@i].Price" value="@Model[i].Price" step="0.01" min="0" style="width: 100%; padding: 10px;">
+            <form action="@Url.Action("Delete", new { id = Model[i].Id })" method="post">
+                <input type="submit" value="Usuń" class="btn btn-danger" />
+            </form>
         </div>
     }
     <input type="submit" value="Zapisz" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
 </form>
+
+@if (ViewBag.Success != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Success
+    </div>
+}
+
+
+
 
 

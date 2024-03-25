@@ -33,13 +33,22 @@ namespace Bootstrap.Controllers
                 UserName = registerUser.UserName
             };
 
-            var createResult = await _userManager.CreateAsync(newUser, registerUser.Password);
+            IdentityResult createResult = null;
+            try
+            {
+                createResult = await _userManager.CreateAsync(newUser, registerUser.Password);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                ViewData["ErrorMessage"] = "Nieoczekiwany błąd podczas tworzenia użytkownika";
+                return View(registerUser);
+            }
+
             if (!createResult.Succeeded)
             {
-
                 foreach (var error in createResult.Errors)
                 {
-
                     System.Diagnostics.Debug.WriteLine(error.Description);
                 }
                 return View(registerUser);
@@ -47,41 +56,53 @@ namespace Bootstrap.Controllers
 
             return RedirectToAction("Register", "AccountLoginAdminOnly");
         }
-
         [HttpPost]
         public async Task<IActionResult> Login(Login login)
         {
-            var user = await _loginService.FindByNameAsync(login.LoginName);
-
-            if (user != null && await _loginService.IsUserLockedOutAsync(user))
+            AccountAdmin user = null;
+            try
             {
-                ViewData["ErrorMessage"] = "Twoje konto zostało zablokowane. Spróbuj ponownie za kilka minut.";
+                user = await _loginService.FindByNameAsync(login.LoginName);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                ViewData["ErrorMessage"] = "Nieoczekiwany błąd podczas wyszukiwania użytkownika";
                 return View(login);
             }
 
-            int failedLogin = HttpContext.Session.GetInt32("FailedLogin") ?? 0;
-            failedLogin++;
-            HttpContext.Session.SetInt32("FailedLogin", failedLogin);
-            int maxFailedLogin = 5;
-            int remainingAttempts = maxFailedLogin - failedLogin;
-            ViewData["FailedToView"] = remainingAttempts;
-
-            if (user == null)
+            if (user != null)
             {
-                ViewData["UserNotFoundErrorMessage"] = "Podany użytkownik nie istnieje w bazie danych";
-            }
-
-            if (maxFailedLogin == failedLogin)
-            {
-                if (user != null)
+                bool isLockedOut = false;
+                try
                 {
-                    await _loginService.LockUserAccountAsync(user);
+                    isLockedOut = await _loginService.IsUserLockedOutAsync(user);
                 }
-                ViewData["ErrorMessage"] = "Przekroczono maksymalną liczbę prób logowania. Twoje konto zostało zablokowane. Spróbuj ponownie za kilka minut.";
-                return View(login);
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    ViewData["ErrorMessage"] = "Nieoczekiwany błąd podczas sprawdzania statusu blokady konta";
+                    return View(login);
+                }
+
+                if (isLockedOut)
+                {
+                    ViewData["ErrorMessage"] = "Twoje konto zostało zablokowane. Spróbuj ponownie za kilka minut.";
+                    return View(login);
+                }
             }
 
-            var result = await _loginService.TryLoginAsync(login.LoginName, login.Password);
+            var result = Microsoft.AspNetCore.Identity.SignInResult.Failed;
+            try
+            {
+                result = await _loginService.TryLoginAsync(login.LoginName, login.Password);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                ViewData["ErrorMessage"] = "Nieoczekiwany błąd podczas próby logowania";
+                return View(login);
+            }
 
             if (result.Succeeded)
             {
@@ -103,7 +124,15 @@ namespace Bootstrap.Controllers
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
-            await _signInManager.SignOutAsync();
+            try
+            {
+                await _signInManager.SignOutAsync();
+            }
+           catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                ViewBag.ErrorMessage = "Nieprawidłowe wylogowanie";
+            }
             return RedirectToAction("Login", "AccountLoginAdminOnly");
         }
      

@@ -1,7 +1,4 @@
-﻿@using Bootstrap.Models.PriceNameEdit
-@model List<UslugiCennikModel>
-
-<form method="post" style="width: 100%; max-width: 600px; margin: auto;">
+﻿<form id="editForm" method="post" style="width: 100%; max-width: 600px; margin: auto;">
     @for (int i = 0; i < Model.Count; i++)
     {
         <div style="background-color: #f8f9fa; margin-bottom: 15px; padding: 20px; border-radius: 5px;">
@@ -11,20 +8,15 @@
             <input type="text" id="editUslugi[@i].Name" name="editUslugi[@i].Name" value="@Model[i].Name" style="width: 100%; padding: 10px; margin-bottom: 10px;">
             <label for="editUslugi[@i].Price">Cena Usługi:</label>
             <input type="text" id="editUslugi[@i].Price" name="editUslugi[@i].Price" value="@Model[i].Price" step="0.01" min="0" style="width: 100%; padding: 10px;">
-            <form action="@Url.Action("Delete", new { id = Model[i].Id })" method="post">
-                <input type="submit" value="Usuń" class="btn btn-danger" />
-            </form>
+            <label for="editUslugi[@i].Category">Kategoria:</label>
+            <input type="text" id="editUslugi[@i].Category" name="editUslugi[@i].Category" value="@Model[i].Category" step="0.01" min="0" style="width: 100%; padding: 10px;">
+            <button type="submit" formaction="@Url.Action("Delete", new { id = Model[i].Id })" formmethod="post" class="btn btn-danger">Usuń</button>
         </div>
     }
     <input type="submit" value="Zapisz" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
 </form>
 
-@if (ViewBag.Success != null)
-{
-    <div class="alert alert-success">
-        @ViewBag.Success
-    </div>
-}
+
 
 
 

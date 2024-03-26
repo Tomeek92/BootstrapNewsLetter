@@ -17,6 +17,8 @@ namespace Bootstrap.Controllers
             _bootstrapDbContext = bootstrapDbContext;
         }
 
+    
+
         [HttpPost]
         [Authorize]
         public IActionResult EditCennik(List<UslugiCennikModel> editUslugi)
@@ -28,6 +30,11 @@ namespace Bootstrap.Controllers
                 {
                     dbUsluga.Price = usluga.Price;
                     dbUsluga.Name = usluga.Name;
+                    dbUsluga.Category = usluga.Category;
+                }
+                else
+                {
+                    ViewBag.Error = "Usługa nie istnieje";
                 }
             }
             try
@@ -42,6 +49,8 @@ namespace Bootstrap.Controllers
             }
             return View(editUslugi);
         }
+          
+        
         [HttpGet]
         [Authorize]
         public ActionResult EditCennik()
@@ -73,6 +82,18 @@ namespace Bootstrap.Controllers
 
                     ViewBag.Success = "Dodano nową usługę!";
                     return View(product);
+                }
+                else
+                {
+                    var errors = ModelState
+                        .Where(x => x.Value.Errors.Count > 0)
+                        .Select(x => new { x.Key, x.Value.Errors })
+                        .ToArray();
+
+                    foreach (var error in errors)
+                    {
+                        Console.WriteLine($"Key: {error.Key}, Errors: {string.Join(",", error.Errors.Select(e => e.ErrorMessage))}");
+                    }
                 }
             }
             catch (DataException)

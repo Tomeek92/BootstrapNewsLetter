@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Add";
 }
 
@@ -9,10 +8,16 @@
 <form method="post" style="width: 100%; max-width: 600px; margin: auto;">
     <div style="background-color: #f8f9fa; margin-bottom: 15px; padding: 20px; border-radius: 5px;">
         <h3 style="margin-bottom: 10px;">Nowa Usługa</h3>
-        <label for="newUsluga.Name">Nazwa Usługi:</label>
+        <label for="product.Name">Nazwa Usługi:</label>
         <input type="text" id="product.Name" name="product.Name" value=@Model?.Name style="width: 100%; padding: 10px; margin-bottom: 10px;">
-        <label for="newUsluga.Price">Cena Usługi:</label>
+        <label for="product.Price">Cena Usługi:</label>
         <input type="text" id="product.Price" name="product.Price" value=@Model?.Price step="0.01" min="0" style="width: 100%; padding: 10px;">
+        <label for="product.Category">Kategoria:</label>
+        <select id="product.Category" name="product.Category" value=@Model?.Category>
+            <option value="Makijaż permanentny">Makijaż permanentny</option>
+            <option value="Stylizacja rzęs">Stylizacja rzęs</option>
+            <option value="Stylizacja Brwi">Stylizacja Brwi</option>
+        </select>
     </div>
     <input type="submit" value="Dodaj" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
     @if (ViewBag.Success != null)

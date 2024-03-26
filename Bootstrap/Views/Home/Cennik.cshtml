@@ -71,7 +71,7 @@
                 <div class="col-md-4">
                     <h3 class="nameTable">Makijaż permanentny</h3>
                     <ul class="list-group">
-                        @foreach (var item in Model.Where(x => x.Id >= 1 && x.Id <= 6))
+                        @foreach (var item in Model.Where(x => x.Category == "Makijaż permanentny"))
                         {
                             <li class="list-group-item">
                                 <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
@@ -83,7 +83,7 @@
                 <div class="col-md-4">
                     <h3 class="nameTable">Stylizacja rzęs</h3>
                     <ul class="list-group">
-                        @foreach (var item in Model.Where(x => x.Id >= 7 && x.Id <= 16))
+                        @foreach (var item in Model.Where(x => x.Category == "Stylizacja rzęs"))
                         {
                             <li class="list-group-item">
                                 <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
@@ -95,7 +95,7 @@
                 <div class="col-md-4">
                     <h3 class="nameTable">Stylizacja Brwi</h3>
                     <ul class="list-group">
-                        @foreach (var item in Model.Where(x => x.Id >= 25 && x.Id <= 28))
+                        @foreach (var item in Model.Where(x => x.Category == "Stylizacja Brwi"))
                         {
                             <li class="list-group-item">
                                 <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
@@ -106,6 +106,7 @@
                 </div>
             </div>
         </div>
+
 
             <footer class="mt-auto text-white-50">
 

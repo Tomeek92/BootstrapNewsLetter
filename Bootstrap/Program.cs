@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Dodaj us³ugi do kontenera.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ISaveEmailToDbService, SaveEmailToDbService>();
+builder.Services.AddScoped<IEditCennik, EditCennikService>();
 builder.Services.AddScoped<LoginService>();
 builder.Services.AddScoped<Bootstrap.Seeder.Seeder>();
 

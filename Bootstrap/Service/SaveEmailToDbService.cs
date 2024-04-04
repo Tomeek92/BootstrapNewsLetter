@@ -1,6 +1,7 @@
 ﻿using Bootstrap.Models.UsersEmail;
 using Bootstrap.Service.Interface;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bootstrap.Service
@@ -34,6 +35,11 @@ namespace Bootstrap.Service
 
           
             return emails;
+        }
+        public void DeleteEmailFromDb(UsersEmailModel userEmail)
+        {
+                _context.Users.Remove(userEmail);
+                _context.SaveChanges();
         }
     }
 }

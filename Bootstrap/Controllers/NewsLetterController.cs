@@ -7,11 +7,11 @@ namespace Bootstrap.Controllers
 {
     public class NewsLetterController : Controller
     {
-        private readonly ISaveEmailToDbService _saveEmailToDbService;
+        private readonly ISaveEmailToDbService _saveAndDeleteEmailToDbService;
         private readonly BootstrapDbContext _context;
         public NewsLetterController(ISaveEmailToDbService saveEmailToDbService, BootstrapDbContext context)
         {
-            _saveEmailToDbService = saveEmailToDbService;
+            _saveAndDeleteEmailToDbService = saveEmailToDbService;
             _context = context;
         }
         [HttpPost]
@@ -21,7 +21,7 @@ namespace Bootstrap.Controllers
             usersEmail.Email = emailUser;
             try
             {
-                _saveEmailToDbService.SaveEmailToDb(usersEmail);
+                _saveAndDeleteEmailToDbService.SaveEmailToDb(usersEmail);
                 ViewBag.Message = "Twój e-mail został zapisany do News letter!";
             }
             catch (Exception ex)
@@ -46,7 +46,7 @@ namespace Bootstrap.Controllers
             try
             {
                 
-                var emails = _saveEmailToDbService.ShowUsersEmail();
+                var emails = _saveAndDeleteEmailToDbService.ShowUsersEmail();
                
 
                 return View(emails); 
@@ -67,10 +67,8 @@ namespace Bootstrap.Controllers
                 {
                     return NotFound();
                 }
-
-                _context.Users.Remove(elementDoUsuniecia);
-                _context.SaveChanges();
-                ViewBag.Success = "Usunięto!";
+                _saveAndDeleteEmailToDbService.DeleteEmailFromDb(elementDoUsuniecia);
+             
             }
             catch (Exception ex)
             {

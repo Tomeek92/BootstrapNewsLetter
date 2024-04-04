@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Bootstrap.Models.Admin
 {
     
-    public class Login : IdentityRole
+    public class Login 
     {
         [Required]
         public string LoginName { get; set; } = null!;

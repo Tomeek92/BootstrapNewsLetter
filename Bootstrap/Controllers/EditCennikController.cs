@@ -1,6 +1,7 @@
 ﻿
 using Bootstrap.Models.PriceNameEdit;
 using Bootstrap.Models.UslugiCennikViewModel;
+using Bootstrap.Service.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,45 +13,21 @@ namespace Bootstrap.Controllers
     public class EditCennikController : Controller
     {
         private readonly BootstrapDbContext _bootstrapDbContext;
-        public EditCennikController(BootstrapDbContext bootstrapDbContext)
+        private readonly IEditCennik _edit;
+        public EditCennikController(BootstrapDbContext bootstrapDbContext, IEditCennik edit)
         {
             _bootstrapDbContext = bootstrapDbContext;
+            _edit = edit;
         }
-
-    
 
         [HttpPost]
         [Authorize]
         public IActionResult EditCennik(List<UslugiCennikModel> editUslugi)
         {
-            foreach (var usluga in editUslugi)
-            {
-                var dbUsluga = _bootstrapDbContext.UslugiCennikModels.FirstOrDefault(u => u.Id == usluga.Id);
-                if (dbUsluga != null)
-                {
-                    dbUsluga.Price = usluga.Price;
-                    dbUsluga.Name = usluga.Name;
-                    dbUsluga.Category = usluga.Category;
-                }
-                else
-                {
-                    ViewBag.Error = "Usługa nie istnieje";
-                }
-            }
-            try
-            {
-                _bootstrapDbContext.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                ViewBag.Error = "Nieoczekiwany błąd";
-                return View(editUslugi);
-            }
+            _edit.Edit(editUslugi);
             return View(editUslugi);
         }
-          
-        
+           
         [HttpGet]
         [Authorize]
         public ActionResult EditCennik()
@@ -81,7 +58,7 @@ namespace Bootstrap.Controllers
                     _bootstrapDbContext.SaveChanges();
 
                     ViewBag.Success = "Dodano nową usługę!";
-                    return View(product);
+                    return RedirectToAction("EditCennik", "EditCennik");
                 }
                 else
                 {
@@ -111,7 +88,6 @@ namespace Bootstrap.Controllers
         {
             try
             {
-                // Znajdź element do usunięcia
                 var elementDoUsuniecia = _bootstrapDbContext.UslugiCennikModels.Find(Id);
 
                 if (elementDoUsuniecia == null)
@@ -119,19 +95,15 @@ namespace Bootstrap.Controllers
                     return NotFound();
                 }
 
-                
                 _bootstrapDbContext.UslugiCennikModels.Remove(elementDoUsuniecia);
                 _bootstrapDbContext.SaveChanges();
 
                 ViewBag.Success = "Usunięto!";
 
-
-              
                 return RedirectToAction("EditCennik","EditCennik");
             }
             catch (Exception ex)
             {
-                // Obsłuż wyjątek
                 Console.WriteLine(ex.Message);
                 ViewBag.Error = "Nie udało się usunąć!";
                 return View("EditCennik");

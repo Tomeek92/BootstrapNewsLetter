@@ -1,127 +1,100 @@
 ﻿
 body {
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-
     background-image: url("https://i.ibb.co/ZJFdWYv/IMG-5137.jpg");
     background-position: top center;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
+    background-size: cover;
 }
-
-.cover-container {
-    max-width: 77em;
-}
-
-.nav-masthead .nav-link {
-    color: rgba(255, 255, 255, .5);
-    border-bottom: .25rem solid transparent;
-}
-
-    .nav-masthead .nav-link + .nav-link {
-        margin-left: 1rem;
-    }
-
-.nav-masthead .active {
-    color: #fff;
-    border-bottom-color: #fff;
-}
-
-.news {
-    font-size: 20px;
-}
-
-.socialMedia {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-around;
-}
-
-
-.offer {
-    display: flex;
-    justify-content: space-between; /* Zamiast grid, używamy flexbox do rozmieszczenia kolumn */
-    gap: 20px; /* Odstęp między kolumnami */
-    font-family: "Open Sans", sans-serif;
-    font-weight: 10;
-    font-style: normal;
-    margin-top: 20px;
-
-}
-
-.offer-item {
-    flex: 1; /* Ustawienie elastyczności kolumny */
-    max-width: calc(33.33% - 20px); /* Maksymalna szerokość kolumny */
-    box-sizing: border-box; /* Uwzględnienie marginesów i paddingu w obliczaniu szerokości */
-}
-
-.list-group-item {
-    display: table-row;
-    background-color: rgba(255, 255, 255, 0.2);
-    
-}
-    .list-group-item h3,
-    .list-group-item h5 {
-        display: table-cell;
-        padding: 10px;
-        border: 0.5px solid #e0e0e0;
-        border: 0.5px solid #000; /* Bardzo lekki border w kolorze czarnym */
-    }
-    .list-group-item h3 {
-        font-family: "Open Sans", sans-serif;
-        font-size: 15px;
-        font-weight: 400;
-       
-      
-    }
-    .list-group-item h5 {
-        font-family: "Open Sans", sans-serif;
-        font-size: 13px;
-        font-weight: 400;
-      
-    }
-
 .container {
-    margin: 20px 0; /* Dodaje margines na górze i na dole */
-    overflow: hidden; /* Zapobiega przekształceniu rodzica przez floated dzieci */
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
 
-  
-}
-
-.col-md-4 {
-    display: table-cell; /* Ustawia elementy jako komórki tabeli */
-    width: calc(33.3333% - 20px); /* Szerokość kolumny z uwzględnieniem odstępu */
-    margin-right: 20px; /* Dodaje odstęp między kolumnami */
-    margin-bottom: 20px; /* Dodaje odstęp na dole każdej kolumny */
-
+}   
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
  
 }
-
-.col-md-4:last-child {
-    margin-right: 0; /* Usuwa margines po prawej stronie dla ostatniego elementu w kontenerze */
-
+.col-md-4 {
+    flex: 0 0 31%; /* Dostosowanie szerokości kolumn */
+    max-width: 31%;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgb(241, 230, 230, 0.40); /* Bardziej subtelne tło dla kolumn */
+    border: 1px solid #ddd; /* Subtelna obramówka */
+    border-radius: 0.25rem; /* Zaokrąglone rogi */
 }
-
-@media (max-width: 768px) {
-    .col-md-4 {
-        width: 100%; /* Na małych ekranach elementy zajmują całą szerokość kontenera */
-        margin-right: 0; /* Usuwa odstęp między kolumnami */
-       
-    }
-}
-
-.list-group {
-    display: table-row; /* Ustawia elementy jako wiersze tabeli */
-    background-color: transparent; /* Dodaj kolor tła dla tabeli */
-    
+.service-column {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .nameTable {
-    font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    color:black;
-    
+    font-size: 2rem; /* Zmniejszony rozmiar czcionki dla nagłówków */
+    color: #495057; /* Ciemniejszy kolor tekstu */
+    background-color: #dcdcdc; /* Mniej intensywne tło dla nagłówka */
+    padding: 0.5rem 1rem;
+    margin: -15px -15px 15px; /* Wyjście poza padding kolumny */
+    border-bottom: 1px solid #ddd; /* Linia oddzielająca nagłówek */
+    white-space: nowrap; /* Zapobieganie łamaniu tekstu */
+    overflow: hidden; /* Ukrywanie nadmiarowego tekstu */
+    text-overflow: ellipsis; /* Kropki na końcu, jeśli tekst jest za długi */
 }
+
+
+
+.list-group-item {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    border: 1px solid #ddd; /* Subtelna obramówka */
+    margin-bottom: 0.25rem; /* Odstęp między elementami listy */
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem; /* Zaokrąglone rogi */
+    font-size: 0.9rem; /* Mniejszy rozmiar czcionki dla elementów listy */
+}
+    .nameTable, .list-group-item h3, .list-group-item h5 {
+        font-size: 0.85rem; /* Mniejszy rozmiar czcionki */
+        font-weight: 400; /* Normalna grubość czcionki */
+       
+    }
+
+
+    .nav-masthead .nav-link {
+        color: rgba(255, 255, 255, .5);
+        border-bottom: .25rem solid transparent;
+    }
+
+        .nav-masthead .nav-link + .nav-link {
+            margin-left: 1rem;
+        }
+
+    .nav-masthead .active {
+        color: #fff;
+        border-bottom-color: #fff;
+    }
+
+    .news {
+        font-size: 20px;
+    }
+
+    .socialMedia {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+    }
+
+
+
+
+
+
+
+    
+
+
 
 
 

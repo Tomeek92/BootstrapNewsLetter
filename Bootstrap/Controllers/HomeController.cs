@@ -26,7 +26,7 @@ namespace Bootstrap.Controllers
 
        public IActionResult Cennik()
         {
-            ViewBag.CurrentPage = "Cennik";
+            
             List<UslugiCennikModel> uslugi = new List<UslugiCennikModel>();
 
             try

@@ -28,61 +28,62 @@
             <a>KONTAKT</a>
         </div>
     </header>
-        @if (ViewBag.Error != null)
-        {
-            <div class="alert alert-danger">
-                @ViewBag.Error
+     <h2 class="cards-name-service">USŁUGI</h2>
+    <section class="container-list">
+        <div class="cards row">
+            <!-- Kategoria: Makijaż permanentny -->
+            <div class="card row">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3 class="title">MAKIJAŻ PERMANENTNY</h3>
+                    </div>
+                    <ul class="card-list">
+                        @foreach (var item in Model.Where(x => x.Category == "Makijaż permanentny"))
+                        {
+                            <li class="card-item">
+                                <h3 class="item-title">@Html.DisplayFor(modelItem => item.Name)</h3>
+                                <h5 class="item-price">@Html.DisplayFor(modelItem => item.Price)</h5>
+                            </li>
+                        }
+                    </ul>
+                </div>
             </div>
-        }
-        <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <h3 class="nameTable">Makijaż permanentny
-            <span class="toggle-icon">+</span>
-            </h3>
-        
-            <ul class="list-group reduced-font-weight"> 
-                @foreach (var item in Model.Where(x => x.Category == "Makijaż permanentny"))
-                {
-                    <li class="list-group-item">
-                        <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
-                        <h5>@Html.DisplayFor(modelItem => item.Price)</h5>
-                    </li>
-                }
-            </ul>
+            <!-- Kategoria: Stylizacja rzęs -->
+            <div class="card row">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3 class="title">STYLIZACJA RZĘS</h3>
+                    </div>
+                    <ul class="card-list">
+                        @foreach (var item in Model.Where(x => x.Category == "Stylizacja rzęs"))
+                        {
+                            <li class="card-item">
+                                <h3 class="item-title">@Html.DisplayFor(modelItem => item.Name)</h3>
+                                <h5 class="item-price">@Html.DisplayFor(modelItem => item.Price)</h5>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <!-- Kategoria: Stylizacja brwi -->
+            <div class="card row">
+                <div class="card-body" id="static-card-item">
+                    <div class="card-title" id="static-card-item"> <!--statyczna bez przewijania się paska!!-->
+                        <h3 class="title">STYLIZACJA BRWI</h3>
+                    </div>
+                    <ul class="card-list">
+                        @foreach (var item in Model.Where(x => x.Category == "Stylizacja brwi"))
+                        {
+                            <li class="card-item">
+                                <h3 class="item-title">@Html.DisplayFor(modelItem => item.Name)</h3>
+                                <h5 class="item-price">@Html.DisplayFor(modelItem => item.Price)</h5>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <h3 class="nameTable">Stylizacja rzęs
-            <span class="toggle-icon">+</span>
-            </h3>
-        
-            <ul class="list-group reduced-font-weight"> 
-                @foreach (var item in Model.Where(x => x.Category == "Stylizacja rzęs"))
-                {
-                    <li class="list-group-item">
-                        <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
-                        <h5>@Html.DisplayFor(modelItem => item.Price)</h5>
-                    </li>
-                }
-            </ul>
-        </div>
-        <div class="col-md-4">
-            <h3 class="nameTable">
-                Stylizacja Brwi <br />  <span class="toggle-icon">+</span>
-            </h3>
-        
-            <ul class="list-group reduced-font-weight"> 
-                @foreach (var item in Model.Where(x => x.Category == "Stylizacja Brwi"))
-                {
-                    <li class="list-group-item">
-                        <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
-                        <h5>@Html.DisplayFor(modelItem => item.Price)</h5>
-                    </li>
-                }
-            </ul>
-        </div>
-    </div>
-</div>
+    </section>
     <footer>
         <ul class="socialMedia">
             <h3 class="footer-section">Media społecznościowe</h3>
@@ -138,22 +139,7 @@
         </div>
 
     </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var nameTables = document.querySelectorAll('.nameTable');
-            nameTables.forEach(function (nameTable) {
-                nameTable.addEventListener('click', function () {
-                    this.classList.toggle('active');
-                    var listGroup = this.nextElementSibling;
-                    if (listGroup.style.display === "block") {
-                        listGroup.style.display = "none";
-                    } else {
-                        listGroup.style.display = "block";
-                    }
-                });
-            });
-        });
-    </script>
+  
 </body>
 </html>
 

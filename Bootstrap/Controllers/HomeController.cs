@@ -43,7 +43,6 @@ namespace Bootstrap.Controllers
         }
         public IActionResult Omnie()
         {
-            ViewBag.CurrentPage = "O mnie";
             return View();
         }
     }

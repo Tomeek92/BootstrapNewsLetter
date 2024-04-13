@@ -1,7 +1,7 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap');
 
 @media (max-width: 768px) {
-    /* Ustawia elementy header, .container-list i footer jedno pod drugim */
+    
     header,
     .container-list,
     footer {
@@ -9,30 +9,30 @@
         width: 100%;
     }
 
-        /* Ustawia logo w headerze na szerokość 100% i wyśrodkowuje je */
+        
         header .logo-home {
             width: 100%;
             margin: 0 auto;
         }
 
-    /* Ustawia karty w .container-list jedno pod drugim */
+  
     .cards {
         grid-template-columns: 1fr;
     }
 
-    /* Ustawia każdą kartę na szerokość 100% */
+    
     .card {
         width: 100%;
         height: auto;
     }
 
-        /* Dostosowuje obrazy w kartach */
+        
         .card .card-body {
             background-size: cover;
             background-position: center;
         }
 
-    /* Dostosowuje sekcje w footerze do szerokości 100% */
+   
     footer .footer-section,
     footer .socialMedia,
     footer .newsletter-section {
@@ -40,7 +40,7 @@
     }
 }
 
-/* Variables */
+
 :root {
     --position: -0.375rem;
 }
@@ -232,16 +232,24 @@ button {
     grid-template-columns: repeat(3, 1fr);
     gap: 2em;
     justify-content: center;
+
 }
 
 .card {
     position: relative;
     width: 300px;
-    min-height: 500px; /* Zmiana na min-height */
+    min-height: 500px; 
     overflow: hidden;
     cursor: pointer;
     border-radius: 25px;
     transition: width 0.5s ease-in-out;
+}
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 1em; /* Dodajemy marginesy między kartami */
 }
 
 .card-body {
@@ -251,31 +259,51 @@ button {
     background-size: cover;
     width: 100%;
     height: 100%;
-    overflow-y: hidden;
+    transition: filter 0.3s ease-in-out;
 }
+    .card-body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+       
+        opacity: 0; /* Początkowa przezroczystość */
+        transition: opacity 0.3s ease-in-out; /* Płynna animacja */
+    }
+    .card-body:hover::before {
+        opacity: 1; /* Po najechaniu kursorem przezroczystość do 100% */
+    }
+
     .card-body:hover {
         overflow-y: auto;
+     
     }
-#static-card-body {
-    overflow-y: hidden;
+
+.card:hover .card-body {
+    filter: none; /* Resetujemy filtr, gdy karta jest najechana kursorem */
 }
- 
-   
+
+
+
+
 
 .card:nth-of-type(1) .card-body {
-    background-image: url("https://i.ibb.co/tsdtC6W/Zrzut-ekranu-2024-04-12-162358.png");
+    background-image: url("https://i.ibb.co/6HB9Y2C/IMG-1521.jpg");
     
 }
 
-.card:nth-of-type(n + 2) .card-body {
-    background-image: url("https://i.ibb.co/bv0kNML/Zrzut-ekranu-2024-04-12-162449.png");
-    
+.card:nth-of-type(2) .card-body {
+    background-image: url("https://i.ibb.co/3kKDdjH/FF9841-DF-8-F22-4-A00-A716-49886-B45-A22-A.jpg");
+}
+.card:nth-of-type(3) .card-body {
+    background-image: url("https://i.ibb.co/6R5VWcW/D8-CF1-B6-A-E0-A8-42-AA-8-ADE-C86-EB849-C5-C3.jpg");
 }
 
     .card:hover {
         width: 400px;
     }
-
 
 
 .card-title {
@@ -287,7 +315,6 @@ button {
     align-items: center;
     justify-content: center;
     color: #fff;
-    transition: opacity 0.3s ease-in-out;
     font-family: 'Poppins', sans-serif;
    
 }
@@ -296,6 +323,7 @@ button {
     opacity: 0;
     
 }
+
 .title {
     font-weight: 500;
 }
@@ -330,7 +358,8 @@ button {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     max-height: 500px;
-    
+    color: #fff; /* Kolor napisów */
+    font-family: 'Poppins', sans-serif;
 }
 
 .card:hover .card-list {
@@ -347,7 +376,7 @@ button {
     padding: 15px;
     line-height: 1.5;
     height: auto;
-   
+    background: rgba(0, 0, 0, 0.3);
 }
 
 
@@ -359,3 +388,15 @@ button {
     transition-delay: 0.3s;
 }
 
+.bg-watermark {
+    font-family: 'Poppins', sans-serif;
+    color: #1f1f1f;
+    font-size: clamp(4rem, 0.9333rem + 12.9333vw, 12rem);
+    font-weight: 800;
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%) translateY(-15%);
+    user-select: none;
+    letter-spacing: 0.5rem;
+}

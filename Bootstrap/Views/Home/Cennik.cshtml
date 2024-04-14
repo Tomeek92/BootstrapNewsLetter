@@ -1,6 +1,6 @@
 @model List<Bootstrap.Models.PriceNameEdit.UslugiCennikModel>
 @{
-    string currentPage = ViewBag.CurrentPage != null ? ViewBag.CurrentPage.ToString() : "";
+   
     Layout = null;
     
    
@@ -22,9 +22,8 @@
         <br>
         <div class="container lime pullUp">
             <a href="../index.html">STRONA GŁÓWNA</a>
-            <a href="Home/Cennik">USŁUGI</a>
-            <a>SZKOLENIA</a>
-            <a>REGULAMIN</a>
+            <a href="/Home/Cennik">USŁUGI</a>
+            <a href="/Szkolenia">SZKOLENIA</a>>
             <a>KONTAKT</a>
             <a href="https://booksy.com/pl-pl/">ZAPISZ SIĘ NA WIZYTĘ!</a>
         </div>
@@ -125,12 +124,11 @@
             </li>
         </ul>
         <div class="footer-section">
-            <h3>Resources</h3>
+            <h3>Ważne linki</h3>
             <ul>
-                <li>Resource name</li>
-                <li>Resource</li>
-                <li>Another resource</li>
-                <li>Final resource</li>
+                <li><a href="../index.html" style="text-decoration:none;">Strona główna</a></li>
+                <li><a id="regulaminLink" href="#" style="text-decoration:none;">Regulamin</a></li>
+                <li><a href="#" style="text-decoration:none;">Zapisz się na wizytę!</a></li>
             </ul>
         </div>
         <div class="newsletter-section">
@@ -143,7 +141,88 @@
         </div>
 
     </footer>
-   
+    <div id="regulaminModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Regulamin</h2>
+            <!-- Treść regulaminu -->
+            <p>
+                Regulamin korzystania z serwisu XYZ
+
+                Postanowienia ogólne
+
+                1.1. Niniejszy regulamin określa zasady korzystania z serwisu internetowego XYZ (dalej zwany "Serwisem").
+
+                1.2. Korzystanie z Serwisu jest równoznaczne z akceptacją niniejszego regulaminu.
+
+                1.3. Administratorem Serwisu jest XYZ Company z siedzibą w [adres], NIP: [numer NIP].
+
+                Zakres usług
+
+                2.1. Serwis XYZ świadczy usługi polegające na [opis usług].
+
+                2.2. W celu skorzystania z pełnego zakresu usług, użytkownik może być zobowiązany do rejestracji.
+
+                Obowiązki użytkownika
+
+                3.1. Użytkownik zobowiązuje się do korzystania z Serwisu zgodnie z obowiązującym prawem oraz zasadami etyki.
+
+                3.2. Użytkownik ponosi odpowiedzialność za wszelkie treści, które zamieszcza w Serwisie.
+
+                3.3. Użytkownik zobowiązuje się do niezakłócania działania Serwisu oraz do nieingerowania w jego strukturę.
+
+                Odpowiedzialność
+
+                4.1. XYZ Company nie ponosi odpowiedzialności za ewentualne szkody wynikłe z korzystania z Serwisu.
+
+                4.2. XYZ Company zastrzega sobie prawo do zmiany warunków świadczenia usług w Serwisie oraz do zawieszenia lub usunięcia Serwisu w dowolnym momencie.
+
+                Postanowienia końcowe
+
+                5.1. Niniejszy regulamin wchodzi w życie z dniem opublikowania na stronie internetowej Serwisu.
+
+                5.2. W sprawach nieuregulowanych w niniejszym regulaminie zastosowanie mają odpowiednie przepisy prawa polskiego.
+            </p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Funkcja otwierająca modal
+            function openModal() {
+                regulaminModal.style.display = 'block';
+            }
+
+            // Funkcja zamykająca modal
+            function closeModal() {
+                regulaminModal.style.display = 'none';
+            }
+
+            // Pobranie linku do otwierania modala
+            var regulaminLink = document.getElementById('regulaminLink');
+            // Pobranie modala
+            var regulaminModal = document.getElementById('regulaminModal');
+            // Pobranie przycisku zamknięcia modala
+            var closeButton = regulaminModal.querySelector('.close');
+
+            // Obsługa kliknięcia na linku do otwierania modala
+            regulaminLink.addEventListener('click', function (event) {
+                event.preventDefault(); // Zapobiegamy domyślnej akcji linku
+                openModal(); // Wywołujemy funkcję otwierającą modal
+            });
+
+            // Obsługa kliknięcia na przycisku zamknięcia modala
+            closeButton.addEventListener('click', function () {
+                closeModal(); // Wywołujemy funkcję zamykającą modal
+            });
+
+            // Obsługa kliknięcia poza modalem, aby go zamknąć
+            window.addEventListener('click', function (event) {
+                if (event.target === regulaminModal) {
+                    closeModal(); // Wywołujemy funkcję zamykającą modal
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 

@@ -1,40 +1,34 @@
-﻿
-using Bootstrap.Models.PriceNameEdit;
-using Bootstrap.Models.UslugiCennikViewModel;
+﻿using Bootstrap.Models.PriceNameEdit;
 using Bootstrap.Service.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Data;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Bootstrap.Controllers
 {
-    public class EditCennikController : Controller
+    public class EditSzkolenia : Controller
     {
-        private readonly BootstrapDbContext _bootstrapDbContext;
-        private readonly IEditCennik _edit;
-        public EditCennikController(BootstrapDbContext bootstrapDbContext, IEditCennik edit)
+        private readonly IEditSzkolenie _szkolenie;
+        private readonly BootstrapDbContext _db;
+        public EditSzkolenia(IEditSzkolenie szkolenie, BootstrapDbContext db)
         {
-            _bootstrapDbContext = bootstrapDbContext;
-            _edit = edit;
+            _szkolenie = szkolenie;
+            _db = db;
         }
-
         [HttpPost]
         [Authorize]
-        public IActionResult EditCennik(List<UslugiCennikModel> editUslugi)
+        public IActionResult EditSzkol(List<SzkoleniaModel>editSzkolenie)
         {
-            _edit.Edit(editUslugi);
-            return View(editUslugi);
+            _szkolenie.Edit(editSzkolenie);
+            return View(editSzkolenie);
         }
-           
         [HttpGet]
         [Authorize]
-        public IActionResult EditCennik()
+        public IActionResult EditSzkol()
         {
             try
             {
-                var uslugi =  _bootstrapDbContext.UslugiCennikModels.ToList();
+                var uslugi = _db.SzkoleniaModels.ToList();
                 return View(uslugi);
             }
             catch (Exception ex)
@@ -43,23 +37,22 @@ namespace Bootstrap.Controllers
 
                 ViewBag.Error = "Nieoczekiwany błąd podczas pobierania listy usług";
 
-                return View(new List<UslugiCennikModel>());
+                return View(new List<SzkoleniaModel>());
             }
         }
         [HttpPost]
         [Authorize]
-        public IActionResult Add(UslugiCennikModel product)
+        public IActionResult Add(SzkoleniaModel szkolenia)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    
-                    _bootstrapDbContext.UslugiCennikModels.Add(product);
-                    _bootstrapDbContext.SaveChanges();
+                    _db.SzkoleniaModels.Add(szkolenia);
+                    _db.SaveChanges();
 
-                    ViewBag.Success = "Dodano nową usługę!";
-                    return RedirectToAction("EditCennik", "EditCennik");
+                    ViewBag.Success = "Dodano nowe Szkolenie!";
+                    return RedirectToAction("EditSzkol", "EditSzkolenia");
                 }
                 else
                 {
@@ -78,7 +71,7 @@ namespace Bootstrap.Controllers
             {
                 ModelState.AddModelError("", "Nie można zapisać. Spróbuj ponownie, a jeśli problem będzie się powtarzał skontaktuj się z administratorem.");
             }
-            return View(product);
+            return View(szkolenia);
         }
         public IActionResult Add()
         {
@@ -89,30 +82,31 @@ namespace Bootstrap.Controllers
         {
             try
             {
-                var elementDoUsuniecia = _bootstrapDbContext.UslugiCennikModels.Find(Id);
+                var elementDoUsuniecia = _db.SzkoleniaModels.Find(Id);
 
                 if (elementDoUsuniecia == null)
                 {
                     return NotFound();
                 }
 
-                _bootstrapDbContext.UslugiCennikModels.Remove(elementDoUsuniecia);
-                _bootstrapDbContext.SaveChanges();
+                _db.SzkoleniaModels.Remove(elementDoUsuniecia);
+                _db.SaveChanges();
 
                 ViewBag.Success = "Usunięto!";
 
-                return RedirectToAction("EditCennik","EditCennik");
+                return RedirectToAction("EditCennik", "EditCennik");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 ViewBag.Error = "Nie udało się usunąć!";
-                return View("EditCennik");
+                return View("EditSzkol");
             }
         }
         public IActionResult Delete()
         {
             return View();
         }
+
     }
 }

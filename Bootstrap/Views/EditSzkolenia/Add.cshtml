@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+}
+
+@using Bootstrap.Models.PriceNameEdit
+@model SzkoleniaModel
+
+<form method="post" style="width: 100%; max-width: 600px; margin: auto;">
+    <div style="background-color: #f8f9fa; margin-bottom: 15px; padding: 20px; border-radius: 5px;">
+        <h3 style="margin-bottom: 10px;">Nowe Szkolenia</h3>
+        <label for="szkolenia.Name">Nazwa Szkolenia:</label>
+        <input type="text" id="szkolenia.Name" name="szkolenia.Name" value=@Model?.Name style="width: 100%; padding: 10px; margin-bottom: 10px;">
+        <label for="szkolenia.Price">Cena Szkolenia:</label>
+        <input type="text" id="szkolenia.Price" name="szkolenia.Price" value=@Model?.Price step="0.01" min="0" style="width: 100%; padding: 10px;">
+        <label for="szkolenia.Category">Kategoria:</label>
+        <select id="szkolenia.Category" name="szkolenia.Category" value=@Model?.Category>
+            <option value="Szkolenie1">Szkolenia1</option>
+            <option value="Szkolenie2">Szkolenia2</option>
+            <option value="Szkolenie3">Szkolenia3</option>
+        </select>
+    </div>
+    <input type="submit" value="Dodaj" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+    @if (ViewBag.Success != null)
+    {
+        <div class="alert alert-success">
+            @ViewBag.Success
+        </div>
+    }
+</form>
+

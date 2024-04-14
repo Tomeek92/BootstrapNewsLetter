@@ -1,4 +1,10 @@
+﻿@model List<Bootstrap.Models.PriceNameEdit.SzkoleniaModel>
+@{
+   
+    Layout = null;
 
+
+}
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -6,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/Home.css">
+    <link rel="stylesheet" href="~/css/Cennik.css">
 </head>
 
 <body>
@@ -22,44 +28,62 @@
             <a href="https://booksy.com/pl-pl/">ZAPISZ SIĘ NA WIZYTĘ!</a>
         </div>
     </header>
-
-    <section>
-        <p>
-            Od 2016 roku jestem aktywnie zaangażowana w branżę beauty. Moja przygoda rozpoczęła się jako stylistka rzęs.
-            Z ambicją i determinacją rozwijałam swoją karierę wielokrotnie zdobywajac podium na mistrzostwach stylizacji
-            rzęs oraz osiągając poziom instruktora.
-            W raz z rosnacym doświdczeniem zostałam sędzią na mistrzostwach, prelegentem oraz organizatorem takich
-            wydarzeń.
-            W dziedzinie makijażu permanentnego zaczęłam działać od 2022 roku, a szczególne miejsce w moim sercu zajmuje
-            pigmentacja ust.
-        </p>
-        <span class="bg-watermark">FRYCKOWSKA</span>
+    <h2 class="cards-name-service">SZKOLENIA</h2>
+    <span class="bg-watermark">FRYCKOWSKA</span>
+    <section class="container-list">
         <div class="cards">
-            <a href="../Home/Omnie">
-                <div class="card">
-                    <img src="https://i.ibb.co/TmBFRXs/IMG-5144.jpg" alt="about me" class="img-home1">
-                    <div class="card-content">
-                        <h3>O mnie</h3>
-                        <p>Dowiedz się więcej o mnie</p>
+            <!-- Kategoria: SZKOLENIA 1 -->
+            <div class="card card-container">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3 class="title">SZKOLENIA 1</h3>
                     </div>
+                    <ul class="card-list">
+                        @foreach (var item in Model.Where(x => x.Category == "Szkolenie1"))
+                        {
+                            <li class="card-item">
+                                <h3 class="item-title">@Html.DisplayFor(modelItem => item.Name)</h3>
+                                <h5 class="item-price">@Html.DisplayFor(modelItem => item.Price)</h5>
+                            </li>
+                        }
+                    </ul>
                 </div>
-            </a>
-                <div class="card" onclick="location.href='Szkolenia';">
-                        <img src="https://i.ibb.co/DL1K7Sy/IMG-5137.jpg" alt="about course" class="img-home2">
-                    <div class="card-content">
-                        <h3>Szkolenia</h3>
-                        <p>sprawdź dostępne szkolenia</p>
+            </div>
+            <!-- Kategoria: SZKOLENIA 2 -->
+            <div class="card card-container">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3 class="title">SZKOLENIA 2</h3>
                     </div>
+                    <ul class="card-list">
+                        @foreach (var item in Model.Where(x => x.Category == "Szkolenie2"))
+                        {
+                            <li class="card-item">
+                                <h3 class="item-title">@Html.DisplayFor(modelItem => item.Name)</h3>
+                                <h5 class="item-price">@Html.DisplayFor(modelItem => item.Price)</h5>
+                            </li>
+                        }
+                    </ul>
                 </div>
-                <a href="../Home/Cennik">
-                    <div class="card">
-                        <img src="https://i.ibb.co/fxGNqGy/IMG-3126.jpg" alt="about price" class="img-home3">
-                        <div class="card-content">
-                            <h3>Usługi</h3>
-                            <p>Sprawdź moje usługi</p>
-                        </div>
+            </div>
+            <!-- Kategoria: Stylizacja brwi -->
+            <div class="card card-container">
+                <div class="card-body" id="static-card-item">
+                    <div class="card-title" id="static-card-item">
+                        <!--statyczna bez przewijania się paska!!-->
+                        <h3 class="title">SZKOLENIA 3</h3>
                     </div>
-                </a>
+                    <ul class="card-list">
+                        @foreach (var item in Model.Where(x => x.Category == "Szkolenie3"))
+                        {
+                            <li class="card-item">
+                                <h3 class="item-title">@Html.DisplayFor(modelItem => item.Name)</h3>
+                                <h5 class="item-price">@Html.DisplayFor(modelItem => item.Price)</h5>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -162,44 +186,44 @@
         </div>
     </div>
     <script>
-     document.addEventListener('DOMContentLoaded', function () {
-         // Funkcja otwierająca modal
-         function openModal() {
-             regulaminModal.style.display = 'block';
-         }
+        document.addEventListener('DOMContentLoaded', function () {
+            // Funkcja otwierająca modal
+            function openModal() {
+                regulaminModal.style.display = 'block';
+            }
 
-         // Funkcja zamykająca modal
-         function closeModal() {
-             regulaminModal.style.display = 'none';
-         }
+            // Funkcja zamykająca modal
+            function closeModal() {
+                regulaminModal.style.display = 'none';
+            }
 
-         // Pobranie linku do otwierania modala
-         var regulaminLink = document.getElementById('regulaminLink');
-         // Pobranie modala
-         var regulaminModal = document.getElementById('regulaminModal');
-         // Pobranie przycisku zamknięcia modala
-         var closeButton = regulaminModal.querySelector('.close');
+            // Pobranie linku do otwierania modala
+            var regulaminLink = document.getElementById('regulaminLink');
+            // Pobranie modala
+            var regulaminModal = document.getElementById('regulaminModal');
+            // Pobranie przycisku zamknięcia modala
+            var closeButton = regulaminModal.querySelector('.close');
 
-         // Obsługa kliknięcia na linku do otwierania modala
-         regulaminLink.addEventListener('click', function (event) {
-             event.preventDefault(); // Zapobiegamy domyślnej akcji linku
-             openModal(); // Wywołujemy funkcję otwierającą modal
-         });
+            // Obsługa kliknięcia na linku do otwierania modala
+            regulaminLink.addEventListener('click', function (event) {
+                event.preventDefault(); // Zapobiegamy domyślnej akcji linku
+                openModal(); // Wywołujemy funkcję otwierającą modal
+            });
 
-         // Obsługa kliknięcia na przycisku zamknięcia modala
-         closeButton.addEventListener('click', function () {
-             closeModal(); // Wywołujemy funkcję zamykającą modal
-         });
+            // Obsługa kliknięcia na przycisku zamknięcia modala
+            closeButton.addEventListener('click', function () {
+                closeModal(); // Wywołujemy funkcję zamykającą modal
+            });
 
-         // Obsługa kliknięcia poza modalem, aby go zamknąć
-         window.addEventListener('click', function (event) {
-             if (event.target === regulaminModal) {
-                 closeModal(); // Wywołujemy funkcję zamykającą modal
-             }
-         });
-     });
+            // Obsługa kliknięcia poza modalem, aby go zamknąć
+            window.addEventListener('click', function (event) {
+                if (event.target === regulaminModal) {
+                    closeModal(); // Wywołujemy funkcję zamykającą modal
+                }
+            });
+        });
     </script>
-</body>
 
+</body>
 </html>
-S
+

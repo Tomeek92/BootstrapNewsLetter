@@ -1,0 +1,23 @@
+﻿<form id="editForm" method="post" style="width: 100%; max-width: 600px; margin: auto;">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div style="background-color: #f8f9fa; margin-bottom: 15px; padding: 20px; border-radius: 5px;">
+            <h3 style="margin-bottom: 10px;">Szkolenie @Model[i].Name</h3>
+            <input type="hidden" id="editSzkolenie[@i].Id" name="editSzkolenie[@i].Id" value="@Model[i].Id">
+            <label for="editSzkolenie[@i].Name">Nazwa Szkolenia:</label>
+            <input type="text" id="editSzkolenie[@i].Name" name="editSzkolenie[@i].Name" value="@Model[i].Name" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+            <label for="editSzkolenie[@i].Price">Cena Szkolenia:</label>
+            <input type="text" id="editSzkolenie[@i].Price" name="editSzkolenie[@i].Price" value="@Model[i].Price" step="0.01" min="0" style="width: 100%; padding: 10px;">
+            <label for="editSzkolenie[@i].Category">Kategoria:</label>
+            <input type="text" id="editSzkolenie[@i].Category" name="editSzkolenie[@i].Category" value="@Model[i].Category" step="0.01" min="0" style="width: 100%; padding: 10px;">
+            <button type="submit" formaction="@Url.Action("Delete", new { id = Model[i].Id })" formmethod="post" class="btn btn-danger">Usuń</button>
+        </div>
+    }
+    <input type="submit" value="Zapisz" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+    @if (ViewBag.Success != null)
+    {
+        <div class="alert alert-success">
+            @ViewBag.Success
+        </div>
+    }
+</form>

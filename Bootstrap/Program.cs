@@ -14,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ISaveEmailToDbService, SaveEmailToDbService>();
 builder.Services.AddScoped<IEditCennik, EditCennikService>();
+builder.Services.AddScoped<IEditSzkolenie, EditSzkolenieService>();
 builder.Services.AddScoped<LoginService>();
 builder.Services.AddScoped<Bootstrap.Seeder.Seeder>();
 

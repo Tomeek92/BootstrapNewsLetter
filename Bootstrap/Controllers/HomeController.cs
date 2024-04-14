@@ -23,7 +23,7 @@ namespace Bootstrap.Controllers
         {
             return View();
         }
-
+       
        public IActionResult Cennik()
         {
             
@@ -40,6 +40,21 @@ namespace Bootstrap.Controllers
             }
 
             return View(uslugi);
+        }
+        [Route("Szkolenia")]
+        public IActionResult Szkolenia()
+        {
+            List<SzkoleniaModel> szkolenia = new List<SzkoleniaModel>();
+            try
+            {
+                szkolenia = _context.SzkoleniaModels.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                ViewBag.Error = "Wystąpił problem podczas ładowania cennika spróbuj ponownie później";
+            }
+            return View(szkolenia);
         }
         public IActionResult Omnie()
         {

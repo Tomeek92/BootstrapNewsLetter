@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace Bootstrap.Models.Admin
 {
-   
+
     public class AccountAdmin : IdentityUser
     {
         [Key]

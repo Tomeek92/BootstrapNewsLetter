@@ -13,7 +13,7 @@ namespace Bootstrap.Service
             _userManager = userManager;
             _signInManager = signInManager; 
         }
-        public async Task<AccountAdmin> FindByNameAsync(string loginName)
+        public async Task<AccountAdmin?> FindByNameAsync(string loginName)
         {
             return await _userManager.FindByNameAsync(loginName);
         }

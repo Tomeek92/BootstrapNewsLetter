@@ -1,12 +1,10 @@
-using Bootstrap.Service.Interface;
-using Bootstrap.Service;
 using Bootstrap;
-using Microsoft.EntityFrameworkCore;
 using Bootstrap.Models.Admin;
-using Microsoft.AspNetCore.Identity;
-using static System.Formats.Asn1.AsnWriter;
 using Bootstrap.Seeder;
-using Bootstrap.Models.PriceNameEdit;
+using Bootstrap.Service;
+using Bootstrap.Service.Interface;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 

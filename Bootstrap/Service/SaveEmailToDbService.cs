@@ -13,29 +13,22 @@ namespace Bootstrap.Service
         public void SaveEmailToDb(UsersEmailModel usersEmail)
         {
             _context.Add(usersEmail);
-            _context.SaveChanges();
-            
+            _context.SaveChanges();  
         }
         public List<string> ShowUsersEmail()
         {
-            
             var users = _context.Users.ToList();
 
-           
             List<string> emails = new List<string>();
 
-          
             foreach (var user in users)
             {
                 emails.Add(user.Email); 
             }
-
-          
             return emails;
         }
         public void DeleteEmailFromDb(UsersEmailModel userEmail)
         {
-
                 _context.Users.Remove(userEmail);
                 _context.SaveChanges();
         }

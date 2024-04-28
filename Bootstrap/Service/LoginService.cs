@@ -17,17 +17,14 @@ namespace Bootstrap.Service
         {
             return await _userManager.FindByNameAsync(loginName);
         }
-
         public async Task<bool> IsUserLockedOutAsync(AccountAdmin user)
         {
             return await _userManager.IsLockedOutAsync(user);
         }
-
         public async Task<SignInResult> TryLoginAsync(string loginName, string password)
         {
             return await _signInManager.PasswordSignInAsync(loginName, password, false, true);
         }
-
         public async Task LockUserAccountAsync(AccountAdmin user)
         {
             await _userManager.SetLockoutEndDateAsync(user, DateTimeOffset.UtcNow.AddMinutes(5));

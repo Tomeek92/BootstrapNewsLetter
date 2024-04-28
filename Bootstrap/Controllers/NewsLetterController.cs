@@ -22,21 +22,16 @@ namespace Bootstrap.Controllers
             try
             {
                 _saveAndDeleteEmailToDbService.SaveEmailToDb(usersEmail);
-                ViewBag.Message = "Twój e-mail został zapisany do News letter!";
+                
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-
-                ViewBag.Error = "Wystąpił nieoczekiwany problem zapisu e-mail";
-                
+                Console.WriteLine(ex.Message); 
             }
-          
-            return View("Index");
+            return RedirectToAction("Index", "Home");
         }
         public IActionResult Index()
         {
-            ViewBag.CurrentPage = "Newsletter";
             return View();
         }
         [HttpGet]

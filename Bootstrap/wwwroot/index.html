@@ -44,25 +44,25 @@
                     </div>
                 </div>
             </a>
-                <div class="card" onclick="location.href='Szkolenia';">
-                        <img src="https://i.ibb.co/DL1K7Sy/IMG-5137.jpg" alt="about course" class="img-home2">
+            <div class="card" onclick="location.href='Szkolenia';">
+                <img src="https://i.ibb.co/DL1K7Sy/IMG-5137.jpg" alt="about course" class="img-home2">
+                <div class="card-content">
+                    <h3>Szkolenia</h3>
+                    <p>sprawdź dostępne szkolenia</p>
+                </div>
+            </div>
+            <a href="../Home/Cennik">
+                <div class="card">
+                    <img src="https://i.ibb.co/fxGNqGy/IMG-3126.jpg" alt="about price" class="img-home3">
                     <div class="card-content">
-                        <h3>Szkolenia</h3>
-                        <p>sprawdź dostępne szkolenia</p>
+                        <h3>Usługi</h3>
+                        <p>Sprawdź moje usługi</p>
                     </div>
                 </div>
-                <a href="../Home/Cennik">
-                    <div class="card">
-                        <img src="https://i.ibb.co/fxGNqGy/IMG-3126.jpg" alt="about price" class="img-home3">
-                        <div class="card-content">
-                            <h3>Usługi</h3>
-                            <p>Sprawdź moje usługi</p>
-                        </div>
-                    </div>
-                </a>
+            </a>
         </div>
     </section>
-
+ 
     <footer>
         <ul class="socialMedia">
             <h3 class="footer-section">Media społecznościowe</h3>
@@ -106,10 +106,10 @@
                 <li><a id="regulaminLink" href="#" style="text-decoration:none;">Regulamin</a></li>
                 <li><a href="#" style="text-decoration:none;">Zapisz się na wizytę!</a></li>
             </ul>
-        </div>
+        </div>   
         <div class="newsletter-section">
             <h3>Newsletter</h3>
-            <p>Bądź na bierząco i zapisz się!</p>
+            <p>Bądź na bieżąco i zapisz się!</p>
             <form method="post" action="/NewsLetter/SaveEmailToDb" class="input-type">
                 <input type="email" id="emailUser" name="emailUser" placeholder="Enter your email" class="email-newsletter">
                 <button type="submit">Zapisz się!</button>
@@ -117,6 +117,7 @@
         </div>
 
     </footer>
+    <div id="message"></div>
     <div id="regulaminModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -162,44 +163,43 @@
         </div>
     </div>
     <script>
-     document.addEventListener('DOMContentLoaded', function () {
-         // Funkcja otwierająca modal
-         function openModal() {
-             regulaminModal.style.display = 'block';
-         }
+        document.addEventListener('DOMContentLoaded', function () {
+            // Funkcja otwierająca modal
+            function openModal() {
+                regulaminModal.style.display = 'block';
+            }
 
-         // Funkcja zamykająca modal
-         function closeModal() {
-             regulaminModal.style.display = 'none';
-         }
+            // Funkcja zamykająca modal
+            function closeModal() {
+                regulaminModal.style.display = 'none';
+            }
 
-         // Pobranie linku do otwierania modala
-         var regulaminLink = document.getElementById('regulaminLink');
-         // Pobranie modala
-         var regulaminModal = document.getElementById('regulaminModal');
-         // Pobranie przycisku zamknięcia modala
-         var closeButton = regulaminModal.querySelector('.close');
+            // Pobranie linku do otwierania modala
+            var regulaminLink = document.getElementById('regulaminLink');
+            // Pobranie modala
+            var regulaminModal = document.getElementById('regulaminModal');
+            // Pobranie przycisku zamknięcia modala
+            var closeButton = regulaminModal.querySelector('.close');
 
-         // Obsługa kliknięcia na linku do otwierania modala
-         regulaminLink.addEventListener('click', function (event) {
-             event.preventDefault(); // Zapobiegamy domyślnej akcji linku
-             openModal(); // Wywołujemy funkcję otwierającą modal
-         });
+            // Obsługa kliknięcia na linku do otwierania modala
+            regulaminLink.addEventListener('click', function (event) {
+                event.preventDefault(); // Zapobiegamy domyślnej akcji linku
+                openModal(); // Wywołujemy funkcję otwierającą modal
+            });
 
-         // Obsługa kliknięcia na przycisku zamknięcia modala
-         closeButton.addEventListener('click', function () {
-             closeModal(); // Wywołujemy funkcję zamykającą modal
-         });
+            // Obsługa kliknięcia na przycisku zamknięcia modala
+            closeButton.addEventListener('click', function () {
+                closeModal(); // Wywołujemy funkcję zamykającą modal
+            });
 
-         // Obsługa kliknięcia poza modalem, aby go zamknąć
-         window.addEventListener('click', function (event) {
-             if (event.target === regulaminModal) {
-                 closeModal(); // Wywołujemy funkcję zamykającą modal
-             }
-         });
-     });
+            // Obsługa kliknięcia poza modalem, aby go zamknąć
+            window.addEventListener('click', function (event) {
+                if (event.target === regulaminModal) {
+                    closeModal(); // Wywołujemy funkcję zamykającą modal
+                }
+            });
+        });
     </script>
 </body>
 
 </html>
-S

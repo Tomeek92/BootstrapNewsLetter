@@ -13,28 +13,27 @@ namespace Bootstrap.Service
         }
         public void Edit(List<UslugiCennikModel> editUslugi)
         {
-            foreach (var usluga in editUslugi)
-            {
-                var dbUsluga = _context.UslugiCennikModels.FirstOrDefault(u => u.Id == usluga.Id);
-                if (dbUsluga != null)
-                {
-                    dbUsluga.Price = usluga.Price;
-                    dbUsluga.Name = usluga.Name;
-                    dbUsluga.Category = usluga.Category;
-                }
-                else
-                {
-                    Console.WriteLine("Nieoczekiwany błąd");
-                }
-            }
             try
             {
+                foreach (var usluga in editUslugi)
+                {
+                    var dbUsluga = _context.UslugiCennikModels.FirstOrDefault(u => u.Id == usluga.Id);
+                    if (dbUsluga != null)
+                    {
+                        dbUsluga.Price = usluga.Price;
+                        dbUsluga.Name = usluga.Name;
+                        dbUsluga.Category = usluga.Category;
+                    }
+                    else
+                    {
+                        throw new Exception("Nieoczekiwany błąd: Nie znaleziono usługi o ID: " + usluga.Id);
+                    }
+                }
                 _context.SaveChanges();
-                
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message); 
+                throw new Exception("Błąd podczas zapisu do bazy danych: " + ex.Message);
             }
         }
     }

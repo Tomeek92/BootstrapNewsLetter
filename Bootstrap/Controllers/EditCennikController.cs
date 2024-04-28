@@ -54,10 +54,8 @@ namespace Bootstrap.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    
                     _bootstrapDbContext.UslugiCennikModels.Add(product);
                     _bootstrapDbContext.SaveChanges();
-
                     ViewBag.Success = "Dodano nową usługę!";
                     return RedirectToAction("EditCennik", "EditCennik");
                 }
@@ -90,7 +88,6 @@ namespace Bootstrap.Controllers
             try
             {
                 var elementDoUsuniecia = _bootstrapDbContext.UslugiCennikModels.Find(Id);
-
                 if (elementDoUsuniecia == null)
                 {
                     return NotFound();

@@ -1,7 +1,5 @@
 ﻿using Bootstrap.Models.Admin;
-
 using Bootstrap.Service;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,105 +16,76 @@ namespace Bootstrap.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-      
+  
         [HttpPost]
         public async Task<IActionResult> Register(Register registerUser)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(registerUser);
-            }
-            var newUser = new AccountAdmin
-            {
-                AdminEmail = registerUser.UserEmail,
-                AdminName = registerUser.UserName,
-                UserName = registerUser.UserName
-            };
-
-            IdentityResult createResult = null;
             try
             {
-                createResult = await _userManager.CreateAsync(newUser, registerUser.Password);
+                if (!ModelState.IsValid)
+                    return View(registerUser);
+
+                var newUser = new AccountAdmin
+                {
+                    AdminEmail = registerUser.UserEmail,
+                    AdminName = registerUser.UserName,
+                    UserName = registerUser.UserName
+                };
+
+                IdentityResult createResult = await _userManager.CreateAsync(newUser, registerUser.Password);
+
+                if (!createResult.Succeeded)
+                {
+                    foreach (var error in createResult.Errors)
+                    {
+                        System.Diagnostics.Debug.WriteLine(error.Description);
+                    }
+                    return View(registerUser);
+                }
+                return RedirectToAction("Register", "AccountLoginAdminOnly");
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                ViewData["ErrorMessage"] = "Nieoczekiwany błąd podczas tworzenia użytkownika";
+                ViewData["ErrorMessage"] = "Nieoczekiwany błąd podczas rejestracji użytkownika: " + ex.Message;
                 return View(registerUser);
             }
-
-            if (!createResult.Succeeded)
-            {
-                foreach (var error in createResult.Errors)
-                {
-                    System.Diagnostics.Debug.WriteLine(error.Description);
-                }
-                return View(registerUser);
-            }
-
-            return RedirectToAction("Register", "AccountLoginAdminOnly");
         }
         [HttpPost]
         public async Task<IActionResult> Login(Login login)
         {
-            AccountAdmin user = null;
             try
             {
-                user = await _loginService.FindByNameAsync(login.LoginName);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                ViewData["ErrorMessage"] = "Nieoczekiwany błąd podczas wyszukiwania użytkownika";
-                return View(login);
-            }
+                AccountAdmin user = await _loginService.FindByNameAsync(login.LoginName);
 
-            if (user != null)
-            {
-                bool isLockedOut = false;
-                try
+                if (user != null)
                 {
-                    isLockedOut = await _loginService.IsUserLockedOutAsync(user);
+                    bool isLockedOut = await _loginService.IsUserLockedOutAsync(user);
+
+                    if (isLockedOut)
+                    {
+                        ViewData["ErrorMessage"] = "Twoje konto zostało zablokowane. Spróbuj ponownie za kilka minut.";
+                        return View(login);
+                    }
                 }
-                catch (Exception ex)
+                var result = await _loginService.TryLoginAsync(login.LoginName, login.Password);
+
+                if (result.Succeeded)
                 {
-                    Console.WriteLine(ex.Message);
-                    ViewData["ErrorMessage"] = "Nieoczekiwany błąd podczas sprawdzania statusu blokady konta";
+                    ViewData["SuccessMessage"] = "Logowanie udane!";
                     return View(login);
                 }
-
-                if (isLockedOut)
+                else
                 {
-                    ViewData["ErrorMessage"] = "Twoje konto zostało zablokowane. Spróbuj ponownie za kilka minut.";
+                    ModelState.AddModelError(string.Empty, "Nieprawidłowy login lub hasło.");
+                    ViewData["ErrorMessage"] = "Nieprawidłowy login lub hasło.";
                     return View(login);
                 }
             }
-
-            var result = Microsoft.AspNetCore.Identity.SignInResult.Failed;
-            try
-            {
-                result = await _loginService.TryLoginAsync(login.LoginName, login.Password);
-            }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                ViewData["ErrorMessage"] = "Nieoczekiwany błąd podczas próby logowania";
-                return View(login);
-            }
-
-            if (result.Succeeded)
-            {
-                ViewData["SuccessMessage"] = "Logowanie udane!";
-                return View(login);
-            }
-            else
-            {
-                ModelState.AddModelError(string.Empty, "Nieprawidłowy login lub hasło.");
-                ViewData["ErrorMessage"] = "Nieprawidłowy login lub hasło.";
-                return View(login);
+                throw new Exception("Błąd logowania: " + ex.Message);
             }
         }
-
         public IActionResult Login()
         {
             return View();
@@ -135,14 +104,12 @@ namespace Bootstrap.Controllers
             }
             return RedirectToAction("Login", "AccountLoginAdminOnly");
         }
-     
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
     }
-
 }
 
 

@@ -1,7 +1,5 @@
-﻿using Bootstrap.Models;
-using Bootstrap.Models.PriceNameEdit;
+﻿using Bootstrap.Models.PriceNameEdit;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace Bootstrap.Controllers
 {
@@ -13,30 +11,24 @@ namespace Bootstrap.Controllers
         {
             _context = context;
         }
-
         public IActionResult Index()
         {
             return View();
         }
-
         public IActionResult Privacy()
         {
             return View();
         }
-       
        public IActionResult Cennik()
         {
-            
             List<UslugiCennikModel> uslugi = new List<UslugiCennikModel>();
-
             try
             {
                 uslugi = _context.UslugiCennikModels.ToList();
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                ViewBag.Error = "Wystąpił problem podczas ładowania cennika spróbuj ponownie później";
+                throw new Exception("Wystąpił problem podczas ładowania cennika spróbuj ponownie później " + ex.Message);
             }
 
             return View(uslugi);
@@ -51,8 +43,7 @@ namespace Bootstrap.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                ViewBag.Error = "Wystąpił problem podczas ładowania cennika spróbuj ponownie później";
+                throw new Exception("Wystąpił problem podczas ładowania cennika spróbuj ponownie później " + ex.Message);
             }
             return View(szkolenia);
         }

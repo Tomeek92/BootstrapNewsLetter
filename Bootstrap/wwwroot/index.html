@@ -162,44 +162,9 @@
             </p>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Funkcja otwierająca modal
-            function openModal() {
-                regulaminModal.style.display = 'block';
-            }
-
-            // Funkcja zamykająca modal
-            function closeModal() {
-                regulaminModal.style.display = 'none';
-            }
-
-            // Pobranie linku do otwierania modala
-            var regulaminLink = document.getElementById('regulaminLink');
-            // Pobranie modala
-            var regulaminModal = document.getElementById('regulaminModal');
-            // Pobranie przycisku zamknięcia modala
-            var closeButton = regulaminModal.querySelector('.close');
-
-            // Obsługa kliknięcia na linku do otwierania modala
-            regulaminLink.addEventListener('click', function (event) {
-                event.preventDefault(); // Zapobiegamy domyślnej akcji linku
-                openModal(); // Wywołujemy funkcję otwierającą modal
-            });
-
-            // Obsługa kliknięcia na przycisku zamknięcia modala
-            closeButton.addEventListener('click', function () {
-                closeModal(); // Wywołujemy funkcję zamykającą modal
-            });
-
-            // Obsługa kliknięcia poza modalem, aby go zamknąć
-            window.addEventListener('click', function (event) {
-                if (event.target === regulaminModal) {
-                    closeModal(); // Wywołujemy funkcję zamykającą modal
-                }
-            });
-        });
-    </script>
+    <script src="js/modal.js"></script>
+       
+    
 </body>
 
 </html>

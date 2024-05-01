@@ -40,9 +40,7 @@ namespace Bootstrap.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-
                 ViewBag.Error = "Nieoczekiwany błąd podczas pobierania listy usług";
-
                 return View(new List<UslugiCennikModel>());
             }
         }
@@ -58,18 +56,6 @@ namespace Bootstrap.Controllers
                     _bootstrapDbContext.SaveChanges();
                     ViewBag.Success = "Dodano nową usługę!";
                     return RedirectToAction("EditCennik", "EditCennik");
-                }
-                else
-                {
-                    var errors = ModelState
-                        .Where(x => x.Value.Errors.Count > 0)
-                        .Select(x => new { x.Key, x.Value.Errors })
-                        .ToArray();
-
-                    foreach (var error in errors)
-                    {
-                        Console.WriteLine($"Key: {error.Key}, Errors: {string.Join(",", error.Errors.Select(e => e.ErrorMessage))}");
-                    }
                 }
             }
             catch (DataException)
@@ -92,19 +78,14 @@ namespace Bootstrap.Controllers
                 {
                     return NotFound();
                 }
-
                 _bootstrapDbContext.UslugiCennikModels.Remove(elementDoUsuniecia);
                 _bootstrapDbContext.SaveChanges();
-
-                ViewBag.Success = "Usunięto!";
 
                 return RedirectToAction("EditCennik","EditCennik");
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                ViewBag.Error = "Nie udało się usunąć!";
-                return View("EditCennik");
+                throw new Exception("Nie udało się usunąc" + ex.Message);
             }
         }
         public IActionResult Delete()

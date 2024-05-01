@@ -16,7 +16,7 @@ namespace Bootstrap.Service
             {
                 foreach (var usluga in editSzkolenie)
                 {
-                    var dbUsluga = _context.UslugiCennikModels.FirstOrDefault(u => u.Id == usluga.Id);
+                    var dbUsluga = _context.SzkoleniaModels.FirstOrDefault(u => u.Id == usluga.Id);
                     if (dbUsluga != null)
                     {
                         dbUsluga.Price = usluga.Price;

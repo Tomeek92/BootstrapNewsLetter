@@ -22,11 +22,10 @@ namespace Bootstrap.Controllers
             try
             {
                 _saveAndDeleteEmailToDbService.SaveEmailToDb(usersEmail);
-                
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message); 
+                throw new Exception("Błąd zapisania e-mail" + ex.Message);
             }
             return RedirectToAction("Index", "Home");
         }
@@ -40,16 +39,13 @@ namespace Bootstrap.Controllers
         {
             try
             {
-                
                 var emails = _saveAndDeleteEmailToDbService.ShowUsersEmail();
-               
-
                 return View(emails); 
             }
             catch (Exception ex)
             {
-               
-                return StatusCode(500, "Wystąpił błąd podczas pobierania adresów email użytkowników. Szczegóły błędu: " + ex.Message);
+
+                throw new Exception("Błąd pobierania zapisanych e-mail" + ex.Message);
             }
         }
         [HttpPost]
@@ -63,12 +59,10 @@ namespace Bootstrap.Controllers
                     return NotFound();
                 }
                 _saveAndDeleteEmailToDbService.DeleteEmailFromDb(elementDoUsuniecia);
-             
             }
             catch (Exception ex)
             {
-
-                return StatusCode(500, "Wystąpił błąd podczas pobierania adresów email użytkowników. Szczegóły błędu: " + ex.Message);
+                throw new Exception("Błąd usuniecia e-mail" + ex.Message);
             }
             return RedirectToAction("ShowUsersEmail");
         }

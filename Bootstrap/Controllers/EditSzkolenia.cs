@@ -33,11 +33,7 @@ namespace Bootstrap.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-
-                ViewBag.Error = "Nieoczekiwany błąd podczas pobierania listy usług";
-
-                return View(new List<SzkoleniaModel>());
+                throw new Exception("Nieoczekiwany błąd podczas pobierania listy usług" + ex.Message);
             }
         }
         [HttpPost]
@@ -53,18 +49,6 @@ namespace Bootstrap.Controllers
 
                     ViewBag.Success = "Dodano nowe Szkolenie!";
                     return RedirectToAction("EditSzkol", "EditSzkolenia");
-                }
-                else
-                {
-                    var errors = ModelState
-                        .Where(x => x.Value.Errors.Count > 0)
-                        .Select(x => new { x.Key, x.Value.Errors })
-                        .ToArray();
-
-                    foreach (var error in errors)
-                    {
-                        Console.WriteLine($"Key: {error.Key}, Errors: {string.Join(",", error.Errors.Select(e => e.ErrorMessage))}");
-                    }
                 }
             }
             catch (DataException)
@@ -83,24 +67,18 @@ namespace Bootstrap.Controllers
             try
             {
                 var elementDoUsuniecia = _db.SzkoleniaModels.Find(Id);
-
-                if (elementDoUsuniecia == null)
+                if (elementDoUsuniecia == null) 
                 {
                     return NotFound();
                 }
-
                 _db.SzkoleniaModels.Remove(elementDoUsuniecia);
                 _db.SaveChanges();
-
                 ViewBag.Success = "Usunięto!";
-
-                return RedirectToAction("EditCennik", "EditCennik");
+                return RedirectToAction("EditSzkol", "EditSzkolenia");
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                ViewBag.Error = "Nie udało się usunąć!";
-                return View("EditSzkol");
+               throw new Exception("Nie udało się usunąć" + ex);
             }
         }
         public IActionResult Delete()

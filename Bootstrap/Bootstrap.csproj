@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\startInTopList.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\Szkolenia.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\startInTopList.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +29,10 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Films and photos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\startInTopList.js" />
   </ItemGroup>
 
 </Project>

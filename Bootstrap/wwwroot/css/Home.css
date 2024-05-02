@@ -426,6 +426,7 @@ button {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
+
 }
 
 .modal-content {
@@ -436,6 +437,8 @@ button {
     width: 70%;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: black;
+    font-family: 'Poppins', sans-serif;
 }
 
 .close {

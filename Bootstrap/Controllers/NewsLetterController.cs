@@ -1,4 +1,5 @@
-﻿using Bootstrap.Models.UsersEmail;
+﻿
+using Bootstrap.Models.UsersEmail;
 using Bootstrap.Service.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -22,12 +23,13 @@ namespace Bootstrap.Controllers
             try
             {
                 _saveAndDeleteEmailToDbService.SaveEmailToDb(usersEmail);
+                TempData["SuccessMessage"] = "Zostałeś zapisany!";
+                return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             {
                 throw new Exception("Błąd zapisania e-mail" + ex.Message);
             }
-            return RedirectToAction("Index", "Home");
         }
         public IActionResult Index()
         {

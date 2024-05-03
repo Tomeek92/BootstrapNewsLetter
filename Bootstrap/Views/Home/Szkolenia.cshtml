@@ -454,10 +454,14 @@
         <div class="newsletter-section">
             <h3>Newsletter</h3>
             <p>Bądź na bieżąco i zapisz się!</p>
-            <form method="post" action="/NewsLetter/SaveEmailToDb" class="input-type">
+            <form method="post" action="/NewsLetter/SaveEmailToDb" class="input-type" id="newsletterForm">
                 <input type="email" id="emailUser" name="emailUser" placeholder="Enter your email" class="email-newsletter">
                 <button class="button-newsletter"type="submit">Zapisz się!</button>
             </form>
+            <div id="toastMessage" class="toast-message hidden">
+                <span id="toastText">Zostałeś zapisany!</span>
+                <button id="closeToast">&times;</button>
+            </div>
         </div>
 
     </footer>
@@ -508,6 +512,7 @@
     </div>
     <script src="~/js/startInTopList.js"></script>
     <script src="~/js/modal.js"></script>
+    <script src="~/js/SuccessToDbNewsLetter.js"></script>
 
 </body>
 

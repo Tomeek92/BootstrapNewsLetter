@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/Home.css">
 </head>
 
-<body>
+  <body>
     <header>
         <img src="https://i.ibb.co/ky9qsdV/logo-znak-wodny-bia-y.png" alt="logo-home" class="logo-home">
         <br>
@@ -106,16 +106,19 @@
                 <li><a id="regulaminLink" href="#" style="text-decoration:none;">Regulamin</a></li>
                 <li><a href="#" style="text-decoration:none;">Zapisz się na wizytę!</a></li>
             </ul>
-        </div>   
+        </div>
         <div class="newsletter-section">
             <h3>Newsletter</h3>
             <p>Bądź na bieżąco i zapisz się!</p>
-            <form method="post" action="/NewsLetter/SaveEmailToDb" class="input-type">
+            <form method="post" action="/NewsLetter/SaveEmailToDb" class="input-type" id="newsletterForm">
                 <input type="email" id="emailUser" name="emailUser" placeholder="Enter your email" class="email-newsletter">
                 <button type="submit">Zapisz się!</button>
             </form>
+            <div id="toastMessage" class="toast-message hidden">
+                <span id="toastText">Zostałeś zapisany!</span>
+                <button id="closeToast">&times;</button>
+            </div>
         </div>
-
     </footer>
     <div id="message"></div>
     <div id="regulaminModal" class="modal">
@@ -163,8 +166,10 @@
         </div>
     </div>
     <script src="js/modal.js"></script>
+    <script src="js/SuccessToDbNewsLetter.js"></script>
+  
        
     
-</body>
+   </body>
 
 </html>

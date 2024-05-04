@@ -168,12 +168,15 @@ footer {
         background-color: #a3a3a3;
     }
 
-.footer-section, a {
+.footer-section, a  {
     line-height: 1.6;
     color: #a3a3a3;
     max-width: 50rem;
     margin: 0 auto;
     font-size: clamp(0.9rem, 0.825rem + 0.3vw, 1.2rem);
+}
+.important-links a {
+    font-weight:400;
 }
 
     .footer-section h3 {
@@ -185,6 +188,7 @@ footer {
     .footer-section ul {
         list-style: none;
         padding: 0;
+
     }
 
         .footer-section ul li {
@@ -251,6 +255,7 @@ footer {
 
     .newsletter-section p {
         margin-bottom: 20px;
+        font-weight:400;
     }
 
 .email-newsletter {

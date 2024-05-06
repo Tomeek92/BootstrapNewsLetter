@@ -2,9 +2,6 @@
     Layout = null;
 }
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,8 +20,7 @@
       <br />
       <br />
       <br />
-      <br />
-      <div class="container lime pullUp">
+      <div class="containerr lime pullUp">
         <a href="../index.html">STRONA GŁÓWNA</a>
         <a href="/Home/Cennik">USŁUGI</a>
         <a href="/Szkolenia">SZKOLENIA</a>
@@ -34,45 +30,20 @@
     </header>
     <br />
     <br />
-    <div class="slider-content">
-      <div class="header-wrapper">
-        <div class="header">
-          <div class="logo-wrapper"></div>
-          <div class="shop-wrapper"></div>
-        </div>
-      </div>
+    <div class="container">
+        <div class="text">
+            <h2>Marcelina Fryckowska</h2>
+            <span class="subtitle">Instruktorka Stylistka rzęs i brwi</span>
+            <br />
+            <p class="excerpt">
+                Od 2016 roku jestem aktywnie zaangażowana w branżę beauty. Moja przygoda rozpoczęła się jako stylistka rzęs. Z ambicją i determinacją rozwijałam swoją karierę wielokrotnie zdobywając podium na mistrzostwach stylizacji rzęs oraz osiągając poziom instruktora. Wraz z rosnącym doświadczeniem zostałam sędzią na mistrzostwach, prelegentem oraz organizatorem takich wydarzeń.
 
-      <div class="number-wrapper">
-        <div class="number-count">
-          <div class="number">MF</div>
+                W dziedzinie makijażu permanentnego zaczęłam działać od 2022 roku, a szczególne miejsce w moim sercu zajmuje pigmentacja ust.
+            </p>
         </div>
-      </div>
-      <div class="slider-wrapper">
-        <div class="slider-container">
-          <div class="slide active" data-order="1">
-            <div class="slide-content txt">
-              <div class="txt-wrapper">
-                <h2>Marcelina Fryckowska</h2>
-                <span class="subtitle">Stylista rzęs</span>
-                <p class="excerpt">
-                  Od 2016 roku jestem aktywnie zaangażowana w branżę beauty.
-                  Moja przygoda rozpoczęła się jako stylistka rzęs. Z ambicją i
-                  determinacją rozwijałam swoją karierę wielokrotnie zdobywajac
-                  podium na mistrzostwach stylizacji rzęs oraz osiągając poziom
-                  instruktora. W raz z rosnacym doświdczeniem zostałam sędzią na
-                  mistrzostwach, prelegentem oraz organizatorem takich wydarzeń.
-                  W dziedzinie makijażu permanentnego zaczęłam działać od 2022
-                  roku, a szczególne miejsce w moim sercu zajmuje pigmentacja
-                  ust.
-                </p>
-              </div>
-            </div>
-            <div class="slide-content img">
-              <img src="https://i.ibb.co/5hK20Jc/IMG-5143.jpg" alt="" />
-            </div>
-          </div>
+        <div class="image">
+            <img src="https://i.ibb.co/5hK20Jc/IMG-5143.jpg" alt="Marcelina Fryckowska">
         </div>
-      </div>
     </div>
     <footer>
         <ul class="socialMedia">
@@ -112,7 +83,7 @@
         </ul>
         <div class="footer-section">
             <h3>Ważne linki</h3>
-            <ul class="important-links">
+            <ul>
                 <li><a href="../index.html" style="text-decoration:none;">Strona główna</a></li>
                 <li><a id="regulaminLink" href="#" style="text-decoration:none;">Regulamin</a></li>
                 <li><a href="https://booksy.com/pl-pl/" style="text-decoration:none;">Zapisz się na wizytę!</a></li>
@@ -123,7 +94,7 @@
             <p>Bądź na bieżąco i zapisz się!</p>
             <form method="post" action="/NewsLetter/SaveEmailToDb" class="input-type" id="newsletterForm">
                 <input type="email" id="emailUser" name="emailUser" placeholder="Enter your email" class="email-newsletter">
-                <button class="button-newsletter" type="submit">Zapisz się!</button>
+                <button type="submit">Zapisz się!</button>
             </form>
             <div id="toastMessage" class="toast-message hidden">
                 <span id="toastText">Zostałeś zapisany!</span>

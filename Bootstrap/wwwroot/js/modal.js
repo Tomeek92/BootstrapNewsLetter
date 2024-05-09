@@ -1,31 +1,40 @@
 ﻿
-    document.addEventListener('DOMContentLoaded', function () {
-        var regulaminLink = document.getElementById('regulaminLink'),
-            regulaminModal = document.getElementById('regulaminModal'),
-            closeButton = regulaminModal.querySelector('.close');
+var modals = document.querySelectorAll('.modal');
 
-        function openModal() {
-            regulaminModal.style.display = 'block';
-        }
 
-        function closeModal() {
-            regulaminModal.style.display = 'none';
-        }
+var closeButtons = document.querySelectorAll('.close');
 
-        regulaminLink.addEventListener('click', function (event) {
-            event.preventDefault();
-            openModal();
-        });
 
-        closeButton.addEventListener('click', function () {
-            closeModal();
-        });
+document.getElementById('regulaminLink').addEventListener('click', function () {
+    modals[0].style.display = "block";
+});
 
-        window.addEventListener('click', function (event) {
-            if (event.target === regulaminModal) {
-                closeModal();
-            }
-        });
+document.getElementById('regulaminLink1').addEventListener('click', function () {
+    modals[1].style.display = "block";
+});
+
+document.getElementById('regulaminLink2').addEventListener('click', function () {
+    modals[2].style.display = "block";
+});
+
+document.getElementById('regulaminLink3').addEventListener('click', function () {
+    modals[3].style.display = "block";
+});
+
+// Obsługa kliknięcia na przyciskach zamknięcia
+for (var i = 0; i < closeButtons.length; i++) {
+    closeButtons[i].addEventListener('click', function () {
+        this.parentElement.parentElement.style.display = "none";
     });
+}
+
+
+window.onclick = function (event) {
+    for (var i = 0; i < modals.length; i++) {
+        if (event.target == modals[i]) {
+            modals[i].style.display = "none";
+        }
+    }
+}
 
 

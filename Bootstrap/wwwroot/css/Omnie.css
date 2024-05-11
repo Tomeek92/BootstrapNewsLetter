@@ -215,6 +215,9 @@ button {
     color: black;
     font-family: 'Poppins', sans-serif;
 }
+    .modal-content ul {
+        list-style-type: disc;
+    }
 
 .close {
     color: #aaa;

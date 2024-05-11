@@ -15,6 +15,11 @@ namespace Bootstrap.Service
             _context.Add(usersEmail);
             _context.SaveChanges();  
         }
+        public bool UserExisting(string userEmail)
+        {
+            var existingEmail = _context.Users.FirstOrDefault(x => x.Email == userEmail);
+            return existingEmail != null;
+        }
         public List<string> ShowUsersEmail()
         {
             var users = _context.Users.ToList();

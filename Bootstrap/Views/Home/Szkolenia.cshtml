@@ -6,14 +6,10 @@
 <html lang="en">
 
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="~/css/Szkolenia.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szkolenia</title>
 </head>
 
 <body>
@@ -33,7 +29,7 @@
         <source src="~/BodyMovie.mp4" type="video/mp4">
         Twoja przeglądarka nie obsługuje tagu video.
     </video>
-    <button class="accordion">Szkolenie z Laminacja brwi<span class="icon"></span></button>
+    <button class="accordion" type="button">Szkolenie z Laminacja brwi<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie1"))
       {
@@ -77,7 +73,7 @@
         </ul>
       }
     </div>
-    <button class="accordion">Szkolenie z Laminacja rzęs<span class="icon"></span></button>
+    <button type="button" class="accordion">Szkolenie z Laminacja rzęs<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie2"))
        {
@@ -116,7 +112,7 @@
         </ul>
        }
     </div>
-    <button class="accordion">Szkolenie Basic 1:1<span class="icon"></span></button>
+    <button class="accordion" type="button">Szkolenie Basic 1:1<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie3"))
         {
@@ -179,7 +175,7 @@
         </ul>
         }
     </div>
-    <button class="accordion">Szkolenie Liight Volume – Volume Beginner<span class="icon"></span></button>
+    <button class="accordion" type="button">Szkolenie Liight Volume – Volume Beginner<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie4"))
         {
@@ -243,7 +239,7 @@
         </ul>
         }
     </div>
-    <button class="accordion">Szkolenie Combo 1:1 + Light Volume 2/5D<span class="icon"></span></button>
+    <button class="accordion" type="button">Szkolenie Combo 1:1 + Light Volume 2/5D<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie5"))
         {
@@ -319,7 +315,7 @@
         </ul>
         }
     </div>
-    <button class="accordion">Szkolenie MEGA VOLUME – VOLUME MASTER<span class="icon"></span></button>
+    <button class="accordion" type="button">Szkolenie MEGA VOLUME – VOLUME MASTER<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie6"))
         {
@@ -362,7 +358,7 @@
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
         }
     </div>
-    <button class="accordion">Szkolenie MASTER CLASS<span class="icon"></span></button>
+    <button class="accordion" type="button">Szkolenie MASTER CLASS<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie7"))
         {

@@ -22,7 +22,7 @@ document.getElementById('regulaminLink3').addEventListener('click', function () 
 });
 
 // Obsługa kliknięcia na przyciskach zamknięcia
-for (var i = 0; i < closeButtons.length; i++) {
+for (let i = 0; i < closeButtons.length; i++) {
     closeButtons[i].addEventListener('click', function () {
         this.parentElement.parentElement.style.display = "none";
     });
@@ -30,9 +30,9 @@ for (var i = 0; i < closeButtons.length; i++) {
 
 
 window.onclick = function (event) {
-    for (var i = 0; i < modals.length; i++) {
-        if (event.target == modals[i]) {
-            modals[i].style.display = "none";
+    for (let a = 0; a < modals.length; a++) {
+        if (event.target == modals[a]) {
+            modals[a].style.display = "none";
         }
     }
 }

@@ -7,6 +7,6 @@ namespace Bootstrap.Service.Interface
         public void SaveEmailToDb(UsersEmailModel usersEmail);
         List<string> ShowUsersEmail();
         public void DeleteEmailFromDb(UsersEmailModel usersEmail);
-        
+        public bool UserExisting(string userEmail);
     }
 }

@@ -22,13 +22,20 @@ namespace Bootstrap.Controllers
             usersEmail.Email = emailUser;
             try
             {
-                _saveAndDeleteEmailToDbService.SaveEmailToDb(usersEmail);
-                TempData["SuccessMessage"] = "Zostałeś zapisany!";
+                if (_saveAndDeleteEmailToDbService.UserExisting(emailUser))
+                {
+                    return StatusCode(400, "Użytkownik już istnieje!");
+                }
+                else
+                {
+                    _saveAndDeleteEmailToDbService.SaveEmailToDb(usersEmail);
+                    
+                }
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             {
-                throw new Exception("Błąd zapisania e-mail" + ex.Message);
+                return StatusCode(500, "Błąd zapisania e-mail" + ex.Message);
             }
         }
         public IActionResult Index()

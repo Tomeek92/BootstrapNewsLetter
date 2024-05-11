@@ -21,7 +21,13 @@
                 setTimeout(function () {
                     toastElement.classList.add("hidden");
                 }, 4000);
-            } else {
+            } else if (response.status === 400) {
+                var toastElement = document.getElementById("toastMessage");
+                var toastText = document.getElementById("toastText");
+                toastText.textContent = "Wystąpił błąd. Użytkownik już istnieje!";
+                toastElement.classList.remove("hidden");
+            }
+             else {
                 alert("Wystąpił błąd podczas zapisywania adresu e-mail.");
             }
         })

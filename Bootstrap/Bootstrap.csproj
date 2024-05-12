@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\menuHamburger.js" />
     <Content Remove="wwwroot\js\startInTopList.js" />
   </ItemGroup>
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\Szkolenia.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\menuHamburger.js" />
     <_ContentIncludedByDefault Remove="wwwroot\js\startInTopList.js" />
   </ItemGroup>
 
@@ -32,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\js\menuHamburger.js" />
     <None Include="wwwroot\js\startInTopList.js" />
   </ItemGroup>
 

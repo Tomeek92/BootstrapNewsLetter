@@ -3,7 +3,6 @@
 
 @media (max-width: 768px) {
     header,
-    .container-list,
     footer {
         display: block;
         width: 100%;
@@ -13,7 +12,7 @@
             width: 100%;
             margin: 0 auto;
         }
-
+   
     .cards {
         grid-template-columns: 1fr;
        
@@ -485,5 +484,27 @@ button {
     font-size: 20px;
     cursor: pointer;
 }
+.menu-list {
+    display: block;
+}
 
-   
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    color:white;
+    height:40px;
+}
+
+@media screen and (max-width: 787px) {
+    .menu-list {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-list a {
+        display: block;
+    }
+}

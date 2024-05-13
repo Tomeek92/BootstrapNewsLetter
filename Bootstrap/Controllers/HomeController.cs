@@ -5,7 +5,6 @@ namespace Bootstrap.Controllers
 {
     public class HomeController : Controller
     {
-        
         private readonly BootstrapDbContext _context;
         public HomeController(BootstrapDbContext context)
         {
@@ -19,7 +18,7 @@ namespace Bootstrap.Controllers
         {
             return View();
         }
-       public IActionResult Cennik()
+        public IActionResult Cennik()
         {
             List<UslugiCennikModel> uslugi = new List<UslugiCennikModel>();
             try

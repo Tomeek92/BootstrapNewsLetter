@@ -9,15 +9,10 @@ namespace Bootstrap
     public class BootstrapDbContext : IdentityDbContext<AccountAdmin>
     {
         public BootstrapDbContext(DbContextOptions<BootstrapDbContext> options) : base(options)
-        {
-
-        }
+        { }
         public DbSet<UsersEmailModel> Users { get; set; }
         public DbSet<AccountAdmin> AccountAdmins { get; set; }
         public DbSet<UslugiCennikModel> UslugiCennikModels { get; set; }
-        public DbSet<SzkoleniaModel> SzkoleniaModels { get;set; }
-
-        
+        public DbSet<SzkoleniaModel> SzkoleniaModels { get; set; }
     }
-    
 }

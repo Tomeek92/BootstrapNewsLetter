@@ -1,32 +1,32 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="~/css/Omnie.css" />
-  </head>
-  <body>
+</head>
+<body>
     <header>
-      <img
-        src="https://i.ibb.co/ky9qsdV/logo-znak-wodny-bia-y.png"
-        alt="logo-home"
-        class="logo-home"
-      />
-      <br />
-      <br />
-      <br />
-      <div class="containerr lime pullUp">
-        <a href="../index.html">STRONA GŁÓWNA</a>
-        <a href="/Home/Cennik">USŁUGI</a>
-        <a href="/Szkolenia">SZKOLENIA</a>
-        <a href="/Home/Index">KONTAKT</a>
-        <a href="https://booksy.com/pl-pl/">ZAPISZ SIĘ NA WIZYTĘ!</a>
-      </div>
+        <img src="https://i.ibb.co/ky9qsdV/logo-znak-wodny-bia-y.png"
+             alt="logo-home"
+             class="logo-home" />
+        <br />
+        <br />
+        <br />
+        <div class="containerr lime pullUp">
+            <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+            <div class="menu-list" id="menu-list">
+                <a href="../index.html">STRONA GŁÓWNA</a>
+                <a href="/Home/Cennik">USŁUGI</a>
+                <a href="/Szkolenia">SZKOLENIA</a>
+                <a href="/Home/Index">KONTAKT</a>
+                <a href="https://booksy.com/pl-pl/">ZAPISZ SIĘ NA WIZYTĘ!</a>
+            </div>
+        </div>
     </header>
     <br />
     <br />
@@ -85,7 +85,7 @@
             <h3>Ważne linki</h3>
             <ul>
                 <li><a href="../index.html" style="text-decoration:none;">Strona główna</a></li>
-                <li><a id="regulaminLink"  href="#" style="text-decoration:none;">Przeciwskazania do zabiegu pigmentacji</a></li>
+                <li><a id="regulaminLink" href="#" style="text-decoration:none;">Przeciwskazania do zabiegu pigmentacji</a></li>
                 <li><a id="regulaminLink1" href="#" style="text-decoration:none;">Przygotowanie się do zabiegu</a></li>
                 <li><a id="regulaminLink2" href="#" style="text-decoration:none;">Zalecenia po zabiegu pigmentacji brwi</a></li>
                 <li><a id="regulaminLink3" href="#" style="text-decoration:none;">Zalecenia po zabiegu pigmentacji ust</a></li>
@@ -149,19 +149,19 @@
             <p>W przypadku przyjęcia lub planowanego przyjęcia przez Panią/Pana szczepienia ochronnego, wykonanie zabiegu makijażu permanentnego będzie możliwe po upływie 30 dni od przyjęcia przez Panią/Pana ostatniej dawki szczepienia o ile co innego nie wynika z wyraźnych zaleceń przekazanych Pani/Panu przez lekarza dokonującego szczepienia lub punktu szczepień w którym to szczepienie było wykonane.</p>
         </div>
     </div>
-    
-        <div id="regulaminModal1" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h1>Przygotowanie się do zabiegu</h1>
 
-                <h2>Usta:</h2>
-                <p>Bardzo ważne jest, aby usta przed zabiegiem były odpowiednio nawilżone i wygładzone. Spierzchnięte i spękane słabiej przyjmują pigment. Zaleca się kilka dni przed zabiegiem wykonywanie peelingu ust i intensywne ich nawilżanie.</p>
+    <div id="regulaminModal1" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Przygotowanie się do zabiegu</h1>
 
-                <h2>Brwi:</h2>
-                <p>Najlepiej nie regulować brwi przed zabiegiem. Daje to możliwość doboru idealnego kształtu pigmentacji do naturalnej linii włosków brwi. Proszę 2 tygodnie przed zabiegiem nie robić henny. Jeśli skóra jest zbyt sucha, należy wykonać peeling enzymatyczny, drobnoziarnisty lub kawitacyjny oraz odpowiednio nawilżać (nie natłuszczać!). Tak przygotowana skóra lepiej chłonie pigment i pozwala na wykonanie precyzyjnego rysunku. Zaraz po pigmentacji niewskazane jest mycie włosów, dlatego warto o to zadbać przed zabiegiem.</p>
-            </div>
+            <h2>Usta:</h2>
+            <p>Bardzo ważne jest, aby usta przed zabiegiem były odpowiednio nawilżone i wygładzone. Spierzchnięte i spękane słabiej przyjmują pigment. Zaleca się kilka dni przed zabiegiem wykonywanie peelingu ust i intensywne ich nawilżanie.</p>
+
+            <h2>Brwi:</h2>
+            <p>Najlepiej nie regulować brwi przed zabiegiem. Daje to możliwość doboru idealnego kształtu pigmentacji do naturalnej linii włosków brwi. Proszę 2 tygodnie przed zabiegiem nie robić henny. Jeśli skóra jest zbyt sucha, należy wykonać peeling enzymatyczny, drobnoziarnisty lub kawitacyjny oraz odpowiednio nawilżać (nie natłuszczać!). Tak przygotowana skóra lepiej chłonie pigment i pozwala na wykonanie precyzyjnego rysunku. Zaraz po pigmentacji niewskazane jest mycie włosów, dlatego warto o to zadbać przed zabiegiem.</p>
         </div>
+    </div>
     <div id="regulaminModal2" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -188,7 +188,7 @@
             <p>Jest wiele czynników, które wpływają na trwałość pigmentacji. Kolor po roku może znacznie się rozjaśnić lub zmienić odcień. Klientkom, które wykonały u nas zabieg główny oraz dopigmentowanie, przysługuje rabat na odświeżenie koloru.</p>
             <p>W każdym momencie możesz skontaktować się z nami, aby dowiedzieć się do kiedy przysługuje zniżka. Zadbaj o swoje brwi, aby móc się nimi cieszyć przez długi czas.</p>
         </div>
-     </div>
+    </div>
     <div id="regulaminModal3" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -225,7 +225,8 @@
     <script src="~/js/modal.js"></script>
     <script src="~/js/SuccessToDbNewsLetter.js"></script>
     <script src="~/js/accordion.js"></script>
-  </body>
+    <script src="~/js/menuHamburger.js"></script>
+</body>
 </html>
 
 

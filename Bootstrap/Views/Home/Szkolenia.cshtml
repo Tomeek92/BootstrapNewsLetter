@@ -18,11 +18,14 @@
         <br>
         <br>
         <div class="container lime pullUp">
-            <a href="../index.html">STRONA GŁÓWNA</a>
-            <a href="/Home/Cennik">USŁUGI</a>
-            <a href="/Szkolenia">SZKOLENIA</a>
-            <a href="/Home/Index">KONTAKT</a>
-            <a href="https://booksy.com/pl-pl/">ZAPISZ SIĘ NA WIZYTĘ!</a>
+            <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+            <div class="menu-list" id="menu-list">
+                <a href="../index.html">STRONA GŁÓWNA</a>
+                <a href="/Home/Cennik">USŁUGI</a>
+                <a href="/Szkolenia">SZKOLENIA</a>
+                <a href="/Home/Index">KONTAKT</a>
+                <a href="https://booksy.com/pl-pl/">ZAPISZ SIĘ NA WIZYTĘ!</a>
+            </div>
         </div>
     </header>
     <video class="video-container" width="100%" height="600px" id="myVideo" autoplay muted onended="restartVideo()">
@@ -32,329 +35,378 @@
     <button class="accordion" type="button">Szkolenie z Laminacja brwi<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie1"))
-      {
-        <h1>Szkolenie z Laminacja brwi</h1>
-        <p><strong>Start:</strong> 9:00/10:00</p>
-        <p><strong>Zakończenie:</strong> 17:00/18:00</p>
-        <p><strong>Przerwa:</strong> 30min po wykonaniu modelki pokazowej przez instruktora.</p>
+        {
+            <h1>Szkolenie z Laminacja brwi</h1>
+            <p><strong>Start:</strong> 9:00/10:00</p>
+            <p><strong>Zakończenie:</strong> 17:00/18:00</p>
+            <p><strong>Przerwa:</strong> 30min po wykonaniu modelki pokazowej przez instruktora.</p>
 
-        <h2>Tematy omawiane w części teoretycznej:</h2>
-        <ul class="listOfSzkolenie1">
-            <li>TRWAŁA STYLIZACJA BRWI</li>
-            <li>PROCEDURA LAMINACJI</li>
-            <li>ZALECENIA PO ZABIEGU</li>
-            <li>WSKAZANIA</li>
-            <li>PRZECIWWSKAZANIA</li>
-            <li>BUDOWA BRWI I DOBÓR KSZTAŁTU</li>
-            <li>FARBOWANIE BRWI</li>
-            <li>TECHNIKA NAKŁADANIA FARBY</li>
-            <li>WSKAZÓWKI</li>
-            <li>DEPILACJA WOSKIEM - Wstęp</li>
-            <li>RODZAJE WOSKU</li>
-            <li>PRODUKTY POTRZEBNE DO PRACY</li>
-            <li>PROCES DEPILACJI WOSKIEM</li>
-        </ul>
+            <h2>Tematy omawiane w części teoretycznej:</h2>
+            <ul class="listOfSzkolenie1">
+                <li>TRWAŁA STYLIZACJA BRWI</li>
+                <li>PROCEDURA LAMINACJI</li>
+                <li>ZALECENIA PO ZABIEGU</li>
+                <li>WSKAZANIA</li>
+                <li>PRZECIWWSKAZANIA</li>
+                <li>BUDOWA BRWI I DOBÓR KSZTAŁTU</li>
+                <li>FARBOWANIE BRWI</li>
+                <li>TECHNIKA NAKŁADANIA FARBY</li>
+                <li>WSKAZÓWKI</li>
+                <li>DEPILACJA WOSKIEM - Wstęp</li>
+                <li>RODZAJE WOSKU</li>
+                <li>PRODUKTY POTRZEBNE DO PRACY</li>
+                <li>PROCES DEPILACJI WOSKIEM</li>
+            </ul>
 
-        <h2>W części praktycznej:</h2>
-        <p>Pierwszą modelkę wykonuje instruktor, krok po kroku pokazuje swoją technikę pracy, następnie kursant razem z
-            instruktorem wykonuje stylizacje brwi oraz depilacje woskiem na modelce. Po wykonaniu pierwszej modelki
-            przez kursantkę, przechodzimy do kolejnej modelki, na której kursant pracuje samodzielnie.</p>
+            <h2>W części praktycznej:</h2>
+            <p>
+                Pierwszą modelkę wykonuje instruktor, krok po kroku pokazuje swoją technikę pracy, następnie kursant razem z
+                instruktorem wykonuje stylizacje brwi oraz depilacje woskiem na modelce. Po wykonaniu pierwszej modelki
+                przez kursantkę, przechodzimy do kolejnej modelki, na której kursant pracuje samodzielnie.
+            </p>
 
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
 
-        <h2>Ważne informacje:</h2>
-        <ul>
-            <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
-            <li>Nie trzeba mieć ze sobą nic oprócz dobrego humoru, zrelaksowanego umysłu, aby łatwo przyswajać wiedzę.
-            </li>
-            <li>Wszystkie produkty i sprzęt zostaną dostarczone.</li>
-            <li>Lunch i przekąski, zimne i gorące napoje będą zapewnione. Prosimy o poinformowanie nas, jeśli masz
-                jakiekolwiek alergie pokarmowe lub specjalne potrzeby dietetyczne.</li>
-        </ul>
-      }
+            <h2>Ważne informacje:</h2>
+            <ul>
+                <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
+                <li>
+                    Nie trzeba mieć ze sobą nic oprócz dobrego humoru, zrelaksowanego umysłu, aby łatwo przyswajać wiedzę.
+                </li>
+                <li>Wszystkie produkty i sprzęt zostaną dostarczone.</li>
+                <li>
+                    Lunch i przekąski, zimne i gorące napoje będą zapewnione. Prosimy o poinformowanie nas, jeśli masz
+                    jakiekolwiek alergie pokarmowe lub specjalne potrzeby dietetyczne.
+                </li>
+            </ul>
+        }
     </div>
     <button type="button" class="accordion">Szkolenie z Laminacja rzęs<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie2"))
-       {
-        <h1>Szkolenie Laminacja Rzęs</h1>
-        <p><strong>Start:</strong> 9:00/10:00</p>
-        <p><strong>Zakończenie:</strong> 17:00/18:00</p>
-        <p><strong>Przerwa:</strong> 30min po wykonaniu modelki pokazowej przez instruktora.</p>
+        {
+            <h1>Szkolenie Laminacja Rzęs</h1>
+            <p><strong>Start:</strong> 9:00/10:00</p>
+            <p><strong>Zakończenie:</strong> 17:00/18:00</p>
+            <p><strong>Przerwa:</strong> 30min po wykonaniu modelki pokazowej przez instruktora.</p>
 
-        <h2>Tematy omawiane w części teoretycznej:</h2>
-        <ol>
-            <li>BRWI - BUDOWA I ŻYCIE WŁOSA</li>
-            <li>Co to jest lifting rzęs</li>
-            <li>Przeciwwskazania</li>
-            <li>Omówienie produktów</li>
-            <li>Formy i ich zastosowanie</li>
-            <li>Procedura liftingu rzęs</li>
-            <li>Pielęgnacja po zabiegu</li>
-            <li>Relaksacja rzęs</li>
-        </ol>
+            <h2>Tematy omawiane w części teoretycznej:</h2>
+            <ol>
+                <li>BRWI - BUDOWA I ŻYCIE WŁOSA</li>
+                <li>Co to jest lifting rzęs</li>
+                <li>Przeciwwskazania</li>
+                <li>Omówienie produktów</li>
+                <li>Formy i ich zastosowanie</li>
+                <li>Procedura liftingu rzęs</li>
+                <li>Pielęgnacja po zabiegu</li>
+                <li>Relaksacja rzęs</li>
+            </ol>
 
-        <h2>W części praktycznej:</h2>
-        <p>Pierwszą modelkę wykonuje instruktor, krok po kroku pokazuje swoją technikę pracy, następnie kursant razem z
-            instruktorem wykonuje pracę na modelce. Po wykonaniu pierwszej modelki przez kursantkę, przechodzimy do
-            kolejnej modelki, na której kursant pracuje samodzielnie.</p>
+            <h2>W części praktycznej:</h2>
+            <p>
+                Pierwszą modelkę wykonuje instruktor, krok po kroku pokazuje swoją technikę pracy, następnie kursant razem z
+                instruktorem wykonuje pracę na modelce. Po wykonaniu pierwszej modelki przez kursantkę, przechodzimy do
+                kolejnej modelki, na której kursant pracuje samodzielnie.
+            </p>
 
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
 
-        <h2>Ważne informacje:</h2>
-        <ul>
-            <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
-            <li>Nie trzeba mieć ze sobą nic oprócz dobrego humoru, zrelaksowanego umysłu, aby łatwo przyswajać wiedzę.
-            </li>
-            <li>Wszystkie produkty i sprzęt zostaną dostarczone.</li>
-            <li>Lunch i przekąski, zimne i gorące napoje będą zapewnione. Prosimy o poinformowanie nas, jeśli masz
-                jakiekolwiek alergie pokarmowe lub specjalne potrzeby dietetyczne.</li>
-        </ul>
-       }
+            <h2>Ważne informacje:</h2>
+            <ul>
+                <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
+                <li>
+                    Nie trzeba mieć ze sobą nic oprócz dobrego humoru, zrelaksowanego umysłu, aby łatwo przyswajać wiedzę.
+                </li>
+                <li>Wszystkie produkty i sprzęt zostaną dostarczone.</li>
+                <li>
+                    Lunch i przekąski, zimne i gorące napoje będą zapewnione. Prosimy o poinformowanie nas, jeśli masz
+                    jakiekolwiek alergie pokarmowe lub specjalne potrzeby dietetyczne.
+                </li>
+            </ul>
+        }
     </div>
     <button class="accordion" type="button">Szkolenie Basic 1:1<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie3"))
         {
-        <h1>Szkolenie Dyplomowe dla Stylistek Rzęs</h1>
-        <p>Szkolenie jest idealne dla zupełnie początkujących, ale także dla stylistek rzęs, które chciałyby odświeżyć
-            swoją wiedzę w zakresie podstawowych aplikacji przedłużania rzęs.</p>
-        <p>Szkolenie prowadzone jest w trybie 2-dniowym, jednakże na prośbę kursanta/-ki istnieje możliwość
-            zorganizowania szkolenia w trybie 1-dniowym (10-12h).</p>
+            <h1>Szkolenie Dyplomowe dla Stylistek Rzęs</h1>
+            <p>
+                Szkolenie jest idealne dla zupełnie początkujących, ale także dla stylistek rzęs, które chciałyby odświeżyć
+                swoją wiedzę w zakresie podstawowych aplikacji przedłużania rzęs.
+            </p>
+            <p>
+                Szkolenie prowadzone jest w trybie 2-dniowym, jednakże na prośbę kursanta/-ki istnieje możliwość
+                zorganizowania szkolenia w trybie 1-dniowym (10-12h).
+            </p>
 
-        <h2>Dzień 1 (9:30-16:00)</h2>
-        <h3>Teoria (9:30 - 12:00):</h3>
-        <ul>
-            <li>Anatomia oka</li>
-            <li>Budowa włosa</li>
-            <li>Cykl życia rzęsy</li>
-            <li>Przeciwwskazania</li>
-            <li>Choroby oczu</li>
-            <li>Alergie i podrażnienia</li>
-            <li>BHP stylistki</li>
-            <li>Wywiad z klientką</li>
-            <li>Przygotowanie stanowiska</li>
-            <li>Etapy zabiegu stylizacji rzęs</li>
-            <li>Omówienie produktów</li>
-            <li>Praca z klejem</li>
-            <li>Kierunkowość</li>
-            <li>Rodzaje oczu</li>
-            <li>Rodzaje modelowań</li>
-            <li>Rzędowość</li>
-            <li>Mapping</li>
-            <li>Jak wykonać poprawnie zdjęcia aplikacji</li>
-            <li>Social media</li>
-            <li>Ustalenie cen usług</li>
-            <li>Lista rzeczy potrzebnych na start</li>
-        </ul>
-        <p>Przerwa obiadowa: 12:00-12:30</p>
-        <h3>Ćwiczenia praktyczne (12:30 - 16:00):</h3>
-        <ul>
-            <li>Część I: praktyka na gąbce</li>
-            <li>Część II: praktyka na manekinie</li>
-            <li>Część III: praktyka na manekinie</li>
-        </ul>
+            <h2>Dzień 1 (9:30-16:00)</h2>
+            <h3>Teoria (9:30 - 12:00):</h3>
+            <ul>
+                <li>Anatomia oka</li>
+                <li>Budowa włosa</li>
+                <li>Cykl życia rzęsy</li>
+                <li>Przeciwwskazania</li>
+                <li>Choroby oczu</li>
+                <li>Alergie i podrażnienia</li>
+                <li>BHP stylistki</li>
+                <li>Wywiad z klientką</li>
+                <li>Przygotowanie stanowiska</li>
+                <li>Etapy zabiegu stylizacji rzęs</li>
+                <li>Omówienie produktów</li>
+                <li>Praca z klejem</li>
+                <li>Kierunkowość</li>
+                <li>Rodzaje oczu</li>
+                <li>Rodzaje modelowań</li>
+                <li>Rzędowość</li>
+                <li>Mapping</li>
+                <li>Jak wykonać poprawnie zdjęcia aplikacji</li>
+                <li>Social media</li>
+                <li>Ustalenie cen usług</li>
+                <li>Lista rzeczy potrzebnych na start</li>
+            </ul>
+            <p>Przerwa obiadowa: 12:00-12:30</p>
+            <h3>Ćwiczenia praktyczne (12:30 - 16:00):</h3>
+            <ul>
+                <li>Część I: praktyka na gąbce</li>
+                <li>Część II: praktyka na manekinie</li>
+                <li>Część III: praktyka na manekinie</li>
+            </ul>
 
-        <h2>Dzień 2 (10:00-15:00)</h2>
-        <p>Praktyka na modelce. Wspólnie z kursantką analizujemy dobór modelowania do modelki.</p>
+            <h2>Dzień 2 (10:00-15:00)</h2>
+            <p>Praktyka na modelce. Wspólnie z kursantką analizujemy dobór modelowania do modelki.</p>
 
-        <p>Po ukończonym szkoleniu kursant otrzymuje: Certyfikat, Manual, Mały zestaw startowy, Zniżkę na produkty
-            Perfect Lashes, Zniżkę do sklepu i-coucou. Aby zaliczyć szkolenie kursant musi wykonać samodzielnie
-            aplikacje na minimum 50%.</p>
+            <p>
+                Po ukończonym szkoleniu kursant otrzymuje: Certyfikat, Manual, Mały zestaw startowy, Zniżkę na produkty
+                Perfect Lashes, Zniżkę do sklepu i-coucou. Aby zaliczyć szkolenie kursant musi wykonać samodzielnie
+                aplikacje na minimum 50%.
+            </p>
 
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
 
-        <h2>Ważne informacje:</h2>
-        <ul>
-            <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
-            <li>Nie trzeba mieć ze sobą nic oprócz dobrego humoru, zrelaksowanego umysłu, aby łatwo przyswajać wiedzę.
-            </li>
-            <li>Wszystkie produkty i sprzęt zostaną dostarczone.</li>
-            <li>Lunch i przekąski, zimne i gorące napoje będą zapewnione. Prosimy o poinformowanie nas, jeśli masz
-                jakiekolwiek alergie pokarmowe lub specjalne potrzeby dietetyczne.</li>
-        </ul>
+            <h2>Ważne informacje:</h2>
+            <ul>
+                <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
+                <li>
+                    Nie trzeba mieć ze sobą nic oprócz dobrego humoru, zrelaksowanego umysłu, aby łatwo przyswajać wiedzę.
+                </li>
+                <li>Wszystkie produkty i sprzęt zostaną dostarczone.</li>
+                <li>
+                    Lunch i przekąski, zimne i gorące napoje będą zapewnione. Prosimy o poinformowanie nas, jeśli masz
+                    jakiekolwiek alergie pokarmowe lub specjalne potrzeby dietetyczne.
+                </li>
+            </ul>
         }
     </div>
     <button class="accordion" type="button">Szkolenie Liight Volume – Volume Beginner<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie4"))
         {
-        <h1>Szkolenie Liight Volume – Volume Beginner</h1>
-        <p>Nasze szkolenie jest idealne dla tych, którzy ukończyli już nasze szkolenie z przedłużania rzęs Classic 1:1 i
-            chcą zrobić kolejny krok w karierze rzęs, poznając nową technikę i wszystkie złote zasady, aby zdystansować
-            się od konkurencji, zapewniając najwyższą jakość pracy.</p>
-        <p>Szkolenie prowadzone jest w trybie 2-dniowym.</p>
+            <h1>Szkolenie Liight Volume – Volume Beginner</h1>
+            <p>
+                Nasze szkolenie jest idealne dla tych, którzy ukończyli już nasze szkolenie z przedłużania rzęs Classic 1:1 i
+                chcą zrobić kolejny krok w karierze rzęs, poznając nową technikę i wszystkie złote zasady, aby zdystansować
+                się od konkurencji, zapewniając najwyższą jakość pracy.
+            </p>
+            <p>Szkolenie prowadzone jest w trybie 2-dniowym.</p>
 
-        <h2>Dzień 1 (9:30-18:00)</h2>
-        <h3>Teoria (9:30 - 13:00):</h3>
-        <ul>
-            <li>Anatomia oka</li>
-            <li>Budowa włosa</li>
-            <li>Cykl życia rzęsy</li>
-            <li>Przeciwwskazania</li>
-            <li>Choroby oczu</li>
-            <li>Alergie i podrażnienia</li>
-            <li>BHP stylistki</li>
-            <li>Wywiad z klientką</li>
-            <li>Przygotowanie stanowiska</li>
-            <li>Etapy zabiegu stylizacji rzęs</li>
-            <li>Omówienie produktów</li>
-            <li>Praca z klejem</li>
-            <li>Kierunkowość</li>
-            <li>Rodzaje oczu</li>
-            <li>Rodzaje modelowań</li>
-            <li>Rzędowość</li>
-            <li>Mapping</li>
-            <li>Różnica pomiędzy metodą 1:1 a objętościową</li>
-            <li>Specyfikacja kępki</li>
-            <li>Jak wykonać poprawnie zdjęcia aplikacji</li>
-            <li>Social media</li>
-            <li>Ustalenie cen usług</li>
-        </ul>
-        <p>Przerwa obiadowa: 13:00-13:30</p>
-        <h3>Ćwiczenia praktyczne (13:30 - 16:00):</h3>
-        <ul>
-            <li>Część I: praktyka na gąbce - nauka tworzenia kępek 2-5D</li>
-            <li>Część II: praktyka na manekinie</li>
-        </ul>
+            <h2>Dzień 1 (9:30-18:00)</h2>
+            <h3>Teoria (9:30 - 13:00):</h3>
+            <ul>
+                <li>Anatomia oka</li>
+                <li>Budowa włosa</li>
+                <li>Cykl życia rzęsy</li>
+                <li>Przeciwwskazania</li>
+                <li>Choroby oczu</li>
+                <li>Alergie i podrażnienia</li>
+                <li>BHP stylistki</li>
+                <li>Wywiad z klientką</li>
+                <li>Przygotowanie stanowiska</li>
+                <li>Etapy zabiegu stylizacji rzęs</li>
+                <li>Omówienie produktów</li>
+                <li>Praca z klejem</li>
+                <li>Kierunkowość</li>
+                <li>Rodzaje oczu</li>
+                <li>Rodzaje modelowań</li>
+                <li>Rzędowość</li>
+                <li>Mapping</li>
+                <li>Różnica pomiędzy metodą 1:1 a objętościową</li>
+                <li>Specyfikacja kępki</li>
+                <li>Jak wykonać poprawnie zdjęcia aplikacji</li>
+                <li>Social media</li>
+                <li>Ustalenie cen usług</li>
+            </ul>
+            <p>Przerwa obiadowa: 13:00-13:30</p>
+            <h3>Ćwiczenia praktyczne (13:30 - 16:00):</h3>
+            <ul>
+                <li>Część I: praktyka na gąbce - nauka tworzenia kępek 2-5D</li>
+                <li>Część II: praktyka na manekinie</li>
+            </ul>
 
-        <h2>Dzień 2 (10:00-15:00)</h2>
-        <p>Praktyka na modelce aplikacja rzęs metodą 2-5D. Wspólnie z kursantką analizujemy dobór modelowania do
-            modelki.</p>
+            <h2>Dzień 2 (10:00-15:00)</h2>
+            <p>
+                Praktyka na modelce aplikacja rzęs metodą 2-5D. Wspólnie z kursantką analizujemy dobór modelowania do
+                modelki.
+            </p>
 
-        <p>Po ukończonym szkoleniu kursant otrzymuje: Certyfikat, Manual, Mały zestaw startowy, Zniżkę na produkty
-            Perfect Lashes, zniżkę do sklepu i-coucou. Aby zaliczyć szkolenie kursant musi wykonać samodzielnie
-            aplikacje na minimum 50%.</p>
+            <p>
+                Po ukończonym szkoleniu kursant otrzymuje: Certyfikat, Manual, Mały zestaw startowy, Zniżkę na produkty
+                Perfect Lashes, zniżkę do sklepu i-coucou. Aby zaliczyć szkolenie kursant musi wykonać samodzielnie
+                aplikacje na minimum 50%.
+            </p>
 
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
 
-        <h2>Ważne informacje:</h2>
-        <ul>
-            <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
-            <li>Nie trzeba mieć ze sobą nic oprócz dobrego humoru, zrelaksowanego umysłu, aby łatwo przyswajać wiedzę.
-            </li>
-            <li>Wszystkie produkty i sprzęt zostaną dostarczone.</li>
-            <li>Lunch i przekąski, zimne i gorące napoje będą zapewnione. Prosimy o poinformowanie nas, jeśli masz
-                jakiekolwiek alergie pokarmowe lub specjalne potrzeby dietetyczne.</li>
-        </ul>
+            <h2>Ważne informacje:</h2>
+            <ul>
+                <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
+                <li>
+                    Nie trzeba mieć ze sobą nic oprócz dobrego humoru, zrelaksowanego umysłu, aby łatwo przyswajać wiedzę.
+                </li>
+                <li>Wszystkie produkty i sprzęt zostaną dostarczone.</li>
+                <li>
+                    Lunch i przekąski, zimne i gorące napoje będą zapewnione. Prosimy o poinformowanie nas, jeśli masz
+                    jakiekolwiek alergie pokarmowe lub specjalne potrzeby dietetyczne.
+                </li>
+            </ul>
         }
     </div>
     <button class="accordion" type="button">Szkolenie Combo 1:1 + Light Volume 2/5D<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie5"))
         {
-        <h1>Szkolenie Combo 1:1 + Light Volume 2/5D</h1>
-        <p>Szkolenie dyplomowe jest idealne dla zupełnie początkujących, jeśli chcesz rozpocząć karierę jako Stylistka
-            rzęs, to jest szkolenie dla Ciebie, ponieważ nie jest wymagane żadne wcześniejsze doświadczenie. Polecamy
-            również stylistkom rzęs, które chciałyby odświeżyć swoją wiedzę w zakresie podstawowych aplikacji
-            przedłużania rzęs.</p>
-        <p>Szkolenie prowadzone jest w trybie 3-dniowym.</p>
-      
-        <h2>Dzień 1 (9:30-18:00)</h2>
-        <h3>Teoria (9:30 - 13:00):</h3>
-        <ul>
-            <li>Anatomia oka</li>
-            <li>Budowa włosa</li>
-            <li>Cykl życia rzęsy</li>
-            <li>Przeciwwskazania</li>
-            <li>Choroby oczu</li>
-            <li>Alergie i podrażnienia</li>
-            <li>BHP stylistki</li>
-            <li>Wywiad z klientką</li>
-            <li>Przygotowanie stanowiska</li>
-            <li>Etapy zabiegu stylizacji rzęs</li>
-            <li>Omówienie produktów</li>
-            <li>Praca z klejem</li>
-            <li>Kierunkowość</li>
-            <li>Rodzaje oczu</li>
-            <li>Rodzaje modelowań</li>
-            <li>Rzędowość</li>
-            <li>Mapping</li>
-            <li>Różnica pomiędzy metodą 1:1 a objętościową</li>
-            <li>Specyfikacja kępki</li>
-            <li>Jak wykonać poprawnie zdjęcia aplikacji</li>
-            <li>Social media</li>
-            <li>Ustalenie cen usług</li>
-            <li>Lista rzeczy potrzebnych na start</li>
-        </ul>
-        <p>Przerwa obiadowa: 13:00-13:30</p>
-        <h3>Ćwiczenia praktyczne (13:30 - 16:00):</h3>
-        <ul>
-            <li>Część I: praktyka na gąbce - nauka chwytania rzęsy, poprawnego przyklejenia oraz nauka trzymania pęsety,
-                nauka tworzenia kępek 2-5D</li>
-            <li>Część II: praktyka na manekinie - kursant uczy się pracować obiema pesetami, uczy się separować oraz
-                poprawnie aplikować rzęsy.</li>
-            <li>Część III: praktyka na manekinie - kursant uczy się ściągać rzęsy za pomocą removera oraz za pomocą
-                pęset.</li>
-        </ul>
+            <h1>Szkolenie Combo 1:1 + Light Volume 2/5D</h1>
+            <p>
+                Szkolenie dyplomowe jest idealne dla zupełnie początkujących, jeśli chcesz rozpocząć karierę jako Stylistka
+                rzęs, to jest szkolenie dla Ciebie, ponieważ nie jest wymagane żadne wcześniejsze doświadczenie. Polecamy
+                również stylistkom rzęs, które chciałyby odświeżyć swoją wiedzę w zakresie podstawowych aplikacji
+                przedłużania rzęs.
+            </p>
+            <p>Szkolenie prowadzone jest w trybie 3-dniowym.</p>
 
-        <h2>Dzień 2 (10:00-15:00)</h2>
-        <p>Praktyka na modelce aplikacja rzęs metodą 1:1. Wspólnie z kursantką analizujemy dobór modelowania do modelki.
-        </p>
+            <h2>Dzień 1 (9:30-18:00)</h2>
+            <h3>Teoria (9:30 - 13:00):</h3>
+            <ul>
+                <li>Anatomia oka</li>
+                <li>Budowa włosa</li>
+                <li>Cykl życia rzęsy</li>
+                <li>Przeciwwskazania</li>
+                <li>Choroby oczu</li>
+                <li>Alergie i podrażnienia</li>
+                <li>BHP stylistki</li>
+                <li>Wywiad z klientką</li>
+                <li>Przygotowanie stanowiska</li>
+                <li>Etapy zabiegu stylizacji rzęs</li>
+                <li>Omówienie produktów</li>
+                <li>Praca z klejem</li>
+                <li>Kierunkowość</li>
+                <li>Rodzaje oczu</li>
+                <li>Rodzaje modelowań</li>
+                <li>Rzędowość</li>
+                <li>Mapping</li>
+                <li>Różnica pomiędzy metodą 1:1 a objętościową</li>
+                <li>Specyfikacja kępki</li>
+                <li>Jak wykonać poprawnie zdjęcia aplikacji</li>
+                <li>Social media</li>
+                <li>Ustalenie cen usług</li>
+                <li>Lista rzeczy potrzebnych na start</li>
+            </ul>
+            <p>Przerwa obiadowa: 13:00-13:30</p>
+            <h3>Ćwiczenia praktyczne (13:30 - 16:00):</h3>
+            <ul>
+                <li>
+                    Część I: praktyka na gąbce - nauka chwytania rzęsy, poprawnego przyklejenia oraz nauka trzymania pęsety,
+                    nauka tworzenia kępek 2-5D
+                </li>
+                <li>
+                    Część II: praktyka na manekinie - kursant uczy się pracować obiema pesetami, uczy się separować oraz
+                    poprawnie aplikować rzęsy.
+                </li>
+                <li>
+                    Część III: praktyka na manekinie - kursant uczy się ściągać rzęsy za pomocą removera oraz za pomocą
+                    pęset.
+                </li>
+            </ul>
 
-        <h2>Dzień 3 (10:00-15:00)</h2>
-        <p>Praktyka na modelce aplikacja rzęs metoda 2-5D. Wspólnie z kursantką analizujemy dobór modelowania do
-            modelki.</p>
+            <h2>Dzień 2 (10:00-15:00)</h2>
+            <p>
+                Praktyka na modelce aplikacja rzęs metodą 1:1. Wspólnie z kursantką analizujemy dobór modelowania do modelki.
+            </p>
 
-        <p>Po ukończonym szkoleniu kursant otrzymuje: Certyfikat, Manual, Mały zestaw startowy, Zniżkę na produkty
-            Perfect Lashes, zniżkę do sklepu i-coucou. Aby zaliczyć szkolenie kursant musi wykonać samodzielnie
-            aplikacje na minimum 50%.</p>
+            <h2>Dzień 3 (10:00-15:00)</h2>
+            <p>
+                Praktyka na modelce aplikacja rzęs metoda 2-5D. Wspólnie z kursantką analizujemy dobór modelowania do
+                modelki.
+            </p>
 
-        <p>Wszystkie szkolenia są akredytowane przez firmę ABT oraz prowadzone pod patronatem firmy Perfect Lashes.</p>
+            <p>
+                Po ukończonym szkoleniu kursant otrzymuje: Certyfikat, Manual, Mały zestaw startowy, Zniżkę na produkty
+                Perfect Lashes, zniżkę do sklepu i-coucou. Aby zaliczyć szkolenie kursant musi wykonać samodzielnie
+                aplikacje na minimum 50%.
+            </p>
+
+            <p>Wszystkie szkolenia są akredytowane przez firmę ABT oraz prowadzone pod patronatem firmy Perfect Lashes.</p>
 
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
 
-        <h2>Ważne informacje:</h2>
-        <ul>
-            <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
-            <li>Nie trzeba mieć ze sobą nic oprócz dobrego humoru, zrelaksowanego umysłu, aby łatwo przyswajać wiedzę.
-            </li>
-            <li>Wszystkie produkty i sprzęt zostaną dostarczone.</li>
-            <li>Lunch i przekąski, zimne i gorące napoje będą zapewnione. Prosimy o poinformowanie nas, jeśli masz
-                jakiekolwiek alergie pokarmowe lub specjalne potrzeby dietetyczne.</li>
-        </ul>
+            <h2>Ważne informacje:</h2>
+            <ul>
+                <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
+                <li>
+                    Nie trzeba mieć ze sobą nic oprócz dobrego humoru, zrelaksowanego umysłu, aby łatwo przyswajać wiedzę.
+                </li>
+                <li>Wszystkie produkty i sprzęt zostaną dostarczone.</li>
+                <li>
+                    Lunch i przekąski, zimne i gorące napoje będą zapewnione. Prosimy o poinformowanie nas, jeśli masz
+                    jakiekolwiek alergie pokarmowe lub specjalne potrzeby dietetyczne.
+                </li>
+            </ul>
         }
     </div>
     <button class="accordion" type="button">Szkolenie MEGA VOLUME – VOLUME MASTER<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie6"))
         {
-        <h1>Szkolenie MEGA VOLUME – VOLUME MASTER</h1>
-        <p>Szkolenie prowadzone jest w trybie 1-dniowym.</p>
-        <p>Szkolenie kierowane jest dla osób zaawansowanych, które ukończyły szkolenie z lekkich objętości i chcą zrobić
-            kolejny krok w karierze rzęs, poznając nową technikę i wszystkie złote zasady, aby zdystansować się od
-            konkurencji, zapewniając najwyższą jakość pracy.</p>
+            <h1>Szkolenie MEGA VOLUME – VOLUME MASTER</h1>
+            <p>Szkolenie prowadzone jest w trybie 1-dniowym.</p>
+            <p>
+                Szkolenie kierowane jest dla osób zaawansowanych, które ukończyły szkolenie z lekkich objętości i chcą zrobić
+                kolejny krok w karierze rzęs, poznając nową technikę i wszystkie złote zasady, aby zdystansować się od
+                konkurencji, zapewniając najwyższą jakość pracy.
+            </p>
 
-        <h2>Dzień 1 (9:30-18:00)</h2>
-        <h3>Teoria (9:30 - 11:30):</h3>
-        <ul>
-            <li>Przeciwwskazania</li>
-            <li>Choroby oczu</li>
-            <li>Alergie i podrażnienia</li>
-            <li>BHP stylistki</li>
-            <li>Praca z klejem</li>
-            <li>Kierunkowość</li>
-            <li>Rodzaje oczu</li>
-            <li>Rodzaje modelowań</li>
-            <li>Rzędowość</li>
-            <li>Mapping</li>
-            <li>Specyfikacja kępki w metodzie mega volume</li>
-            <li>Jak wykonać poprawnie zdjęcia aplikacji</li>
-            <li>Social media</li>
-        </ul>
-        <p>Przerwa obiadowa: 11:30-12:30</p>
-        <h3>Ćwiczenia praktyczne (12:30 – 18:00):</h3>
-        <p>Praktyka na gąbce: nauka tworzenia kępek 5-8D, następnie praca na modelce.</p>
+            <h2>Dzień 1 (9:30-18:00)</h2>
+            <h3>Teoria (9:30 - 11:30):</h3>
+            <ul>
+                <li>Przeciwwskazania</li>
+                <li>Choroby oczu</li>
+                <li>Alergie i podrażnienia</li>
+                <li>BHP stylistki</li>
+                <li>Praca z klejem</li>
+                <li>Kierunkowość</li>
+                <li>Rodzaje oczu</li>
+                <li>Rodzaje modelowań</li>
+                <li>Rzędowość</li>
+                <li>Mapping</li>
+                <li>Specyfikacja kępki w metodzie mega volume</li>
+                <li>Jak wykonać poprawnie zdjęcia aplikacji</li>
+                <li>Social media</li>
+            </ul>
+            <p>Przerwa obiadowa: 11:30-12:30</p>
+            <h3>Ćwiczenia praktyczne (12:30 – 18:00):</h3>
+            <p>Praktyka na gąbce: nauka tworzenia kępek 5-8D, następnie praca na modelce.</p>
 
-        <h2>Ważne informacje:</h2>
-        <ul>
-            <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
-            <li>Nie trzeba mieć ze sobą nic oprócz dobrego humoru, zrelaksowanego umysłu, aby łatwo przyswajać wiedzę.
-            </li>
-            <li>Wszystkie produkty i sprzęt zostaną dostarczone.</li>
-            <li>Lunch i przekąski, zimne i gorące napoje będą zapewnione. Prosimy o poinformowanie nas, jeśli masz
-                jakiekolwiek alergie pokarmowe lub specjalne potrzeby dietetyczne.</li>
-        </ul>
+            <h2>Ważne informacje:</h2>
+            <ul>
+                <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
+                <li>
+                    Nie trzeba mieć ze sobą nic oprócz dobrego humoru, zrelaksowanego umysłu, aby łatwo przyswajać wiedzę.
+                </li>
+                <li>Wszystkie produkty i sprzęt zostaną dostarczone.</li>
+                <li>
+                    Lunch i przekąski, zimne i gorące napoje będą zapewnione. Prosimy o poinformowanie nas, jeśli masz
+                    jakiekolwiek alergie pokarmowe lub specjalne potrzeby dietetyczne.
+                </li>
+            </ul>
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
         }
     </div>
@@ -362,44 +414,51 @@
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie7"))
         {
-        <h1>Szkolenie MASTER CLASS</h1>
-        <p>Szkolenie prowadzone jest w trybie 1-dniowym.</p>
-        <p>Szkolenie kierowane jest dla osób zaawansowanych, które ukończyły szkolenie minimum z lekkich objętości i
-            chcą zrobić kolejny krok w karierze rzęs, poznając nową technikę i oraz topowe stylizacje, aby wyróżnić się
-            od konkurencji, zapewniając najwyższą jakość pracy.</p>
+            <h1>Szkolenie MASTER CLASS</h1>
+            <p>Szkolenie prowadzone jest w trybie 1-dniowym.</p>
+            <p>
+                Szkolenie kierowane jest dla osób zaawansowanych, które ukończyły szkolenie minimum z lekkich objętości i
+                chcą zrobić kolejny krok w karierze rzęs, poznając nową technikę i oraz topowe stylizacje, aby wyróżnić się
+                od konkurencji, zapewniając najwyższą jakość pracy.
+            </p>
 
-        <h2>Dzień 1 (9:30-18:00)</h2>
-        <h3>Teoria (9:30 - 11:30):</h3>
-        <ul>
-            <li>Przeciwwskazania</li>
-            <li>Choroby oczu</li>
-            <li>Alergie i podrażnienia</li>
-            <li>BHP stylistki</li>
-            <li>Praca z klejem</li>
-            <li>Kierunkowość</li>
-            <li>Rodzaje oczu</li>
-            <li>Rodzaje modelowań</li>
-            <li>Topowe modelowania: Kim K, Eyeliner, Whispy, Mokry Efekt oraz kolorowe rzęsy</li>
-            <li>Omówienie skrętów niestandardowych</li>
-            <li>Rzędowość</li>
-            <li>Mapping</li>
-            <li>Jak wykonać poprawnie zdjęcia aplikacji</li>
-            <li>Social media</li>
-        </ul>
-        <p>Przerwa obiadowa: 11:30-12:30</p>
-        <h3>Ćwiczenia praktyczne (12:30 – 18:00):</h3>
-        <p>Praktyka na gąbce: nauka tworzenia kępek na skrętach niestandardowych, następnie praca na modelce wybranej
-            przez kursanta metodą stylizacji.</p>
+            <h2>Dzień 1 (9:30-18:00)</h2>
+            <h3>Teoria (9:30 - 11:30):</h3>
+            <ul>
+                <li>Przeciwwskazania</li>
+                <li>Choroby oczu</li>
+                <li>Alergie i podrażnienia</li>
+                <li>BHP stylistki</li>
+                <li>Praca z klejem</li>
+                <li>Kierunkowość</li>
+                <li>Rodzaje oczu</li>
+                <li>Rodzaje modelowań</li>
+                <li>Topowe modelowania: Kim K, Eyeliner, Whispy, Mokry Efekt oraz kolorowe rzęsy</li>
+                <li>Omówienie skrętów niestandardowych</li>
+                <li>Rzędowość</li>
+                <li>Mapping</li>
+                <li>Jak wykonać poprawnie zdjęcia aplikacji</li>
+                <li>Social media</li>
+            </ul>
+            <p>Przerwa obiadowa: 11:30-12:30</p>
+            <h3>Ćwiczenia praktyczne (12:30 – 18:00):</h3>
+            <p>
+                Praktyka na gąbce: nauka tworzenia kępek na skrętach niestandardowych, następnie praca na modelce wybranej
+                przez kursanta metodą stylizacji.
+            </p>
 
-        <h2>Ważne informacje:</h2>
-        <ul>
-            <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
-            <li>Nie trzeba mieć ze sobą nic oprócz dobrego humoru, zrelaksowanego umysłu, aby łatwo przyswajać wiedzę.
-            </li>
-            <li>Wszystkie produkty i sprzęt zostaną dostarczone.</li>
-            <li>Lunch i przekąski, zimne i gorące napoje będą zapewnione. Prosimy o poinformowanie nas, jeśli masz
-                jakiekolwiek alergie pokarmowe lub specjalne potrzeby dietetyczne.</li>
-        </ul>
+            <h2>Ważne informacje:</h2>
+            <ul>
+                <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
+                <li>
+                    Nie trzeba mieć ze sobą nic oprócz dobrego humoru, zrelaksowanego umysłu, aby łatwo przyswajać wiedzę.
+                </li>
+                <li>Wszystkie produkty i sprzęt zostaną dostarczone.</li>
+                <li>
+                    Lunch i przekąski, zimne i gorące napoje będą zapewnione. Prosimy o poinformowanie nas, jeśli masz
+                    jakiekolwiek alergie pokarmowe lub specjalne potrzeby dietetyczne.
+                </li>
+            </ul>
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
         }
     </div>
@@ -456,7 +515,7 @@
             <p>Bądź na bieżąco i zapisz się!</p>
             <form method="post" action="/NewsLetter/SaveEmailToDb" class="input-type" id="newsletterForm">
                 <input type="email" id="emailUser" name="emailUser" placeholder="Enter your email" class="email-newsletter">
-                <button class="button-newsletter"type="submit">Zapisz się!</button>
+                <button class="button-newsletter" type="submit">Zapisz się!</button>
             </form>
             <div id="toastMessage" class="toast-message hidden">
                 <span id="toastText">Zostałeś zapisany!</span>
@@ -584,6 +643,7 @@
     <script src="~/js/startInTopList.js"></script>
     <script src="~/js/modal.js"></script>
     <script src="~/js/SuccessToDbNewsLetter.js"></script>
+    <script src="~/js/menuHamburger.js"></script>
 
 </body>
 

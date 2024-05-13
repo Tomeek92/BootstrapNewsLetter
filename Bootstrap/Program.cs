@@ -27,7 +27,7 @@ var connectionString = "Server=DESKTOP-JD2U15O\\MSSQL1;Database=NewsLetterApi;In
 builder.Services.AddDbContext<BootstrapDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddIdentity<AccountAdmin,IdentityRole>(options =>
+builder.Services.AddIdentity<AccountAdmin, IdentityRole>(options =>
 {
     options.Password.RequireDigit = false;
     options.Password.RequiredLength = 8;

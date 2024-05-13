@@ -18,7 +18,7 @@ namespace Bootstrap.Controllers
         [HttpPost]
         public IActionResult SaveEmailToDb(string emailUser)
         {
-           UsersEmailModel usersEmail = new UsersEmailModel();
+            UsersEmailModel usersEmail = new UsersEmailModel();
             usersEmail.Email = emailUser;
             try
             {
@@ -29,7 +29,7 @@ namespace Bootstrap.Controllers
                 else
                 {
                     _saveAndDeleteEmailToDbService.SaveEmailToDb(usersEmail);
-                    
+
                 }
                 return RedirectToAction("Index", "Home");
             }
@@ -49,7 +49,7 @@ namespace Bootstrap.Controllers
             try
             {
                 var emails = _saveAndDeleteEmailToDbService.ShowUsersEmail();
-                return View(emails); 
+                return View(emails);
             }
             catch (Exception ex)
             {

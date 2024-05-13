@@ -7,7 +7,7 @@ namespace Bootstrap.Models.SzkoleniaViewModel
         public List<SzkoleniaModel> SzkoleniaList { get; set; }
         public SzkoleniaViewModel()
         {
-           SzkoleniaList = new List<SzkoleniaModel>();
+            SzkoleniaList = new List<SzkoleniaModel>();
             {
                 new SzkoleniaModel { Id = 1, Name = "Szkolenie1", Price = "123zł", Category = "Szkolenia" };
                 new SzkoleniaModel { Id = 2, Name = "Szkolenia2", Price = "123zł", Category = "Szkolenia" };

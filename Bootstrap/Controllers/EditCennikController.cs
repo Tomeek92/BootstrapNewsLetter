@@ -1,12 +1,9 @@
 ﻿
 using Bootstrap.Models.PriceNameEdit;
-using Bootstrap.Models.UslugiCennikViewModel;
 using Bootstrap.Service.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Data;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Bootstrap.Controllers
 {
@@ -27,14 +24,14 @@ namespace Bootstrap.Controllers
             _edit.Edit(editUslugi);
             return View(editUslugi);
         }
-           
+
         [HttpGet]
         [Authorize]
         public IActionResult EditCennik()
         {
             try
             {
-                var uslugi =  _bootstrapDbContext.UslugiCennikModels.ToList();
+                var uslugi = _bootstrapDbContext.UslugiCennikModels.ToList();
                 return View(uslugi);
             }
             catch (Exception ex)
@@ -81,7 +78,7 @@ namespace Bootstrap.Controllers
                 _bootstrapDbContext.UslugiCennikModels.Remove(elementDoUsuniecia);
                 _bootstrapDbContext.SaveChanges();
 
-                return RedirectToAction("EditCennik","EditCennik");
+                return RedirectToAction("EditCennik", "EditCennik");
             }
             catch (Exception ex)
             {

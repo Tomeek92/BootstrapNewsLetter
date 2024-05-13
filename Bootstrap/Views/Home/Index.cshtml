@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/Kontakt.css">
     <title>Kontakty</title>
-    
 </head>
 <body>
     <header>
@@ -16,14 +15,16 @@
         <br>
         <br>
         <div class="container lime pullUp">
-            <a href="../index.html">STRONA G£ÓWNA</a>
-            <a href="/Home/Cennik">US£UGI</a>
-            <a href="/Szkolenia">SZKOLENIA</a>>
-            <a href="/Home/Index">KONTAKT</a>
-            <a href="https://booksy.com/pl-pl/">ZAPISZ SIÊ NA WIZYTÊ!</a>
+            <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+            <div class="menu-list" id="menu-list">
+                <a href="../index.html">STRONA G£ÓWNA</a>
+                <a href="/Home/Cennik">US£UGI</a>
+                <a href="/Szkolenia">SZKOLENIA</a>
+                <a href="/Home/Index">KONTAKT</a>
+                <a href="https://booksy.com/pl-pl/">ZAPISZ SIÊ NA WIZYTÊ!</a>
+            </div>
         </div>
     </header>
-
     <div class="container">
         <h1 class="heading">ZAPRASZAM DO KONTAKTU!</h1>
         <div class="spacer"></div> <!-- Przestrzeñ miêdzy nag³ówkiem a ikonkami -->
@@ -68,6 +69,7 @@
         </ul>
     </div>
     <script src="~/js/ShowIconsInKontakt.js"></script>
+    <script src="~/js/menuHamburger.js"></script>
 
 
 </body>

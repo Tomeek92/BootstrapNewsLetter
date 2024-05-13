@@ -2,8 +2,7 @@
 
 namespace Bootstrap.Models.Admin
 {
-
-    public class Login 
+    public class Login
     {
         [Required]
         public string LoginName { get; set; } = null!;

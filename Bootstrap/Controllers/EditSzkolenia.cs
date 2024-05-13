@@ -17,7 +17,7 @@ namespace Bootstrap.Controllers
         }
         [HttpPost]
         [Authorize]
-        public IActionResult EditSzkol(List<SzkoleniaModel>editSzkolenie)
+        public IActionResult EditSzkol(List<SzkoleniaModel> editSzkolenie)
         {
             _szkolenie.Edit(editSzkolenie);
             return View(editSzkolenie);
@@ -67,7 +67,7 @@ namespace Bootstrap.Controllers
             try
             {
                 var elementDoUsuniecia = _db.SzkoleniaModels.Find(Id);
-                if (elementDoUsuniecia == null) 
+                if (elementDoUsuniecia == null)
                 {
                     return NotFound();
                 }
@@ -78,7 +78,7 @@ namespace Bootstrap.Controllers
             }
             catch (Exception ex)
             {
-               throw new Exception("Nie udało się usunąć" + ex);
+                throw new Exception("Nie udało się usunąć" + ex);
             }
         }
         public IActionResult Delete()

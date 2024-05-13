@@ -16,7 +16,7 @@ namespace Bootstrap.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-  
+
         [HttpPost]
         public async Task<IActionResult> Register(Register registerUser)
         {
@@ -97,7 +97,7 @@ namespace Bootstrap.Controllers
             {
                 await _signInManager.SignOutAsync();
             }
-           catch (Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 ViewBag.ErrorMessage = "Nieprawidłowe wylogowanie";

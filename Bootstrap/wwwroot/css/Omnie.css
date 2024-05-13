@@ -38,7 +38,7 @@ div.pullUp a:before {
     height: 2px;
     left: 0px;
     bottom: 0px;
-    content: "";
+    content: '';
     background: #fff;
     opacity: 0.3;
     transition: all 0.3s;
@@ -318,3 +318,41 @@ button {
     .image:hover img {
         transform: scale(1.05);
     }
+.menu-list {
+    display: block;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    color: white;
+    height: 40px;
+}
+
+@media screen and (max-width: 787px) {
+    .menu-list {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-list a {
+        display: block;
+    }
+}
+@media (max-width: 768px) {
+    header,
+    footer {
+        display: block;
+        width: 100%;
+    }
+
+
+    footer .footer-section,
+    footer .socialMedia,
+    footer .newsletter-section {
+        width: 100%;
+    }
+}

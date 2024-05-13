@@ -462,3 +462,27 @@ button {
     font-size: 20px;
     cursor: pointer;
 }
+.menu-list {
+    display: block;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    color: white;
+    height: 40px;
+}
+
+@media screen and (max-width: 787px) {
+    .menu-list {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-list a {
+        display: block;
+    }
+}

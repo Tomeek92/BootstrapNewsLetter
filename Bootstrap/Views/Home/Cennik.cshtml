@@ -16,7 +16,7 @@
 </head>
 <body>
     <header>
-        <img src="https://i.ibb.co/ky9qsdV/logo-znak-wodny-bia-y.png" alt="logo-home" class="logo-home">
+        <img src="~/Films and photos/logo  znak wodny biały.png" alt="logo-home" class="logo-home">
         <br>
         <br>
         <div class="container lime pullUp">
@@ -25,66 +25,59 @@
                 <a href="../index.html">STRONA GŁÓWNA</a>
                 <a href="/Home/Cennik">USŁUGI</a>
                 <a href="/Szkolenia">SZKOLENIA</a>
-                <a href="/Home/Index">KONTAKT</a>
+                <a href="/Kontakt">KONTAKT</a>
                 <a href="https://booksy.com/pl-pl/">ZAPISZ SIĘ NA WIZYTĘ!</a>
             </div>
         </div>
     </header>
-    <h2 class="cards-name-service">USŁUGI</h2>
+    <div class="list-photos">
+        <div class="slider">
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1" checked>
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+
+                <div class="slide first">
+                    <img src="~/Films and photos/IMG_6736.jpeg" alt="Image 1">
+                </div>
+                <div class="slide">
+                    <img src="~/Films and photos/IMG_8796.jpeg" alt="Image 2">
+                </div>
+                <div class="slide">
+                    <img src="~/Films and photos/IMG_6734.jpeg" alt="Image 3">
+                </div>
+            </div>
+    </div>
     <span class="bg-watermark">FRYCKOWSKA</span>
     <section class="container-list">
         <div class="cards">
             <!-- Kategoria: Makijaż permanentny -->
-            <div class="card card-container">
-                <div class="card-body">
-                    <div class="card-title">
-                        <h3 class="title">MAKIJAŻ PERMANENTNY</h3>
-                    </div>
-                    <ul class="card-list">
-                        @foreach (var item in Model.Where(x => x.Category == "Makijaż permanentny"))
-                        {
-                            <li class="card-item">
-                                <h3 class="item-title">@Html.DisplayFor(modelItem => item.Name)</h3>
-                                <h5 class="item-price">@Html.DisplayFor(modelItem => item.Price)</h5>
-                            </li>
-                        }
-                    </ul>
-                </div>
+            <button type="submit" class="accordion">MAKIJAŻ PERMANENTNY<span class="icon"></span></button>
+            <div class="panel">
+                @foreach (var item in Model.Where(x => x.Category == "Makijaż permanentny"))
+                {
+                    <p class="item-title">@Html.DisplayFor(modelItem => item.Name)</p>
+                    <p class="item-price">@Html.DisplayFor(modelItem => item.Price)</p>
+                }
             </div>
             <!-- Kategoria: Stylizacja rzęs -->
-            <div class="card card-container">
-                <div class="card-body">
-                    <div class="card-title">
-                        <h3 class="title">STYLIZACJA RZĘS</h3>
-                    </div>
-                    <ul class="card-list">
+            <button type="submit" class="accordion">STYLIZACJA RZĘS<span class="icon"></span></button>
+            <div class="panel">
                         @foreach (var item in Model.Where(x => x.Category == "Stylizacja rzęs"))
                         {
-                            <li class="card-item">
-                                <h3 class="item-title">@Html.DisplayFor(modelItem => item.Name)</h3>
-                                <h5 class="item-price">@Html.DisplayFor(modelItem => item.Price)</h5>
-                            </li>
+ 
+                                <p class="item-title">@Html.DisplayFor(modelItem => item.Name)</p>
+                                <p class="item-price">@Html.DisplayFor(modelItem => item.Price)</p>  
                         }
-                    </ul>
-                </div>
             </div>
             <!-- Kategoria: Stylizacja brwi -->
-            <div class="card card-container">
-                <div class="card-body" id="static-card-item">
-                    <div class="card-title" id="static-card-item">
-                        <!--statyczna bez przewijania się paska!!-->
-                        <h3 class="title">STYLIZACJA BRWI</h3>
-                    </div>
-                    <ul class="card-list">
+            <button type="submit" class="accordion">STYLIZACJA BRWI<span class="icon"></span></button>
+            <div class="panel">
                         @foreach (var item in Model.Where(x => x.Category == "Stylizacja brwi"))
                         {
-                            <li class="card-item">
-                                <h3 class="item-title">@Html.DisplayFor(modelItem => item.Name)</h3>
-                                <h5 class="item-price">@Html.DisplayFor(modelItem => item.Price)</h5>
-                            </li>
-                        }
-                    </ul>
-                </div>
+                                <p class="item-title">@Html.DisplayFor(modelItem => item.Name)</p>
+                                <p class="item-price">@Html.DisplayFor(modelItem => item.Price)</p>
+                        }  
             </div>
         </div>
     </section>
@@ -141,7 +134,7 @@
             <p>Bądź na bieżąco i zapisz się!</p>
             <form method="post" action="/NewsLetter/SaveEmailToDb" class="input-type" id="newsletterForm">
                 <input type="email" id="emailUser" name="emailUser" placeholder="Enter your email" class="email-newsletter">
-                <button type="submit">Zapisz się!</button>
+                <button class="button-newsletter" type="submit">Zapisz się!</button>
             </form>
             <div id="toastMessage" class="toast-message hidden">
                 <span id="toastText">Zostałeś zapisany!</span>
@@ -266,9 +259,11 @@
             <p>Pamiętaj, że makijaż permanentny składa się z dwóch zabiegów. Po pierwszym zabiegu głównym umów się na dopigmentowanie, które pozwoli na wyrównanie czy nasycenie koloru usti. Dopigmentowanie należy wykonać 8-12 tygodni od pierwszego zabiegu. Jest wiele czynników które wpływają na trwałość pigmentacji. Kolor po roku może znacznie się rozjaśnić. Klientkom, które wykonały u nas zabieg główny oraz dopigmentowanie, przysługuje rabat na odświeżenie koloru. Zadbaj o swoje usta i odświeżaj je co roku!</p>a jest zbyt sucha, należy wykonać peeling enzymatyczny, drobnoziarnisty lub kawitacyjny oraz odpowiednio nawilżać (nie natłuszczać!). Tak przygotowana skóra lepiej chłonie pigment i pozwala na wykonanie precyzyjnego rysunku. Zaraz po pigmentacji niewskazane jest mycie włosów, dlatego warto o to zadbać przed zabiegiem.</p>
         </div>
     </div>
+    <script src="~/js/startInTopList.js"></script>
     <script src="~/js/modal.js"></script>
     <script src="~/js/SuccessToDbNewsLetter.js"></script>
     <script src="~/js/menuHamburger.js"></script>
+    <script src="~/js/Slider.js"></script>
 </body>
 </html>
 

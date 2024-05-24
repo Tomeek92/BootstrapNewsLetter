@@ -10,6 +10,7 @@ namespace Bootstrap.Controllers
         {
             _context = context;
         }
+        [Route("Kontakt")]
         public IActionResult Index()
         {
             return View();

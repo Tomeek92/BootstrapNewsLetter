@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <img src="https://i.ibb.co/ky9qsdV/logo-znak-wodny-bia-y.png" alt="logo-home" class="logo-home">
+        <img src="Films and photos/logo  znak wodny biały.png" alt="logo-home" class="logo-home">
         <br>
         <br>
         <div class="container lime pullUp">
@@ -23,7 +23,7 @@
                 <a href="../index.html">STRONA GŁÓWNA</a>
                 <a href="/Home/Cennik">USŁUGI</a>
                 <a href="/Szkolenia">SZKOLENIA</a>
-                <a href="/Home/Index">KONTAKT</a>
+                <a href="/Kontakt">KONTAKT</a>
                 <a href="https://booksy.com/pl-pl/">ZAPISZ SIĘ NA WIZYTĘ!</a>
             </div>
         </div>
@@ -32,7 +32,7 @@
         <source src="~/BodyMovie.mp4" type="video/mp4">
         Twoja przeglądarka nie obsługuje tagu video.
     </video>
-    <button class="accordion" type="button">Szkolenie z Laminacja brwi<span class="icon"></span></button>
+    <button class="accordion" type="button">SZKOLENIE Z LAMINACJĄ BRWI<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie1"))
         {
@@ -40,7 +40,7 @@
             <p><strong>Start:</strong> 9:00/10:00</p>
             <p><strong>Zakończenie:</strong> 17:00/18:00</p>
             <p><strong>Przerwa:</strong> 30min po wykonaniu modelki pokazowej przez instruktora.</p>
-
+            <br />
             <h2>Tematy omawiane w części teoretycznej:</h2>
             <ul class="listOfSzkolenie1">
                 <li>TRWAŁA STYLIZACJA BRWI</li>
@@ -57,7 +57,7 @@
                 <li>PRODUKTY POTRZEBNE DO PRACY</li>
                 <li>PROCES DEPILACJI WOSKIEM</li>
             </ul>
-
+            <br />
             <h2>W części praktycznej:</h2>
             <p>
                 Pierwszą modelkę wykonuje instruktor, krok po kroku pokazuje swoją technikę pracy, następnie kursant razem z
@@ -66,7 +66,7 @@
             </p>
 
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
-
+            <br />
             <h2>Ważne informacje:</h2>
             <ul>
                 <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
@@ -80,8 +80,9 @@
                 </li>
             </ul>
         }
+        <br />
     </div>
-    <button type="button" class="accordion">Szkolenie z Laminacja rzęs<span class="icon"></span></button>
+    <button type="button" class="accordion">SZKOLENIE Z LAMINACJĄ RZĘS<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie2"))
         {
@@ -89,7 +90,7 @@
             <p><strong>Start:</strong> 9:00/10:00</p>
             <p><strong>Zakończenie:</strong> 17:00/18:00</p>
             <p><strong>Przerwa:</strong> 30min po wykonaniu modelki pokazowej przez instruktora.</p>
-
+            <br />
             <h2>Tematy omawiane w części teoretycznej:</h2>
             <ol>
                 <li>BRWI - BUDOWA I ŻYCIE WŁOSA</li>
@@ -101,7 +102,7 @@
                 <li>Pielęgnacja po zabiegu</li>
                 <li>Relaksacja rzęs</li>
             </ol>
-
+            <br />
             <h2>W części praktycznej:</h2>
             <p>
                 Pierwszą modelkę wykonuje instruktor, krok po kroku pokazuje swoją technikę pracy, następnie kursant razem z
@@ -110,7 +111,7 @@
             </p>
 
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
-
+            <br />
             <h2>Ważne informacje:</h2>
             <ul>
                 <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
@@ -124,8 +125,9 @@
                 </li>
             </ul>
         }
+        <br />
     </div>
-    <button class="accordion" type="button">Szkolenie Basic 1:1<span class="icon"></span></button>
+    <button class="accordion" type="button">SZKOLENIE BASIC 1:1<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie3"))
         {
@@ -134,11 +136,12 @@
                 Szkolenie jest idealne dla zupełnie początkujących, ale także dla stylistek rzęs, które chciałyby odświeżyć
                 swoją wiedzę w zakresie podstawowych aplikacji przedłużania rzęs.
             </p>
+            <br />
             <p>
                 Szkolenie prowadzone jest w trybie 2-dniowym, jednakże na prośbę kursanta/-ki istnieje możliwość
                 zorganizowania szkolenia w trybie 1-dniowym (10-12h).
             </p>
-
+            <br />
             <h2>Dzień 1 (9:30-16:00)</h2>
             <h3>Teoria (9:30 - 12:00):</h3>
             <ul>
@@ -164,14 +167,16 @@
                 <li>Ustalenie cen usług</li>
                 <li>Lista rzeczy potrzebnych na start</li>
             </ul>
+            <br />
             <p>Przerwa obiadowa: 12:00-12:30</p>
+            <br />
             <h3>Ćwiczenia praktyczne (12:30 - 16:00):</h3>
             <ul>
                 <li>Część I: praktyka na gąbce</li>
                 <li>Część II: praktyka na manekinie</li>
                 <li>Część III: praktyka na manekinie</li>
             </ul>
-
+            <br />
             <h2>Dzień 2 (10:00-15:00)</h2>
             <p>Praktyka na modelce. Wspólnie z kursantką analizujemy dobór modelowania do modelki.</p>
 
@@ -182,7 +187,7 @@
             </p>
 
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
-
+            <br />
             <h2>Ważne informacje:</h2>
             <ul>
                 <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
@@ -196,8 +201,9 @@
                 </li>
             </ul>
         }
+        <br />
     </div>
-    <button class="accordion" type="button">Szkolenie Liight Volume – Volume Beginner<span class="icon"></span></button>
+    <button class="accordion" type="button">SZKOLENIE LIGHT VOLUME – VOLUME BEGINNER<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie4"))
         {
@@ -207,8 +213,9 @@
                 chcą zrobić kolejny krok w karierze rzęs, poznając nową technikę i wszystkie złote zasady, aby zdystansować
                 się od konkurencji, zapewniając najwyższą jakość pracy.
             </p>
+            <br />
             <p>Szkolenie prowadzone jest w trybie 2-dniowym.</p>
-
+            <br />
             <h2>Dzień 1 (9:30-18:00)</h2>
             <h3>Teoria (9:30 - 13:00):</h3>
             <ul>
@@ -235,19 +242,21 @@
                 <li>Social media</li>
                 <li>Ustalenie cen usług</li>
             </ul>
+            <br />
             <p>Przerwa obiadowa: 13:00-13:30</p>
+            <br />
             <h3>Ćwiczenia praktyczne (13:30 - 16:00):</h3>
             <ul>
                 <li>Część I: praktyka na gąbce - nauka tworzenia kępek 2-5D</li>
                 <li>Część II: praktyka na manekinie</li>
             </ul>
-
+            <br />
             <h2>Dzień 2 (10:00-15:00)</h2>
             <p>
                 Praktyka na modelce aplikacja rzęs metodą 2-5D. Wspólnie z kursantką analizujemy dobór modelowania do
                 modelki.
             </p>
-
+            <br />
             <p>
                 Po ukończonym szkoleniu kursant otrzymuje: Certyfikat, Manual, Mały zestaw startowy, Zniżkę na produkty
                 Perfect Lashes, zniżkę do sklepu i-coucou. Aby zaliczyć szkolenie kursant musi wykonać samodzielnie
@@ -255,7 +264,7 @@
             </p>
 
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
-
+            <br />
             <h2>Ważne informacje:</h2>
             <ul>
                 <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
@@ -269,8 +278,9 @@
                 </li>
             </ul>
         }
+        <br />
     </div>
-    <button class="accordion" type="button">Szkolenie Combo 1:1 + Light Volume 2/5D<span class="icon"></span></button>
+    <button class="accordion" type="button">SZKOLENIE COMBO 1:1 + LIGHT VOLUME 2/5D<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie5"))
         {
@@ -281,8 +291,9 @@
                 również stylistkom rzęs, które chciałyby odświeżyć swoją wiedzę w zakresie podstawowych aplikacji
                 przedłużania rzęs.
             </p>
+            <br />
             <p>Szkolenie prowadzone jest w trybie 3-dniowym.</p>
-
+            <br />
             <h2>Dzień 1 (9:30-18:00)</h2>
             <h3>Teoria (9:30 - 13:00):</h3>
             <ul>
@@ -310,7 +321,9 @@
                 <li>Ustalenie cen usług</li>
                 <li>Lista rzeczy potrzebnych na start</li>
             </ul>
+            <br />
             <p>Przerwa obiadowa: 13:00-13:30</p>
+            <br />
             <h3>Ćwiczenia praktyczne (13:30 - 16:00):</h3>
             <ul>
                 <li>
@@ -326,18 +339,18 @@
                     pęset.
                 </li>
             </ul>
-
+            <br />
             <h2>Dzień 2 (10:00-15:00)</h2>
             <p>
                 Praktyka na modelce aplikacja rzęs metodą 1:1. Wspólnie z kursantką analizujemy dobór modelowania do modelki.
             </p>
-
+            <br />
             <h2>Dzień 3 (10:00-15:00)</h2>
             <p>
                 Praktyka na modelce aplikacja rzęs metoda 2-5D. Wspólnie z kursantką analizujemy dobór modelowania do
                 modelki.
             </p>
-
+            <br />
             <p>
                 Po ukończonym szkoleniu kursant otrzymuje: Certyfikat, Manual, Mały zestaw startowy, Zniżkę na produkty
                 Perfect Lashes, zniżkę do sklepu i-coucou. Aby zaliczyć szkolenie kursant musi wykonać samodzielnie
@@ -347,7 +360,7 @@
             <p>Wszystkie szkolenia są akredytowane przez firmę ABT oraz prowadzone pod patronatem firmy Perfect Lashes.</p>
 
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
-
+            <br />
             <h2>Ważne informacje:</h2>
             <ul>
                 <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
@@ -361,19 +374,22 @@
                 </li>
             </ul>
         }
+        <br />
     </div>
-    <button class="accordion" type="button">Szkolenie MEGA VOLUME – VOLUME MASTER<span class="icon"></span></button>
+    <button class="accordion" type="button">SZKOLENIA MEGA VOLUME – VOLUME MASTER<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie6"))
         {
             <h1>Szkolenie MEGA VOLUME – VOLUME MASTER</h1>
+            
             <p>Szkolenie prowadzone jest w trybie 1-dniowym.</p>
+            <br />
             <p>
                 Szkolenie kierowane jest dla osób zaawansowanych, które ukończyły szkolenie z lekkich objętości i chcą zrobić
                 kolejny krok w karierze rzęs, poznając nową technikę i wszystkie złote zasady, aby zdystansować się od
                 konkurencji, zapewniając najwyższą jakość pracy.
             </p>
-
+            <br />
             <h2>Dzień 1 (9:30-18:00)</h2>
             <h3>Teoria (9:30 - 11:30):</h3>
             <ul>
@@ -391,10 +407,12 @@
                 <li>Jak wykonać poprawnie zdjęcia aplikacji</li>
                 <li>Social media</li>
             </ul>
+            <br />
             <p>Przerwa obiadowa: 11:30-12:30</p>
+            <br />
             <h3>Ćwiczenia praktyczne (12:30 – 18:00):</h3>
             <p>Praktyka na gąbce: nauka tworzenia kępek 5-8D, następnie praca na modelce.</p>
-
+            <br />
             <h2>Ważne informacje:</h2>
             <ul>
                 <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
@@ -409,19 +427,21 @@
             </ul>
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
         }
+        <br />
     </div>
-    <button class="accordion" type="button">Szkolenie MASTER CLASS<span class="icon"></span></button>
+    <button class="accordion" type="button">SZKOLENIE MASTER CLASS<span class="icon"></span></button>
     <div class="panel">
         @foreach (var item in Model.Where(x => x.Category == "Szkolenie7"))
         {
             <h1>Szkolenie MASTER CLASS</h1>
             <p>Szkolenie prowadzone jest w trybie 1-dniowym.</p>
+            <br />
             <p>
                 Szkolenie kierowane jest dla osób zaawansowanych, które ukończyły szkolenie minimum z lekkich objętości i
                 chcą zrobić kolejny krok w karierze rzęs, poznając nową technikę i oraz topowe stylizacje, aby wyróżnić się
                 od konkurencji, zapewniając najwyższą jakość pracy.
             </p>
-
+            <br />
             <h2>Dzień 1 (9:30-18:00)</h2>
             <h3>Teoria (9:30 - 11:30):</h3>
             <ul>
@@ -440,13 +460,15 @@
                 <li>Jak wykonać poprawnie zdjęcia aplikacji</li>
                 <li>Social media</li>
             </ul>
+            <br />
             <p>Przerwa obiadowa: 11:30-12:30</p>
+            <br />
             <h3>Ćwiczenia praktyczne (12:30 – 18:00):</h3>
             <p>
                 Praktyka na gąbce: nauka tworzenia kępek na skrętach niestandardowych, następnie praca na modelce wybranej
                 przez kursanta metodą stylizacji.
             </p>
-
+            <br />
             <h2>Ważne informacje:</h2>
             <ul>
                 <li>Ubierz się wygodnie i nie zapomnij okularów, jeśli potrzebujesz ich do lepszego widzenia!</li>
@@ -462,7 +484,6 @@
             <p><strong>@Html.DisplayFor(modelItem => item.Price)</strong></p>
         }
     </div>
-
     <footer>
         <ul class="socialMedia">
             <h3 class="footer-section">Media społecznościowe</h3>

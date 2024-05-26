@@ -46,224 +46,240 @@
                 <div class="slide">
                     <img src="~/Films and photos/IMG_6734.jpeg" alt="Image 3">
                 </div>
-            </div>
-    </div>
-    <span class="bg-watermark">FRYCKOWSKA</span>
-    <section class="container-list">
-        <div class="cards">
-            <!-- Kategoria: Makijaż permanentny -->
-            <button type="submit" class="accordion">MAKIJAŻ PERMANENTNY<span class="icon"></span></button>
-            <div class="panel">
-                @foreach (var item in Model.Where(x => x.Category == "Makijaż permanentny"))
-                {
-                    <p class="item-title">@Html.DisplayFor(modelItem => item.Name)</p>
-                    <p class="item-price">@Html.DisplayFor(modelItem => item.Price)</p>
-                }
-            </div>
-            <!-- Kategoria: Stylizacja rzęs -->
-            <button type="submit" class="accordion">STYLIZACJA RZĘS<span class="icon"></span></button>
-            <div class="panel">
-                        @foreach (var item in Model.Where(x => x.Category == "Stylizacja rzęs"))
-                        {
- 
-                                <p class="item-title">@Html.DisplayFor(modelItem => item.Name)</p>
-                                <p class="item-price">@Html.DisplayFor(modelItem => item.Price)</p>  
-                        }
-            </div>
-            <!-- Kategoria: Stylizacja brwi -->
-            <button type="submit" class="accordion">STYLIZACJA BRWI<span class="icon"></span></button>
-            <div class="panel">
-                        @foreach (var item in Model.Where(x => x.Category == "Stylizacja brwi"))
-                        {
-                                <p class="item-title">@Html.DisplayFor(modelItem => item.Name)</p>
-                                <p class="item-price">@Html.DisplayFor(modelItem => item.Price)</p>
-                        }  
+                <div class="slide">
+                    <img src="~/Films and photos/IMG_7080.jpg" alt="Image 4">
+                </div>
+                <div class="slide">
+                    <img src="~/Films and photos/D8CF1B6A-E0A8-42AA-8ADE-C86EB849C5C3 (1).jpeg" alt="Image 5">
+                </div>
+                <div class="slide">
+                    <img src="~/Films and photos/IMG_7082.jpg" alt="Image 6">
+                </div>
             </div>
         </div>
-    </section>
+        <span class="bg-watermark">FRYCKOWSKA</span>
+        <section class="container-list">
+            <div class="cards">
+                <!-- Kategoria: Makijaż permanentny -->
+                <button type="submit" class="accordion">MAKIJAŻ PERMANENTNY<span class="icon"></span></button>
+                <div class="panel">
+                    @foreach (var item in Model.Where(x => x.Category == "Makijaż permanentny"))
+                    {   <br />
+                        <p class="item-title">@Html.DisplayFor(modelItem => item.Name)</p>
+                        <br />
+                        <p class="item-price">@Html.DisplayFor(modelItem => item.Price)</p>
+                        <br />
+                    }
+                </div>
+                <!-- Kategoria: Stylizacja rzęs -->
+                <button type="submit" class="accordion">STYLIZACJA RZĘS<span class="icon"></span></button>
+                <div class="panel">
+                    @foreach (var item in Model.Where(x => x.Category == "Stylizacja rzęs"))
+                    {
+                        <br />
+                        <p class="item-title">@Html.DisplayFor(modelItem => item.Name)</p>
+                        <br />
+                        <p class="item-price">@Html.DisplayFor(modelItem => item.Price)</p>
+                        <br />
+                    }
+                </div>
+                <!-- Kategoria: Stylizacja brwi -->
+                <button type="submit" class="accordion">STYLIZACJA BRWI<span class="icon"></span></button>
+                <div class="panel">
+                    @foreach (var item in Model.Where(x => x.Category == "Stylizacja brwi"))
+                    {
+                        <br />
+                        <p class="item-title">@Html.DisplayFor(modelItem => item.Name)</p>
+                        <br />
+                        <p class="item-price">@Html.DisplayFor(modelItem => item.Price)</p>
+                        <br />
+                    }
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <ul class="socialMedia">
-            <h3 class="footer-section">Media społecznościowe</h3>
-            <li>
-                <a href="https://www.threads.net/marcelinafryckowska.pmu">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
-                         class="socialMedia" viewBox="0 0 16 16">
-                        <path d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161" />
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.instagram.com/marcelinafryckowska.pmu/?igsh=MTF6cDZmdDg2c3ZqNQ%3D%3D">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
-                         class="socialMedia" viewBox="0 0 16 16">
-                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.facebook.com/marcelina.fryckowska">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
-                         class="socialMedia" viewBox="0 0 16 16">
-                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.tiktok.com/fryckowska.beauty?_t=8keRn5oRsG0&_r=1&fbclid=IwAR2t5Wdu1j19g4ohjxJBS2Vo3mYwI3xe72Y03ugByU2dIQxqxJeTsPfyoYY">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
-                         class="socialMedia" viewBox="0 0 16 16">
-                        <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
-                    </svg>
-                </a>
-            </li>
-        </ul>
-        <div class="footer-section">
-            <h3>Ważne linki</h3>
-            <ul>
-                <li><a href="../index.html" style="text-decoration:none;">Strona główna</a></li>
-                <li><a id="regulaminLink" href="#" style="text-decoration:none;">Przeciwskazania do zabiegu pigmentacji</a></li>
-                <li><a id="regulaminLink1" href="#" style="text-decoration:none;">Przygotowanie się do zabiegu</a></li>
-                <li><a id="regulaminLink2" href="#" style="text-decoration:none;">Zalecenia po zabiegu pigmentacji brwi</a></li>
-                <li><a id="regulaminLink3" href="#" style="text-decoration:none;">Zalecenia po zabiegu pigmentacji ust</a></li>
-                <li><a href="https://booksy.com/pl-pl/" style="text-decoration:none;">Zapisz się na wizytę!</a></li>
+        <footer>
+            <ul class="socialMedia">
+                <h3 class="footer-section">Media społecznościowe</h3>
+                <li>
+                    <a href="https://www.threads.net/marcelinafryckowska.pmu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                             class="socialMedia" viewBox="0 0 16 16">
+                            <path d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/marcelinafryckowska.pmu/?igsh=MTF6cDZmdDg2c3ZqNQ%3D%3D">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                             class="socialMedia" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/marcelina.fryckowska">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                             class="socialMedia" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.tiktok.com/fryckowska.beauty?_t=8keRn5oRsG0&_r=1&fbclid=IwAR2t5Wdu1j19g4ohjxJBS2Vo3mYwI3xe72Y03ugByU2dIQxqxJeTsPfyoYY">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                             class="socialMedia" viewBox="0 0 16 16">
+                            <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
+                        </svg>
+                    </a>
+                </li>
             </ul>
-        </div>
-        <div class="newsletter-section">
-            <h3>Newsletter</h3>
-            <p>Bądź na bieżąco i zapisz się!</p>
-            <form method="post" action="/NewsLetter/SaveEmailToDb" class="input-type" id="newsletterForm">
-                <input type="email" id="emailUser" name="emailUser" placeholder="Enter your email" class="email-newsletter">
-                <button class="button-newsletter" type="submit">Zapisz się!</button>
-            </form>
-            <div id="toastMessage" class="toast-message hidden">
-                <span id="toastText">Zostałeś zapisany!</span>
-                <button id="closeToast">&times;</button>
+            <div class="footer-section">
+                <h3>Ważne linki</h3>
+                <ul>
+                    <li><a href="../index.html" style="text-decoration:none;">Strona główna</a></li>
+                    <li><a id="regulaminLink" href="#" style="text-decoration:none;">Przeciwskazania do zabiegu pigmentacji</a></li>
+                    <li><a id="regulaminLink1" href="#" style="text-decoration:none;">Przygotowanie się do zabiegu</a></li>
+                    <li><a id="regulaminLink2" href="#" style="text-decoration:none;">Zalecenia po zabiegu pigmentacji brwi</a></li>
+                    <li><a id="regulaminLink3" href="#" style="text-decoration:none;">Zalecenia po zabiegu pigmentacji ust</a></li>
+                    <li><a href="https://booksy.com/pl-pl/" style="text-decoration:none;">Zapisz się na wizytę!</a></li>
+                </ul>
+            </div>
+            <div class="newsletter-section">
+                <h3>Newsletter</h3>
+                <p>Bądź na bieżąco i zapisz się!</p>
+                <form method="post" action="/NewsLetter/SaveEmailToDb" class="input-type" id="newsletterForm">
+                    <input type="email" id="emailUser" name="emailUser" placeholder="Enter your email" class="email-newsletter">
+                    <button class="button-newsletter" type="submit">Zapisz się!</button>
+                </form>
+                <div id="toastMessage" class="toast-message hidden">
+                    <span id="toastText">Zostałeś zapisany!</span>
+                    <button id="closeToast">&times;</button>
+                </div>
+            </div>
+
+        </footer>
+        <div id="message"></div>
+        <div id="regulaminModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Przeciwwskazania do zabiegu pigmentacji</h1>
+                <ul>
+                    <li>Spożycie kawy lub napojów energetycznych w dniu zabiegu.</li>
+                    <li>Spożycie alkoholu lub środków odurzających w ciągu ostatnich 48h.</li>
+                    <li>Alergia na składniki preparatów stosowanych w trakcie zabiegu.</li>
+                    <li>Ciąża, okres połogu, karmienie piersią (konieczny odstęp 3 mc od porodu lub 3 mc od zakończenia karmienia piersią).</li>
+                    <li>Nowotwory (chemioterapia, radioterapia) bez konsultacji wyraźnej zgody lekarza.</li>
+                    <li>Infekcje bakteryjne, wirusowe stany zapalne organizmu.</li>
+                    <li>Opryszczka - konieczny odstęp 6 tyg. od wygojenia (w przypadku pigmentacji ust).</li>
+                    <li>Aktywny trądzik różowaty.</li>
+                    <li>Porfiria skórna.</li>
+                    <li>Skłonność do zbliznowaceń/zwłóknień/przerostu blizn.</li>
+                    <li>Aktywna łuszczyca okolicy zabiegowej.</li>
+                    <li>Aktywne atopowe zapalenie skóry (egzema) w okolicy zabiegowej.</li>
+                    <li>Aktywne łojotokowe zapalenie skóry okolicy zabiegowej.</li>
+                    <li>Hemofilia.</li>
+                    <li>Stałe lub długotrwałe (powyżej 7 dni) stosowanie leków: przeciwzakrzepowych (antykoagulanty), niesteroidowych leków przeciwzapalnych: np. aspiryna, ibuprom, skutkujące zaburzeniami krzepliwości krwi (intensywne krwawienie po urazie i/lub przewlekle gojące się rany). Wykonanie zabiegu będzie możliwe po odstawieniu tych leków na min. 5-7 przed zabiegiem, po konsultacji lekarskiej.</li>
+                    <li>Stosowanie kortykosteroidów (konieczny odstęp 8-12 tygodni od zakończenia kuracji).</li>
+                    <li>Stosowanie retinoidów (konieczny odstęp 6 mc od zakończenia kuracji).</li>
+                    <li>Antybiotykoterapia (konieczny odstęp 28 dni od jej zakończenia).</li>
+                    <li>Choroby autoimmunologiczne – toczeń rumieniowaty układowy, twardzina reumatoidalne zapalenie stawów, zesztywniające zapalenie stawów, łuszczycowe zapalenie stawów, układowe zapalenie naczyń wrzodziejące zapalenie jelita grubego, zespół Crohna, miastenia, sarkoidoza - bez konsultacji wyraźnej zgody lekarza.</li>
+                    <li>Nieleczone schorzenia tarczycy (w tym Hashimoto, choroba Gravesa-Basedova).</li>
+                    <li>Nieleczona i nieustabilizowana cukrzyca przy której występują trudno lub przewlekle gojące się rany (np. zespół stopy cukrzycowej).</li>
+                    <li>Tętniaki (mózgu, aorty, tętnic).</li>
+                    <li>Stwardnienie rozsiane.</li>
+                    <li>Choroby zakaźne HIV, AIDS, WZW.</li>
+                    <li>Planowane leczenie stomatologiczne lub ortodontyczne do 7 dni po zabiegu (w przypadku pigmentacji ust do 14 dni po zabiegu).</li>
+                    <li>Zabiegi estetyczne wykonane w obszarze zabiegowym: zabiegi wolumetrii lub modelowania ust (konieczny odstęp min. 60 dni), botox (konieczny odstęp min. 30 dni).</li>
+                    <li>Laser ablacyjny (konieczny odstęp min. 3-6 miesięcy), laser nieablacyjny, HIFU (odstęp min. 4 tygodnie).</li>
+                    <li>Nici PDO (konieczny odstęp min. 30 dni).</li>
+                    <li>Przeszczep skóry, chirurgiczne zabiegi estetyczne (konieczny odstęp min. 3-6 miesięcy).</li>
+                    <li>Zabiegi chirurgii plastycznej, medycyny estetycznej, inwazyjne zabiegi kosmetyczne (konieczny odstęp min. 6 tygodni).</li>
+                    <li>Zabiegi złuszczania naskórka w obszarze okolicy zabiegowej (konieczny odstęp min. 28 dni).</li>
+                    <li>Intensywna opalenizna (zaleca się niekorzystanie z kąpieli słonecznych i solarium w okresie 14-21 dni przed zabiegiem).</li>
+                    <li>Przeprowadzony zabieg laminacji brwi (konieczny odstęp 6 tygodni).</li>
+                </ul>
+
+                <p>W przypadku przyjęcia lub planowanego przyjęcia przez Panią/Pana szczepienia ochronnego, wykonanie zabiegu makijażu permanentnego będzie możliwe po upływie 30 dni od przyjęcia przez Panią/Pana ostatniej dawki szczepienia o ile co innego nie wynika z wyraźnych zaleceń przekazanych Pani/Panu przez lekarza dokonującego szczepienia lub punktu szczepień w którym to szczepienie było wykonane.</p>
             </div>
         </div>
 
-    </footer>
-    <div id="message"></div>
-    <div id="regulaminModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h1>Przeciwwskazania do zabiegu pigmentacji</h1>
-            <ul>
-                <li>Spożycie kawy lub napojów energetycznych w dniu zabiegu.</li>
-                <li>Spożycie alkoholu lub środków odurzających w ciągu ostatnich 48h.</li>
-                <li>Alergia na składniki preparatów stosowanych w trakcie zabiegu.</li>
-                <li>Ciąża, okres połogu, karmienie piersią (konieczny odstęp 3 mc od porodu lub 3 mc od zakończenia karmienia piersią).</li>
-                <li>Nowotwory (chemioterapia, radioterapia) bez konsultacji wyraźnej zgody lekarza.</li>
-                <li>Infekcje bakteryjne, wirusowe stany zapalne organizmu.</li>
-                <li>Opryszczka - konieczny odstęp 6 tyg. od wygojenia (w przypadku pigmentacji ust).</li>
-                <li>Aktywny trądzik różowaty.</li>
-                <li>Porfiria skórna.</li>
-                <li>Skłonność do zbliznowaceń/zwłóknień/przerostu blizn.</li>
-                <li>Aktywna łuszczyca okolicy zabiegowej.</li>
-                <li>Aktywne atopowe zapalenie skóry (egzema) w okolicy zabiegowej.</li>
-                <li>Aktywne łojotokowe zapalenie skóry okolicy zabiegowej.</li>
-                <li>Hemofilia.</li>
-                <li>Stałe lub długotrwałe (powyżej 7 dni) stosowanie leków: przeciwzakrzepowych (antykoagulanty), niesteroidowych leków przeciwzapalnych: np. aspiryna, ibuprom, skutkujące zaburzeniami krzepliwości krwi (intensywne krwawienie po urazie i/lub przewlekle gojące się rany). Wykonanie zabiegu będzie możliwe po odstawieniu tych leków na min. 5-7 przed zabiegiem, po konsultacji lekarskiej.</li>
-                <li>Stosowanie kortykosteroidów (konieczny odstęp 8-12 tygodni od zakończenia kuracji).</li>
-                <li>Stosowanie retinoidów (konieczny odstęp 6 mc od zakończenia kuracji).</li>
-                <li>Antybiotykoterapia (konieczny odstęp 28 dni od jej zakończenia).</li>
-                <li>Choroby autoimmunologiczne – toczeń rumieniowaty układowy, twardzina reumatoidalne zapalenie stawów, zesztywniające zapalenie stawów, łuszczycowe zapalenie stawów, układowe zapalenie naczyń wrzodziejące zapalenie jelita grubego, zespół Crohna, miastenia, sarkoidoza - bez konsultacji wyraźnej zgody lekarza.</li>
-                <li>Nieleczone schorzenia tarczycy (w tym Hashimoto, choroba Gravesa-Basedova).</li>
-                <li>Nieleczona i nieustabilizowana cukrzyca przy której występują trudno lub przewlekle gojące się rany (np. zespół stopy cukrzycowej).</li>
-                <li>Tętniaki (mózgu, aorty, tętnic).</li>
-                <li>Stwardnienie rozsiane.</li>
-                <li>Choroby zakaźne HIV, AIDS, WZW.</li>
-                <li>Planowane leczenie stomatologiczne lub ortodontyczne do 7 dni po zabiegu (w przypadku pigmentacji ust do 14 dni po zabiegu).</li>
-                <li>Zabiegi estetyczne wykonane w obszarze zabiegowym: zabiegi wolumetrii lub modelowania ust (konieczny odstęp min. 60 dni), botox (konieczny odstęp min. 30 dni).</li>
-                <li>Laser ablacyjny (konieczny odstęp min. 3-6 miesięcy), laser nieablacyjny, HIFU (odstęp min. 4 tygodnie).</li>
-                <li>Nici PDO (konieczny odstęp min. 30 dni).</li>
-                <li>Przeszczep skóry, chirurgiczne zabiegi estetyczne (konieczny odstęp min. 3-6 miesięcy).</li>
-                <li>Zabiegi chirurgii plastycznej, medycyny estetycznej, inwazyjne zabiegi kosmetyczne (konieczny odstęp min. 6 tygodni).</li>
-                <li>Zabiegi złuszczania naskórka w obszarze okolicy zabiegowej (konieczny odstęp min. 28 dni).</li>
-                <li>Intensywna opalenizna (zaleca się niekorzystanie z kąpieli słonecznych i solarium w okresie 14-21 dni przed zabiegiem).</li>
-                <li>Przeprowadzony zabieg laminacji brwi (konieczny odstęp 6 tygodni).</li>
-            </ul>
+        <div id="regulaminModal1" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Przygotowanie się do zabiegu</h1>
 
-            <p>W przypadku przyjęcia lub planowanego przyjęcia przez Panią/Pana szczepienia ochronnego, wykonanie zabiegu makijażu permanentnego będzie możliwe po upływie 30 dni od przyjęcia przez Panią/Pana ostatniej dawki szczepienia o ile co innego nie wynika z wyraźnych zaleceń przekazanych Pani/Panu przez lekarza dokonującego szczepienia lub punktu szczepień w którym to szczepienie było wykonane.</p>
-        </div>
-    </div>
+                <h2>Usta:</h2>
+                <p>Bardzo ważne jest, aby usta przed zabiegiem były odpowiednio nawilżone i wygładzone. Spierzchnięte i spękane słabiej przyjmują pigment. Zaleca się kilka dni przed zabiegiem wykonywanie peelingu ust i intensywne ich nawilżanie.</p>
 
-    <div id="regulaminModal1" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h1>Przygotowanie się do zabiegu</h1>
-
-            <h2>Usta:</h2>
-            <p>Bardzo ważne jest, aby usta przed zabiegiem były odpowiednio nawilżone i wygładzone. Spierzchnięte i spękane słabiej przyjmują pigment. Zaleca się kilka dni przed zabiegiem wykonywanie peelingu ust i intensywne ich nawilżanie.</p>
-
-            <h2>Brwi:</h2>
-            <p>Najlepiej nie regulować brwi przed zabiegiem. Daje to możliwość doboru idealnego kształtu pigmentacji do naturalnej linii włosków brwi. Proszę 2 tygodnie przed zabiegiem nie robić henny. Jeśli skóra jest zbyt sucha, należy wykonać peeling enzymatyczny, drobnoziarnisty lub kawitacyjny oraz odpowiednio nawilżać (nie natłuszczać!). Tak przygotowana skóra lepiej chłonie pigment i pozwala na wykonanie precyzyjnego rysunku. Zaraz po pigmentacji niewskazane jest mycie włosów, dlatego warto o to zadbać przed zabiegiem.</p>
+                <h2>Brwi:</h2>
+                <p>Najlepiej nie regulować brwi przed zabiegiem. Daje to możliwość doboru idealnego kształtu pigmentacji do naturalnej linii włosków brwi. Proszę 2 tygodnie przed zabiegiem nie robić henny. Jeśli skóra jest zbyt sucha, należy wykonać peeling enzymatyczny, drobnoziarnisty lub kawitacyjny oraz odpowiednio nawilżać (nie natłuszczać!). Tak przygotowana skóra lepiej chłonie pigment i pozwala na wykonanie precyzyjnego rysunku. Zaraz po pigmentacji niewskazane jest mycie włosów, dlatego warto o to zadbać przed zabiegiem.</p>
+            </div>
         </div>
-    </div>
-    <div id="regulaminModal2" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h1>Zalecenia po zabiegu pigmentacji brwi</h1>
-            <h2>W DNIU ZABIEGU</h2>
-            <ul>
-                <li>Przez pierwszą godzinę przemywaj brwi dokładnie z włosem i pod włos wacikiem nasączonym solą fizjologiczną lub schłodzoną przegotowaną wodą.</li>
-                <li>Następnie, do końca dnia, co godzinę przemyj i posmaruj brwi otrzymanym od nas kremem. Nakładaj cienką warstwę kremu jednorazowym patyczkiem higienicznym.</li>
-            </ul>
-            <h2>2-4 DZIEŃ PO ZABIEGU</h2>
-            <ul>
-                <li>Rano i wieczorem przemyj brwi nasączonym i odciśniętym wacikiem. Po przemyciu nałóż otrzymany od nas krem.</li>
-                <li>Około czwartego dnia brwi zaczynają pękać i łuszczyć się. Bardzo ważne, żeby strupki odpadały samoistnie.</li>
-                <li>Pamiętaj o zachowaniu szczególnej higieny.</li>
-                <li>Nie nakładaj produktów kosmetycznych w miejscu pigmentacji poza otrzymanym od nas preparatem.</li>
-                <li>Unikaj kosmetyków z kwasami.</li>
-                <li>Staraj się nie moczyć brwi podczas kąpieli lub mycia włosów.</li>
-                <li>Nie korzystaj z solarium, sauny, basenu i siłowni przez minimum 2 tygodnie od zabiegu.</li>
-                <li>Po wyłuszczeniu się strupków, nakładaj na brwi kremy z filtrem.</li>
-            </ul>
-            <p>Brwi po zabiegu będą ciemne, przerysowane, a skóra wokół zaczerwieniona. Jest to całkowicie normalne. Nie panikuj, jest to okres przejściowy.</p>
-            <p>Dbaj o brwi według zaleceń specjalisty. Nie szukaj informacji w internecie. Jeżeli masz pytania, skontaktuj się z nami!</p>
-            <p>Pamiętaj, że makijaż permanentny składa się z dwóch zabiegów. Po pierwszym zabiegu głównym, umów się na dopigmentowanie, które pozwoli na wyrównanie czy nasycenie koloru brwi. Dopigmentowanie należy wykonać 8-12 tygodni od pierwszego zabiegu.</p>
-            <p>Jest wiele czynników, które wpływają na trwałość pigmentacji. Kolor po roku może znacznie się rozjaśnić lub zmienić odcień. Klientkom, które wykonały u nas zabieg główny oraz dopigmentowanie, przysługuje rabat na odświeżenie koloru.</p>
-            <p>W każdym momencie możesz skontaktować się z nami, aby dowiedzieć się do kiedy przysługuje zniżka. Zadbaj o swoje brwi, aby móc się nimi cieszyć przez długi czas.</p>
+        <div id="regulaminModal2" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Zalecenia po zabiegu pigmentacji brwi</h1>
+                <h2>W DNIU ZABIEGU</h2>
+                <ul>
+                    <li>Przez pierwszą godzinę przemywaj brwi dokładnie z włosem i pod włos wacikiem nasączonym solą fizjologiczną lub schłodzoną przegotowaną wodą.</li>
+                    <li>Następnie, do końca dnia, co godzinę przemyj i posmaruj brwi otrzymanym od nas kremem. Nakładaj cienką warstwę kremu jednorazowym patyczkiem higienicznym.</li>
+                </ul>
+                <h2>2-4 DZIEŃ PO ZABIEGU</h2>
+                <ul>
+                    <li>Rano i wieczorem przemyj brwi nasączonym i odciśniętym wacikiem. Po przemyciu nałóż otrzymany od nas krem.</li>
+                    <li>Około czwartego dnia brwi zaczynają pękać i łuszczyć się. Bardzo ważne, żeby strupki odpadały samoistnie.</li>
+                    <li>Pamiętaj o zachowaniu szczególnej higieny.</li>
+                    <li>Nie nakładaj produktów kosmetycznych w miejscu pigmentacji poza otrzymanym od nas preparatem.</li>
+                    <li>Unikaj kosmetyków z kwasami.</li>
+                    <li>Staraj się nie moczyć brwi podczas kąpieli lub mycia włosów.</li>
+                    <li>Nie korzystaj z solarium, sauny, basenu i siłowni przez minimum 2 tygodnie od zabiegu.</li>
+                    <li>Po wyłuszczeniu się strupków, nakładaj na brwi kremy z filtrem.</li>
+                </ul>
+                <p>Brwi po zabiegu będą ciemne, przerysowane, a skóra wokół zaczerwieniona. Jest to całkowicie normalne. Nie panikuj, jest to okres przejściowy.</p>
+                <p>Dbaj o brwi według zaleceń specjalisty. Nie szukaj informacji w internecie. Jeżeli masz pytania, skontaktuj się z nami!</p>
+                <p>Pamiętaj, że makijaż permanentny składa się z dwóch zabiegów. Po pierwszym zabiegu głównym, umów się na dopigmentowanie, które pozwoli na wyrównanie czy nasycenie koloru brwi. Dopigmentowanie należy wykonać 8-12 tygodni od pierwszego zabiegu.</p>
+                <p>Jest wiele czynników, które wpływają na trwałość pigmentacji. Kolor po roku może znacznie się rozjaśnić lub zmienić odcień. Klientkom, które wykonały u nas zabieg główny oraz dopigmentowanie, przysługuje rabat na odświeżenie koloru.</p>
+                <p>W każdym momencie możesz skontaktować się z nami, aby dowiedzieć się do kiedy przysługuje zniżka. Zadbaj o swoje brwi, aby móc się nimi cieszyć przez długi czas.</p>
+            </div>
         </div>
-    </div>
-    <div id="regulaminModal3" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h1>Zalecenia po zabiegu pigmentacji ust</h1>
-            <p>Usta po zabiegu będą ciemne, przerysowane, a skóra wokół zaczerwieniona. U większości klientek podczas zabiegu występuje obrzęk, który może się utrzymywać 1-3 dni w zależności od predyspozycji organizmu. Jest to całkowicie normalne. Nie panikuj, jest to okres przejściowy.</p>
-            <h2>WDNIU ZABIEGU</h2>
-            <ul>
-                <li>Przez pierwszą godzinę przemywaj usta dokładnie wacikiem nasączonym solą fizjologiczną lub schłodzoną przegotowaną wodą i odciśnięty.</li>
-                <li>Następnie, do końca dnia, co godzinę przemyj usta w ten sam sposób i nałóż cienką warstwę otrzymanego od nas masełka. Masełko nakładaj jednorazowym patyczkiem higienicznym.</li>
-                <li>W kolejnych dniach, do momentu wyłuszczenia się strupków przemywaj i nawilżaj usta co godzinę w ten sam sposób jak dnia pierwszego.</li>
-            </ul>
-            <p>Przez cały okres gojenia się ust (około 4 dni):</p>
-            <ul>
-                <li>Staraj się nie moczyć ust.</li>
-                <li>Unikaj solarium, sauny, basenu przez minimum 2 tygodnie od zabiegu.</li>
-                <li>Nie nakładaj produktów kosmetycznych w miejscu pigmentacji poza otrzymanym od nas masełkiem.</li>
-                <li>Pij przez jednorazową słomkę.</li>
-                <li>Po każdym posiłku delikatnie przemyj usta wacikiem.</li>
-                <li>Zachowaj szczególną ostrożność przy myciu zębów.</li>
-                <li>Unikaj ostrych, mocno przyprawionych potraw.</li>
-                <li>Unikaj ekspozycji na słońce.</li>
-                <li>Unikaj ciężkiego wysiłku fizycznego, treningów.</li>
-                <li>Jeśli palisz tradycyjne papierosy, nawilż usta masełkiem przed zapaleniem, aby uniknąć przyklejenia się filtra do ust.</li>
-            </ul>
-            <h2>OPRYSZCZKA</h2>
-            <p>Około trzeciego dnia od wykonania pigmentacji ust, jest ryzyko wystąpienia opryszczki. Skonsultuj się z lekarzem lub farmaceutą w celu wprowadzenia odpowiedniego leczenia. Zarówno środki doustne jak i kremy/maści do stosowania zewnętrznego można stosować bez obaw na pigmentację. Unikaj natomiast dostępnych na rynku plasterków na opryszczkę, ponieważ mogą one naruszyć strupek i spowodować odbarwienie. Osoby, które nie miały nigdy opryszczki, również są narażone na jej wystąpienie ok. 3 dnia.</p>
-            <p>Nie panikuj jeśli wydaje Ci się, że po zabiegu nic nie zostało. Po wyłuszczeniu się naskórka, co trwa ok. 3-4 dni, kolor może wydawać się dużo jaśniejszy, ze względu na niewidoczną białą błonkę, która pozostanie na ustach przez kolejne 2-3 tygodnie. Dalej nawilżaj intensywnie usta.</p>
-            <p>Dbaj o usta według zaleceń specjalisty. Nie szukaj informacji w internecie. Jeżeli masz pytania, skontaktuj się z nami!</p>
-            <h2>Makijaż permanentny</h2>
-            <p>Pamiętaj, że makijaż permanentny składa się z dwóch zabiegów. Po pierwszym zabiegu głównym umów się na dopigmentowanie, które pozwoli na wyrównanie czy nasycenie koloru usti. Dopigmentowanie należy wykonać 8-12 tygodni od pierwszego zabiegu. Jest wiele czynników które wpływają na trwałość pigmentacji. Kolor po roku może znacznie się rozjaśnić. Klientkom, które wykonały u nas zabieg główny oraz dopigmentowanie, przysługuje rabat na odświeżenie koloru. Zadbaj o swoje usta i odświeżaj je co roku!</p>a jest zbyt sucha, należy wykonać peeling enzymatyczny, drobnoziarnisty lub kawitacyjny oraz odpowiednio nawilżać (nie natłuszczać!). Tak przygotowana skóra lepiej chłonie pigment i pozwala na wykonanie precyzyjnego rysunku. Zaraz po pigmentacji niewskazane jest mycie włosów, dlatego warto o to zadbać przed zabiegiem.</p>
+        <div id="regulaminModal3" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Zalecenia po zabiegu pigmentacji ust</h1>
+                <p>Usta po zabiegu będą ciemne, przerysowane, a skóra wokół zaczerwieniona. U większości klientek podczas zabiegu występuje obrzęk, który może się utrzymywać 1-3 dni w zależności od predyspozycji organizmu. Jest to całkowicie normalne. Nie panikuj, jest to okres przejściowy.</p>
+                <h2>WDNIU ZABIEGU</h2>
+                <ul>
+                    <li>Przez pierwszą godzinę przemywaj usta dokładnie wacikiem nasączonym solą fizjologiczną lub schłodzoną przegotowaną wodą i odciśnięty.</li>
+                    <li>Następnie, do końca dnia, co godzinę przemyj usta w ten sam sposób i nałóż cienką warstwę otrzymanego od nas masełka. Masełko nakładaj jednorazowym patyczkiem higienicznym.</li>
+                    <li>W kolejnych dniach, do momentu wyłuszczenia się strupków przemywaj i nawilżaj usta co godzinę w ten sam sposób jak dnia pierwszego.</li>
+                </ul>
+                <p>Przez cały okres gojenia się ust (około 4 dni):</p>
+                <ul>
+                    <li>Staraj się nie moczyć ust.</li>
+                    <li>Unikaj solarium, sauny, basenu przez minimum 2 tygodnie od zabiegu.</li>
+                    <li>Nie nakładaj produktów kosmetycznych w miejscu pigmentacji poza otrzymanym od nas masełkiem.</li>
+                    <li>Pij przez jednorazową słomkę.</li>
+                    <li>Po każdym posiłku delikatnie przemyj usta wacikiem.</li>
+                    <li>Zachowaj szczególną ostrożność przy myciu zębów.</li>
+                    <li>Unikaj ostrych, mocno przyprawionych potraw.</li>
+                    <li>Unikaj ekspozycji na słońce.</li>
+                    <li>Unikaj ciężkiego wysiłku fizycznego, treningów.</li>
+                    <li>Jeśli palisz tradycyjne papierosy, nawilż usta masełkiem przed zapaleniem, aby uniknąć przyklejenia się filtra do ust.</li>
+                </ul>
+                <h2>OPRYSZCZKA</h2>
+                <p>Około trzeciego dnia od wykonania pigmentacji ust, jest ryzyko wystąpienia opryszczki. Skonsultuj się z lekarzem lub farmaceutą w celu wprowadzenia odpowiedniego leczenia. Zarówno środki doustne jak i kremy/maści do stosowania zewnętrznego można stosować bez obaw na pigmentację. Unikaj natomiast dostępnych na rynku plasterków na opryszczkę, ponieważ mogą one naruszyć strupek i spowodować odbarwienie. Osoby, które nie miały nigdy opryszczki, również są narażone na jej wystąpienie ok. 3 dnia.</p>
+                <p>Nie panikuj jeśli wydaje Ci się, że po zabiegu nic nie zostało. Po wyłuszczeniu się naskórka, co trwa ok. 3-4 dni, kolor może wydawać się dużo jaśniejszy, ze względu na niewidoczną białą błonkę, która pozostanie na ustach przez kolejne 2-3 tygodnie. Dalej nawilżaj intensywnie usta.</p>
+                <p>Dbaj o usta według zaleceń specjalisty. Nie szukaj informacji w internecie. Jeżeli masz pytania, skontaktuj się z nami!</p>
+                <h2>Makijaż permanentny</h2>
+                <p>Pamiętaj, że makijaż permanentny składa się z dwóch zabiegów. Po pierwszym zabiegu głównym umów się na dopigmentowanie, które pozwoli na wyrównanie czy nasycenie koloru usti. Dopigmentowanie należy wykonać 8-12 tygodni od pierwszego zabiegu. Jest wiele czynników które wpływają na trwałość pigmentacji. Kolor po roku może znacznie się rozjaśnić. Klientkom, które wykonały u nas zabieg główny oraz dopigmentowanie, przysługuje rabat na odświeżenie koloru. Zadbaj o swoje usta i odświeżaj je co roku!</p>a jest zbyt sucha, należy wykonać peeling enzymatyczny, drobnoziarnisty lub kawitacyjny oraz odpowiednio nawilżać (nie natłuszczać!). Tak przygotowana skóra lepiej chłonie pigment i pozwala na wykonanie precyzyjnego rysunku. Zaraz po pigmentacji niewskazane jest mycie włosów, dlatego warto o to zadbać przed zabiegiem.</p>
+            </div>
         </div>
-    </div>
-    <script src="~/js/startInTopList.js"></script>
-    <script src="~/js/modal.js"></script>
-    <script src="~/js/SuccessToDbNewsLetter.js"></script>
-    <script src="~/js/menuHamburger.js"></script>
-    <script src="~/js/Slider.js"></script>
+        <script src="~/js/startInTopList.js"></script>
+        <script src="~/js/modal.js"></script>
+        <script src="~/js/SuccessToDbNewsLetter.js"></script>
+        <script src="~/js/menuHamburger.js"></script>
+        <script src="~/js/Slider.js"></script>
 </body>
 </html>
 

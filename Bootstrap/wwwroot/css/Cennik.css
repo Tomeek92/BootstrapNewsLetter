@@ -35,7 +35,7 @@
     }
 }
 
-/* Globalne ustawienia */
+
 :root {
     --position: -0.375rem;
 }
@@ -437,10 +437,18 @@ input[name="radio-btn"] {
     .menu-list a {
         display: block;
     }
-    .slide img {
-        max-width: 25%;
-        height: auto;
-        margin-left: 250px;
-        margin-top: 20px;
+    .slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
     }
+
+        .slide img {
+            max-width: 60%;
+            height: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 92px;
+        }
 }

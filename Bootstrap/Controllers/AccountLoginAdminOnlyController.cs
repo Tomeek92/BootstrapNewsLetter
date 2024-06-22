@@ -1,5 +1,6 @@
 ﻿using Bootstrap.Models.Admin;
 using Bootstrap.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,7 +17,7 @@ namespace Bootstrap.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Register(Register registerUser)
         {
@@ -90,6 +91,7 @@ namespace Bootstrap.Controllers
         {
             return View();
         }
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
@@ -104,6 +106,7 @@ namespace Bootstrap.Controllers
             }
             return RedirectToAction("Login", "AccountLoginAdminOnly");
         }
+        [Authorize]
         [HttpGet]
         public IActionResult Register()
         {

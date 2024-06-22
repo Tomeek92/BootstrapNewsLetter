@@ -23,7 +23,7 @@ builder.Services.AddScoped<Bootstrap.Seeder.Seeder>();
 builder.Services.AddSession();
 
 // Dodaj DbContext
-var connectionString = "Server=DESKTOP-JD2U15O\\MSSQL1;Database=NewsLetterApi;Integrated Security=True; TrustServerCertificate=true;";
+var connectionString = "Server=mssql5.webio.pl,2401;Database=tomczi123_testMarcelina;User Id=tomczi123_;Password=Tomeklol123!;TrustServerCertificate=True;Encrypt=False;";
 builder.Services.AddDbContext<BootstrapDbContext>(options =>
     options.UseSqlServer(connectionString));
 

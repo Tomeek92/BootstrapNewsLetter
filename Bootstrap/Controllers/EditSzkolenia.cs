@@ -57,10 +57,12 @@ namespace Bootstrap.Controllers
             }
             return View(szkolenia);
         }
+        [Authorize]
         public IActionResult Add()
         {
             return View();
         }
+        [Authorize]
         [HttpPost]
         public IActionResult Delete(int Id)
         {
@@ -81,6 +83,7 @@ namespace Bootstrap.Controllers
                 throw new Exception("Nie udało się usunąć" + ex);
             }
         }
+        [Authorize]
         public IActionResult Delete()
         {
             return View();

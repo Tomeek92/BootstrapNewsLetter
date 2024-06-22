@@ -60,7 +60,6 @@
         <span class="bg-watermark">FRYCKOWSKA</span>
         <section class="container-list">
             <div class="cards">
-                <!-- Kategoria: Makijaż permanentny -->
                 <button type="submit" class="accordion">MAKIJAŻ PERMANENTNY<span class="icon"></span></button>
                 <div class="panel">
                     @foreach (var item in Model.Where(x => x.Category == "Makijaż permanentny"))
@@ -71,7 +70,6 @@
                         <br />
                     }
                 </div>
-                <!-- Kategoria: Stylizacja rzęs -->
                 <button type="submit" class="accordion">STYLIZACJA RZĘS<span class="icon"></span></button>
                 <div class="panel">
                     @foreach (var item in Model.Where(x => x.Category == "Stylizacja rzęs"))
@@ -83,7 +81,6 @@
                         <br />
                     }
                 </div>
-                <!-- Kategoria: Stylizacja brwi -->
                 <button type="submit" class="accordion">STYLIZACJA BRWI<span class="icon"></span></button>
                 <div class="panel">
                     @foreach (var item in Model.Where(x => x.Category == "Stylizacja brwi"))

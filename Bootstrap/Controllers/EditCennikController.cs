@@ -61,10 +61,12 @@ namespace Bootstrap.Controllers
             }
             return View(product);
         }
+        [Authorize]
         public IActionResult Add()
         {
             return View();
         }
+        [Authorize]
         [HttpPost]
         public IActionResult Delete(int Id)
         {
@@ -85,6 +87,7 @@ namespace Bootstrap.Controllers
                 throw new Exception("Nie udało się usunąc" + ex.Message);
             }
         }
+        [Authorize]
         public IActionResult Delete()
         {
             return View();
